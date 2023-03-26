@@ -5182,7 +5182,7 @@ tr:first-child {
   left: 10px;
 }
 .header-topbar-menu-area .container .menu-area1 .menu-area-right-side .topbar-select-area .select {
-  width: 75px;
+  width: 100px;
   height: 0;
   position: relative;
 }
@@ -5195,7 +5195,7 @@ tr:first-child {
   left: unset;
   padding: 0;
   color: #777777;
-  width: 60px;
+  width: 300px;
 }
 .header-topbar-menu-area .container .menu-area1 .menu-area-right-side .topbar-select-area .select .select-styled.active {
   background: transparent;
