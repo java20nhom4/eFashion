@@ -8162,7 +8162,7 @@ tr:first-child {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 30px 0;
+  padding: 7px 0;
 }
 .page-path .breadcrumbs-inner {
   display: -webkit-box;
@@ -8176,7 +8176,7 @@ tr:first-child {
           justify-content: space-between;
 }
 .page-path .breadcrumbs-inner .path-title {
-  font-size: 50px;
+  font-size: 16px;
 }
 @media (max-width: 400px) {
   .page-path .breadcrumbs-inner .path-title {
@@ -8216,8 +8216,8 @@ tr:first-child {
 
 .rts-menu .mega-dropdown {
   padding: 30px;
-  width: 650px;
-  left: -123px;
+  width: 1050px;
+  left: -355px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17664,7 +17664,7 @@ tr:first-child {
 }
 .footer-1 .footer-feature1 {
   background: #fff;
-  padding: 30px;
+  padding: 20px;
   position: relative;
   width: 100%;
   top: -100px;
