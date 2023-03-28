@@ -28,42 +28,42 @@
     <!--================= Preloader CSS =================-->
     <link rel="stylesheet" type="text/css" href="assets/css/preloader.css">
     <!--================= Main Stylesheet =================-->
-    <link rel="stylesheet" type="text/css" href="assets/css/variables/variable1.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/variables/variable6.css">
     <!--================= Main Stylesheet =================-->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 
 <body>
-    <!--================= Preloader Section Start Here =================-->
-    <div id="weiboo-load">
-        <div class="preloader-new">
-            <svg class="cart_preloader" role="img" aria-label="Shopping cart_preloader line animation"
-                viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
-                    <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
-                        <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
-                        <circle cx="43" cy="111" r="13" />
-                        <circle cx="102" cy="111" r="13" />
-                    </g>
-                    <g class="cart__lines" stroke="currentColor">
-                        <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80"
-                            stroke-dasharray="338 338" stroke-dashoffset="-338" />
-                        <g class="cart__wheel1" transform="rotate(-90,43,111)">
-                            <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68"
-                                stroke-dashoffset="81.68" />
+        <!--================= Preloader Section Start Here =================-->
+        <div id="weiboo-load">
+            <div class="preloader-new">
+                <svg class="cart_preloader" role="img" aria-label="Shopping cart_preloader line animation"
+                    viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                        <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
+                            <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
+                            <circle cx="43" cy="111" r="13" />
+                            <circle cx="102" cy="111" r="13" />
                         </g>
-                        <g class="cart__wheel2" transform="rotate(90,102,111)">
-                            <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68"
-                                stroke-dashoffset="81.68" />
+                        <g class="cart__lines" stroke="currentColor">
+                            <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80"
+                                stroke-dasharray="338 338" stroke-dashoffset="-338" />
+                            <g class="cart__wheel1" transform="rotate(-90,43,111)">
+                                <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68"
+                                    stroke-dashoffset="81.68" />
+                            </g>
+                            <g class="cart__wheel2" transform="rotate(90,102,111)">
+                                <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68"
+                                    stroke-dashoffset="81.68" />
+                            </g>
                         </g>
                     </g>
-                </g>
-            </svg>
+                </svg>
+            </div>
         </div>
-    </div>
-    <!--================= Preloader End Here =================-->
+        <!--================= Preloader End Here =================-->
 
-    <div class="anywere anywere-home"></div>
+    <div class="anywere"></div>
 
     <!--================= Header Section Start Here =================-->
     <header id="rtsHeader">
@@ -348,6 +348,8 @@
                 </div>
             </div>
             <div class="cart-bottom-area">
+                <span class="spend-shipping"><i class="fal fa-truck"></i> SPENT <span class="amount">$199.00</span> MORE
+                    FOR FREE SHIPPING</span>
                 <span class="total-price">TOTAL: <span class="price">$556</span></span>
                 <a href="checkout.html" class="checkout-btn cart-btn">PROCEED TO CHECKOUT</a>
                 <a href="cart.html" class="view-btn cart-btn">VIEW CART</a>
@@ -389,172 +391,163 @@
             </div>
 		    <!-- offset-sidebar end -->
         </aside>
-        <!--================= Banner Section Start Here =================-->
-        <div class="banner banner-1 bg-image">
+        <div class="page-path">
             <div class="container">
-                <div class="banner-inner">
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12 col-sm-12">
-                            <div class="swiper bannerSlide2">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="banner-single bg-image bg-image-3-1">
-                                            <div class="container">
-                                                <div class="single-inner">
-                                                    <div class="content-box">
-                                                        <p class="slider-subtitle"><img
-                                                                src="assets/images/banner/wvbo-icon.png" alt=""> Spring
-                                                            summer 22 women’s collection </p>
-                                                        <h2 class="slider-title"> HOT COLLECTION <br> FOR WOMEN</h2>
-                                                        <div class="slider-description">
-                                                            <p>Easy & safe payment with PayPal. sequines & embroidered
-                                                                for all</p>
-                                                        </div>
-                                                        <a href="products.html" class="slider-btn2">View Collections</a>
-                                                    </div>
-                                                </div>
+                <div class="breadcrumbs-inner">
+                    <h1 class="path-title">Cart</h1>
+                    <ul>
+                        <li><a class="home-page-link" href="index.html">Home <i class="fal fa-angle-right"></i></a></li>
+                        <li><a class="current-page" href="#">Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--================= Header Section End Here =================-->
+
+    <!--================= Cart Section Start Here =================-->
+    <div class="rts-cart-section">
+        <div class="container">
+            <h4 class="section-title">Product List</h4>
+            <div class="row justify-content-between">
+                <div class="col-xl-7">
+                    <div class="cart-table-area">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="product-thumb"><img src="assets/images/products/inner/cart/1.jpg" alt="product-thumb"></div></td>
+                                    <td>
+                                        <div class="product-title-area">
+                                            <span class="pretitle">Nighty</span>
+                                            <h4 class="product-title">Shimmer Sheer Tights</h4>
+                                        </div>
+                                    </td>
+                                    <td><span class="product-price">$69.00</span></td>
+                                    <td>
+                                        <div class="cart-edit">
+                                            <div class="quantity-edit">
+                                                <button class="button"><i class="fal fa-minus minus"></i></button>
+                                                <input type="text" class="input" value="3" />
+                                                <button class="button plus">+<i class="fal fa-plus plus"></i></button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="banner-single bg-image bg-image-3-3">
-                                            <div class="container">
-                                                <div class="single-inner">
-                                                    <div class="content-box">
-                                                        <p class="slider-subtitle"><img
-                                                                src="assets/images/banner/wvbo-icon.png" alt=""> Spring
-                                                            summer 22 women’s collection </p>
-                                                        <h2 class="slider-title"> NEW COLLECTION <br> FOR WOMEN</h2>
-                                                        <div class="slider-description">
-                                                            <p>Easy & safe payment with PayPal. sequines & embroidered
-                                                                for all</p>
-                                                        </div>
-                                                        <a href="products.html" class="slider-btn2">View Collections</a>
-                                                    </div>
-                                                </div>
+                                    </td>
+                                    <td class="last-td"><button class="remove-btn">Remove</button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="product-thumb"><img src="assets/images/products/inner/cart/2.jpg" alt="product-thumb"></div></td>
+                                    <td>
+                                        <div class="product-title-area">
+                                            <span class="pretitle">Nighty</span>
+                                            <h4 class="product-title">Shimmer Sheer Tights</h4>
+                                        </div>
+                                    </td>
+                                    <td><span class="product-price">$69.00</span></td>
+                                    <td>
+                                        <div class="cart-edit">
+                                            <div class="quantity-edit">
+                                                <button class="button"><i class="fal fa-minus minus"></i></button>
+                                                <input type="text" class="input" value="3" />
+                                                <button class="button plus">+<i class="fal fa-plus plus"></i></button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="banner-single bg-image bg-image-3-4">
-                                            <div class="container">
-                                                <div class="single-inner">
-                                                    <div class="content-box">
-                                                        <p class="slider-subtitle"><img
-                                                                src="assets/images/banner/wvbo-icon.png" alt=""> Spring
-                                                            summer 22 women’s collection </p>
-                                                        <h2 class="slider-title"> WINTER DRESS <br> FOR WOMEN</h2>
-                                                        <div class="slider-description">
-                                                            <p>Easy & safe payment with PayPal. sequines & embroidered
-                                                                for all</p>
-                                                        </div>
-                                                        <a href="products.html" class="slider-btn2">View Collections</a>
-                                                    </div>
-                                                </div>
+                                    </td>
+                                    <td class="last-td"><button class="remove-btn">Remove</button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="product-thumb"><img src="assets/images/products/inner/cart/3.jpg" alt="product-thumb"></div></td>
+                                    <td>
+                                        <div class="product-title-area">
+                                            <span class="pretitle">Nighty</span>
+                                            <h4 class="product-title">Shimmer Sheer Tights</h4>
+                                        </div>
+                                    </td>
+                                    <td><span class="product-price">$69.00</span></td>
+                                    <td>
+                                        <div class="cart-edit">
+                                            <div class="quantity-edit">
+                                                <button class="button"><i class="fal fa-minus minus"></i></button>
+                                                <input type="text" class="input" value="3" />
+                                                <button class="button plus">+<i class="fal fa-plus plus"></i></button>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="slider-navigation">
-                                    <div class="swiper-button-prev slider-btn prev"><i
-                                            class="rt rt-arrow-left-long"></i></div>
-                                    <div class="swiper-button-next slider-btn next"><i
-                                            class="rt rt-arrow-right-long"></i>
-                                    </div>
-                                </div>
+                                    </td>
+                                    <td class="last-td"><button class="remove-btn">Remove</button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="product-thumb"><img src="assets/images/products/inner/cart/4.jpg" alt="product-thumb"></div></td>
+                                    <td>
+                                        <div class="product-title-area">
+                                            <span class="pretitle">Nighty</span>
+                                            <h4 class="product-title">Shimmer Sheer Tights</h4>
+                                        </div>
+                                    </td>
+                                    <td><span class="product-price">$69.00</span></td>
+                                    <td>
+                                        <div class="cart-edit">
+                                            <div class="quantity-edit">
+                                                <button class="button"><i class="fal fa-minus minus"></i></button>
+                                                <input type="text" class="input" value="3" />
+                                                <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="last-td"><button class="remove-btn">Remove</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="coupon-apply">
+                            <span class="coupon-text">Coupon Code:</span>
+                            <div class="apply-input">
+                                <input type="text" placeholder="Apply coupon here">
+                                <button type="submit" class="apply-btn">Apply </i></button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--================= Banner Section End Here =================-->
-    </header>
-    <!--================= Header Section End Here =================-->
-
-    <!--================= Offer Section Start Here =================-->
-    <div class="rts-offer-section">
-        <div class="container">
-            <div class="rts-offer-inner">
-                <p class="description">New arrival fashion is coming in May
-                </p>
-            </div>
-        </div>
-    </div>
-    <!--================= Offer Section End Here =================-->
-
-    <!--================= New Collection Section Start Here =================-->
-    <div class="rts-new-collection-section section-gap">
-        <div class="container">
-            <div class="recent-products-header section-header">
-            </div>
-            <div class="swiper rts-cmmnSlider-over" data-swiper="pagination">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="collection-item">
-                            <a href="category.html"><img src="assets/images/catagory/item-1.png" alt="collection-image">
-                            </a>
-                            <p class="item-quantity">20 <span>items</span></p>
-                            <a href="category.html" class="item-catagory-box">
-                                <h3 class="title">TOPS</h3>
-                            </a>
+                <div class="col-xl-4">
+                    <div class="checkout-box">
+                        <div class="checkout-box-inner">
+                            <div class="subtotal-area">
+                                <span class="title">Subtotal</span>
+                                <span class="subtotal-price">$364.00</span>
+                            </div>
+                            <div class="shipping-check">
+                                <span class="title">Shipping</span>
+                                <div class="check-options">
+                                    <form>
+                                          <div class="form-group">
+                                            <input type="checkbox" id="fltrt">
+                                            <label class="check-title" for="fltrt">Flat rate</label>
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="checkbox" id="frsh">
+                                            <label class="check-title" for="frsh">Free shipping</label>
+                                          </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="shipping-location">
+                                <span class="shipping-to">Shipping to <span>NY.</span></span>
+                                <span class="change-address"><i class="fal fa-map-marker-alt mr--5"></i>Change address</span>
+                            </div>
+                            <div class="total-area">
+                                <span class="title">Total</span>
+                                <span class="total-price">$364.00</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="collection-item">
-                            <a href="category.html"><img src="assets/images/catagory/item-2.png" alt="collection-image">
-                            </a>
-                            <p class="item-quantity">33 <span>items</span></p>
-                            <a href="category.html" class="item-catagory-box">
-                                <h3 class="title">BOTTOMS</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="collection-item">
-                            <a href="category.html"><img src="assets/images/catagory/item-3.png" alt="collection-image">
-                            </a>
-                            <p class="item-quantity">25 <span>items</span></p>
-                            <a href="category.html" class="item-catagory-box">
-                                <h3 class="title">OUTERWEAR</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="collection-item">
-                            <a href="category.html"><img src="assets/images/catagory/item-3.png" alt="collection-image">
-                            </a>
-                            <p class="item-quantity">25 <span>items</span></p>
-                            <a href="category.html" class="item-catagory-box">
-                                <h3 class="title">UNDERWEAR</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="collection-item">
-                            <a href="category.html"><img src="assets/images/catagory/item-4.png" alt="collection-image">
-                            </a>
-                            <p class="item-quantity">33 <span>items</span></p>
-                            <a href="category.html" class="item-catagory-box">
-                                <h3 class="title">SPORT UTILITY WEAR</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="collection-item">
-                            <a href="category.html"><img src="assets/images/catagory/item-4.png" alt="collection-image">
-                            </a>
-                            <p class="item-quantity">33 <span>items</span></p>
-                            <a href="category.html" class="item-catagory-box">
-                                <h3 class="title">ACCESORIES</h3>
-                            </a>
-                        </div>
+                        <a href="checkout.html" class="procced-btn">Procced To Checkout</a>
+                        <a href="shop.html" class="continue-shopping"><i class="fal fa-long-arrow-left"></i> Continue Shopping</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--================= New Collection Section End Here =================-->
+
+    <!--================= Cart Section End Here =================-->
+
 
     <!--================= Footer Start Here =================-->
     <div class="footer footer-1">
@@ -686,7 +679,6 @@
     </div>
     <!--================= Footer End Here =================-->
 
-
     <!--================= Scroll to Top Start =================-->
     <div class="scroll-top-btn scroll-top-btn1"><i class="fas fa-angle-up arrow-up"></i><i
             class="fas fa-circle-notch"></i></div>
@@ -700,9 +692,9 @@
     <script src="assets/js/vendors/wow.min.js"></script>
     <!--================= Swiper Slider =================-->
     <script src="assets/js/vendors/swiper-bundle.min.js"></script>
-    <!--================= Nice Select =================-->
-    <script src="assets/js/vendors/jquery.nice-select.js"></script>
-    <!--================= Zoom Plugin =================-->
+     <!--================= Nice Select =================-->
+     <script src="assets/js/vendors/jquery.nice-select.js"></script>
+    <!--================= Swiper Slider =================-->
     <script src="assets/js/vendors/zoom.js"></script>
     <!--================= metisMenu Plugin =================-->
     <script src="assets/js/vendors/metisMenu.min.js"></script>
