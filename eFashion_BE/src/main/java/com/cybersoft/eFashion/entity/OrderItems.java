@@ -20,7 +20,7 @@ public class OrderItems {
     private Orders orders;
 
     @ManyToOne
-    @JoinColumn(name = "product_id" , insertable = false, updatable = false)
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
     private Products products;
 
     public KeyOrderItems getKeys() {

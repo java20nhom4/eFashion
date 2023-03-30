@@ -38,7 +38,7 @@ public class CustomConfigSecurity {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/signin", "/signup")
+                .antMatchers("/login/signin", "/login/signup")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
