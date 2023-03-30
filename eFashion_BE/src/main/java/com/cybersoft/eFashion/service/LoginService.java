@@ -15,4 +15,5 @@ public class LoginService implements LoginServiceImp {
     public boolean login(String username, String password) {
         return userRepository.findByEmailAndPassword(username, password).size() > 0;
     }
+
 }

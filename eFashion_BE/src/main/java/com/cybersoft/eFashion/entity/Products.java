@@ -28,7 +28,7 @@ public class Products {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "cate_id" , insertable = false, updatable = false)
+    @JoinColumn(name = "cate_id")
     private Category category;
 
     @OneToMany(mappedBy = "products")
