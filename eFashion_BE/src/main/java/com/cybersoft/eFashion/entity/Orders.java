@@ -23,16 +23,7 @@ public class Orders {
     @JoinColumn(name = "user_id")
     private Users users;
 
-    @OneToMany(mappedBy = "orders")
-    private Set<OrderItems> listOrderItems;
 
-    public Set<OrderItems> getListOrderItems() {
-        return listOrderItems;
-    }
-
-    public void setListOrderItems(Set<OrderItems> listOrderItems) {
-        this.listOrderItems = listOrderItems;
-    }
 
     public int getId() {
         return id;
