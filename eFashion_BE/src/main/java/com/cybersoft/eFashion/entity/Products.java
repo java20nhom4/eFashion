@@ -34,8 +34,16 @@ public class Products {
     @OneToMany(mappedBy = "products")
     private Set<RatingProducts> listRatingProducts;
 
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "products")
     private Set<OrderItems> listOrderItems;
+
+    public Set<OrderItems> getListOrderItems() {
+        return listOrderItems;
+    }
+
+    public void setListOrderItems(Set<OrderItems> listOrderItems) {
+        this.listOrderItems = listOrderItems;
+    }
 
     public int getId() {
         return id;
@@ -107,13 +115,5 @@ public class Products {
 
     public void setListRatingProducts(Set<RatingProducts> listRatingProducts) {
         this.listRatingProducts = listRatingProducts;
-    }
-
-    public Set<OrderItems> getListOrderItems() {
-        return listOrderItems;
-    }
-
-    public void setListOrderItems(Set<OrderItems> listOrderItems) {
-        this.listOrderItems = listOrderItems;
     }
 }
