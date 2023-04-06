@@ -56,4 +56,8 @@ public class CartService implements CartServiceImp {
     public Integer subtractQuantity(int id){
         return cartRepository.subtractQuantity(id);
     }
+
+    public Integer deleteProductById(int id){
+        return cartRepository.deleteProductById(id);
+    }
 }

@@ -24,4 +24,9 @@ public interface CartRepository extends JpaRepository<OrderItems,Integer> {
     @Transactional
     @Query("update order_item set quantity = quantity-1 where product_id =?1")
     Integer subtractQuantity(int id);
+
+    @Modifying
+    @Transactional
+    @Query("delete from order_item where product_id =?1")
+    Integer deleteProductById(int id);
 }

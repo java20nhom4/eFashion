@@ -34,15 +34,22 @@ public class CartController {
         return new ResponseEntity<>(responseData,HttpStatus.OK);
     }
 
-    @PutMapping("plusQuantity")
+    @PutMapping("/plusQuantity")
     public ResponseEntity<?> plusQuantity(@RequestParam("id") int id){
         cartService.plusQuantity(id);
         return new ResponseEntity<>("",HttpStatus.OK);
     }
 
-    @PutMapping("subtractQuantity")
+    @PutMapping("/subtractQuantity")
     public ResponseEntity<?> subtractQuantity(@RequestParam("id") int id){
         cartService.subtractQuantity(id);
+        return new ResponseEntity<>("",HttpStatus.OK);
+    }
+
+    @DeleteMapping("/removeProduct")
+    public ResponseEntity<?>removeProduct(@RequestParam("id") int id){
+        ResponseData responseData = new ResponseData();
+        responseData.setData(cartService.deleteProductById(id));
         return new ResponseEntity<>("",HttpStatus.OK);
     }
 }
