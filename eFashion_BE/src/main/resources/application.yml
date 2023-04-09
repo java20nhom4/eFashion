@@ -13,3 +13,7 @@ spring:
 
 jwt:
   privateKey: Y68oPXSNa/HHkVhcBLLcUnMfxoB1WsIROZtqAnBOuDQ=
+
+fileStorage:
+  path: D:\eFashionFileStorage
+

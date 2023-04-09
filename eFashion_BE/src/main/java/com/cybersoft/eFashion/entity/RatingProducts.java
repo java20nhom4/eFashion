@@ -8,7 +8,6 @@ public class RatingProducts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     @Column(name = "star")
     private int star;
 
@@ -22,6 +21,17 @@ public class RatingProducts {
     @ManyToOne
     @JoinColumn(name = "product_id" , insertable = false, updatable = false)
     private Products products;
+
+    @Column(name = "image")
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public int getId() {
         return id;
