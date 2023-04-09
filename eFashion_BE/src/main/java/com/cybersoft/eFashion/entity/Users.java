@@ -13,7 +13,7 @@ public class Users {
     private String email;
 
     @Column(name = "phone")
-    private String phone;
+    private int phone;
 
     @Column(name = "password")
     private String password;
@@ -26,7 +26,7 @@ public class Users {
 
 
     @ManyToOne
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "role_id" , insertable = false, updatable = false)
     private Roles roles;
 
     @OneToMany(mappedBy = "users")
@@ -51,11 +51,11 @@ public class Users {
         this.email = email;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 

@@ -20,7 +20,7 @@ public class Orders {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private Users users;
 
 
