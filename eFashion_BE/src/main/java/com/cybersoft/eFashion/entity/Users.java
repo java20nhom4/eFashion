@@ -13,7 +13,7 @@ public class Users {
     private String email;
 
     @Column(name = "phone")
-    private int phone;
+    private String phone;
 
     @Column(name = "password")
     private String password;
@@ -24,9 +24,11 @@ public class Users {
     @Column(name = "avatar")
     private String avatar;
 
+    @Column(name = "address")
+    private String address;
 
     @ManyToOne
-    @JoinColumn(name = "role_id" , insertable = false, updatable = false)
+    @JoinColumn(name = "role_id")
     private Roles roles;
 
     @OneToMany(mappedBy = "users")
@@ -34,6 +36,14 @@ public class Users {
 
     @OneToMany(mappedBy = "users")
     private Set<Orders> listOrders;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public int getId() {
         return id;
@@ -51,11 +61,11 @@ public class Users {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
