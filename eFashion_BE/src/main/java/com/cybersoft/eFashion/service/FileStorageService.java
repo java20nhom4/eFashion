@@ -1,6 +1,7 @@
 package com.cybersoft.eFashion.service;
 
 import com.cybersoft.eFashion.service.imp.FileStorageServiceImp;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -55,7 +56,7 @@ public class FileStorageService implements FileStorageServiceImp {
         try {
             initParent();
             initChild(folderType);
-            Files.copy(file.getInputStream(), childRoot.resolve(file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(file.getInputStream(), childRoot.resolve(newFileName), StandardCopyOption.REPLACE_EXISTING);
             return true;
         }catch (Exception e){
             System.out.println("Error save file" + file.getOriginalFilename()  + e.getMessage());
@@ -77,6 +78,20 @@ public class FileStorageService implements FileStorageServiceImp {
         }catch (Exception e){
             System.out.println("Error load file: " + fileName  + e.getMessage());
             return null;
+        }
+    }
+
+    @Override
+    public boolean removeFile(String fileName, FolderType folderType) {
+        try {
+            initParent();
+            initChild(folderType);
+            Path pathFile = childRoot.resolve(fileName);
+            Files.delete(pathFile);
+            return true;
+        }catch (Exception e){
+            System.out.println("Error at remove file" + e.getMessage());
+            return false;
         }
     }
 }

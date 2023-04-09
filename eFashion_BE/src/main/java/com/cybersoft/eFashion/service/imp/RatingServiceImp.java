@@ -10,4 +10,6 @@ public interface RatingServiceImp {
     List<RatingDTO> getRatingByProduct(int pro_id);
     List<RatingDTO> getRatingByUser(int user_id);
     boolean insertRating(MultipartFile file, RatingDTO ratingDTO);
+    boolean removeRating(int rating_id);
+    boolean updateRating(MultipartFile file, RatingDTO ratingDTO);
 }
