@@ -9,6 +9,7 @@ import com.cybersoft.eFashion.repository.RatingRepository;
 import com.cybersoft.eFashion.repository.UserRepository;
 import com.cybersoft.eFashion.service.imp.FileStorageServiceImp;
 import com.cybersoft.eFashion.service.imp.RatingServiceImp;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -83,11 +84,14 @@ public class RatingService implements RatingServiceImp {
         boolean isInsertSuccess = false;
         boolean isSaveFileSuccess = true;
         String newFileName = "";
+        // Save Image First
         if (file != null){
             String now = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            newFileName = ratingDTO.getId() + "_" + ratingDTO.getUser_id() + "_" + ratingDTO.getPro_id() + "_" + now;
-            isSaveFileSuccess = fileStorageServiceImp.saveFiles(file, "Hello", FolderType.Ratings);
+            String extension = FilenameUtils.getExtension(file.getOriginalFilename());
+            newFileName = ratingDTO.getId() + "_" + ratingDTO.getUser_id() + "_" + ratingDTO.getPro_id() + "_" + now  + "." + extension;
+            isSaveFileSuccess = fileStorageServiceImp.saveFiles(file, newFileName, FolderType.Ratings);
         }
+        // Insert then
         if (isSaveFileSuccess){
             Users user = userRepository.getUsersById(ratingDTO.getUser_id());
             Products product = productsRepository.getProductsById(ratingDTO.getPro_id());
@@ -101,10 +105,70 @@ public class RatingService implements RatingServiceImp {
                 rating.setStar(ratingDTO.getStar());
                 rating.setComment(ratingDTO.getComment());
                 rating.setImage(newFileName);
-                isInsertSuccess = true ;
+                ratingRepository.save(rating);
+                isInsertSuccess = true;
             }
         }
-        System.out.println("ADd thanh cong");
+        System.out.println("ADd: " + isInsertSuccess);
         return isInsertSuccess;
+    }
+
+    @Override
+    public boolean removeRating(int rating_id) {
+        Boolean isRemoveSuccess = true;
+        Boolean isRemoveImage = true;
+        Boolean isRemoveDataSuccess = true;
+        RatingProducts rating = ratingRepository.getById(rating_id);
+        try {
+            ratingRepository.deleteById(rating_id);
+        }
+        catch (Exception e){
+            isRemoveDataSuccess = false;
+            isRemoveSuccess = false;
+        }
+        if (isRemoveDataSuccess){ // Remove image in forder
+            String nameImage = rating.getImage();
+            if (nameImage != null && !nameImage.isEmpty()){
+                isRemoveImage = fileStorageServiceImp.removeFile(nameImage, FolderType.Ratings);
+            }
+        }
+        if (isRemoveDataSuccess && !isRemoveSuccess){
+            System.out.println("Delete data OKAY - Delete image FAIL");
+            isRemoveImage = false;
+        }
+        return isRemoveImage;
+    }
+
+    @Override
+    public boolean updateRating(MultipartFile file, RatingDTO ratingDTO) {
+        boolean isUpdateSuccess = false;
+        RatingProducts rating = ratingRepository.getById(ratingDTO.getId());
+        if (rating != null ){
+            boolean isSaveFileSuccess = true;
+            String newFileName = "";
+            if (file != null){
+                String now = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+                String extension = FilenameUtils.getExtension(file.getOriginalFilename());
+                newFileName = ratingDTO.getId() + "_" + ratingDTO.getUser_id() + "_" + ratingDTO.getPro_id() + "_" + now  + "." + extension;
+                isSaveFileSuccess = fileStorageServiceImp.saveFiles(file, newFileName, FolderType.Ratings);
+            }
+            if (isSaveFileSuccess){
+                Users user = userRepository.getUsersById(ratingDTO.getUser_id());
+                Products product = productsRepository.getProductsById(ratingDTO.getPro_id());
+                if (user == null || product == null){
+                    isUpdateSuccess = false;
+                }
+                else{
+                    rating.setUsers(user);
+                    rating.setProducts(product);
+                    rating.setStar(ratingDTO.getStar());
+                    rating.setComment(ratingDTO.getComment());
+                    rating.setImage(newFileName);
+                    ratingRepository.save(rating);
+                    isUpdateSuccess = true;
+                }
+            }
+        }
+        return isUpdateSuccess;
     }
 }

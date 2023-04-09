@@ -12,4 +12,6 @@ public interface RatingRepository extends JpaRepository<RatingProducts, Integer>
     List<RatingProducts> findAll();
     List<RatingProducts> findByProducts_Id(int product_id);
     List<RatingProducts> findByUsers_Id(int user_id);
+    RatingProducts getById(int rating_id);
+    Integer deleteById(int rating_id);
 }

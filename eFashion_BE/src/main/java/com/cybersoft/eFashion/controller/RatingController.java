@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping(value = "/rating", consumes = {"multipart/form-data"})
+@RequestMapping(value = "/rating")
 public class RatingController {
     @Autowired
     RatingService ratingService;
@@ -39,11 +39,43 @@ public class RatingController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> addRating(@RequestParam("file") MultipartFile file, @RequestBody RatingDTO ratingDTO){
-        System.out.println("asdfsad");
+    public ResponseEntity<?> addRating(@RequestParam("file") MultipartFile file,
+                                       @RequestParam int user_id,
+                                       @RequestParam int product_id,
+                                       @RequestParam int star,
+                                       @RequestParam String comment){
         ResponseData responseData = new ResponseData();
-        responseData.setData(ratingService.insertRating(file, ratingDTO));
+        RatingDTO rate_dto = new RatingDTO();
+        rate_dto.setUser_id(user_id);
+        rate_dto.setPro_id(product_id);
+        rate_dto.setStar(star);
+        rate_dto.setComment(comment);
+        responseData.setData(ratingService.insertRating(file, rate_dto));
         return new ResponseEntity<>(responseData,HttpStatus.OK);
     }
 
+    @DeleteMapping()
+    public ResponseEntity<?>removeRating(@RequestParam int rating_id){
+        ResponseData responseData = new ResponseData();
+        responseData.setData(ratingService.removeRating(rating_id));
+        return new ResponseEntity<>("",HttpStatus.OK);
+    }
+
+    @PutMapping()
+    public ResponseEntity<?> updateRating(@RequestParam("file") MultipartFile file,
+                                          @RequestParam int id,
+                                          @RequestParam int user_id,
+                                          @RequestParam int product_id,
+                                          @RequestParam int star,
+                                          @RequestParam String comment){
+        ResponseData responseData = new ResponseData();
+        RatingDTO rate_dto = new RatingDTO();
+        rate_dto.setId(id);
+        rate_dto.setUser_id(user_id);
+        rate_dto.setPro_id(product_id);
+        rate_dto.setStar(star);
+        rate_dto.setComment(comment);
+        responseData.setData(ratingService.insertRating(file, rate_dto));
+        return new ResponseEntity<>(responseData,HttpStatus.OK);
+    }
 }

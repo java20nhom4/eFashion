@@ -1,13 +1,14 @@
 package com.cybersoft.eFashion.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -18,11 +19,13 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private Set<Products> listProducts;
 
-    public int getId() {
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
