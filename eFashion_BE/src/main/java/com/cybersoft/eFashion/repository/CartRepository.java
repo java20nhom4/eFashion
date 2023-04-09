@@ -13,20 +13,25 @@ public interface CartRepository extends JpaRepository<OrderItems,Integer> {
     @Query("select o from order_item o")
     List<OrderItems> getAllOrderItems();
 
+    @Query("select quantity from order_item where id =1")
+    Integer getQuantityById(int id);
+
     List<OrderItems> findProductById(int id);
 
     @Modifying
     @Transactional
-    @Query("update order_item set quantity = quantity+1 where product_id =?1")
+    @Query("update order_item set quantity = quantity+1 where id =?1")
     Integer plusQuantity(int id);
 
     @Modifying
     @Transactional
-    @Query("update order_item set quantity = quantity-1 where product_id =?1")
+    @Query("update order_item set quantity = quantity-1 where id =?1")
     Integer subtractQuantity(int id);
 
     @Modifying
     @Transactional
-    @Query("delete from order_item where product_id =?1")
+    @Query("delete from order_item where id =?1")
     Integer deleteProductById(int id);
+
+
 }

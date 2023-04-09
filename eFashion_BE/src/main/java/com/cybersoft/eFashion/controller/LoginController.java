@@ -1,5 +1,8 @@
 package com.cybersoft.eFashion.controller;
 
+
+import com.cybersoft.eFashion.dto.TokenDTO;
+
 import com.cybersoft.eFashion.payload.ResponseData;
 import com.cybersoft.eFashion.utils.JwtUtilsHelpers;
 import com.google.gson.Gson;
@@ -36,6 +39,7 @@ public class LoginController {
     public ResponseEntity<?> signin(
             @RequestParam String username,
             @RequestParam String password
+
     ) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
 
@@ -51,8 +55,9 @@ public class LoginController {
         System.out.println("Data: "+data);
 
         ResponseData responseData = new ResponseData();
-        responseData.setData(jwtUtilsHelpers.generateToken(data));
-
+        TokenDTO tokenDTO = new TokenDTO();
+        tokenDTO.setToken(jwtUtilsHelpers.generateToken(data));
+        responseData.setData(tokenDTO.getToken());
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 

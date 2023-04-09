@@ -42,14 +42,16 @@ public class CartController {
 
     @PutMapping("/subtractQuantity")
     public ResponseEntity<?> subtractQuantity(@RequestParam("id") int id){
-        cartService.subtractQuantity(id);
+        if(cartService.getQuantityById(id)>1){
+            cartService.subtractQuantity(id);
+        }
         return new ResponseEntity<>("",HttpStatus.OK);
     }
 
-    @DeleteMapping("/removeProduct")
+    @GetMapping("/removeProduct")
     public ResponseEntity<?>removeProduct(@RequestParam("id") int id){
         ResponseData responseData = new ResponseData();
         responseData.setData(cartService.deleteProductById(id));
-        return new ResponseEntity<>("",HttpStatus.OK);
+        return new ResponseEntity<>(responseData,HttpStatus.OK);
     }
 }
