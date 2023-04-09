@@ -10,6 +10,7 @@ import java.util.Date;
 
 @Component
 public class JwtUtilsHelpers {
+
     @Value("${jwt.privateKey}")
     private String privateKey;
 
