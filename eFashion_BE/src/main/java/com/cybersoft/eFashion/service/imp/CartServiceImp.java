@@ -7,6 +7,8 @@ import java.util.List;
 public interface CartServiceImp {
     List<OrderItemsDTO> getAllOrderItems();
 
+    Integer getQuantityById(int id);
+
     boolean findProductById(int id);
 
     boolean addCart(OrderItemsDTO orderItemsDTO);

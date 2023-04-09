@@ -30,6 +30,11 @@ public class CartService implements CartServiceImp {
     }
 
     @Override
+    public Integer getQuantityById(int id) {
+       return cartRepository.getQuantityById(id);
+    }
+
+    @Override
     public boolean findProductById(int id) {
         return cartRepository.findProductById(id).size()>0;
     }
