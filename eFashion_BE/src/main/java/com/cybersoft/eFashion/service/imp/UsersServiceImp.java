@@ -23,6 +23,6 @@ public interface UsersServiceImp {
     List<UserDTO> getAllUsers();
 
     //Get users by id
-    UserDTO getUserByEmail(UserDTO userDTO);
+    UserDTO getUserByEmail(String email);
 
 }

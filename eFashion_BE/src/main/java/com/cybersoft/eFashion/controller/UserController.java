@@ -25,6 +25,7 @@ public class UserController {
 
     private UserDTO checkUserDTO = new UserDTO();
     private String OTP = null;
+    private String email = null;
 
     // Send OTP
     @PostMapping("/sendEmailConfirmOTP")
@@ -33,18 +34,7 @@ public class UserController {
         ResponseData responseData = new ResponseData();
         if(usersServiceImp.checkExistEmail(userDTO.getEmail()) == false) {
 
-            // Create OTP
-            Random random = new Random();
-            OTP = Integer.toString(
-                    random.ints(100000, 999999)
-                            .findFirst()
-                            .getAsInt());
-
-            // Set emailDTO
-            EmailDTO emailDTO = new EmailDTO();
-            emailDTO.setMsgBody("Your OTP is " + OTP);
-            emailDTO.setRecipient(userDTO.getEmail());
-            emailDTO.setSubject("[eFashion OTP]");
+            EmailDTO emailDTO = supportEmail(userDTO.getEmail());
 
             // Set responseData
             responseData.setData(emailServiceImp.sendSimpleMail(emailDTO));
@@ -164,11 +154,11 @@ public class UserController {
 
     // Get user by email
     @GetMapping("/getUserByEmail")
-    public ResponseEntity<?> getUserById(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> getUserById(@RequestParam String email) {
 
         ResponseData responseData = new ResponseData();
-        if(usersServiceImp.getUserByEmail(userDTO).getFullName() != null) {
-            responseData.setData(usersServiceImp.getUserByEmail(userDTO));
+        if(usersServiceImp.getUserByEmail(email) != null) {
+            responseData.setData(usersServiceImp.getUserByEmail(email));
             responseData.setDesc("Lấy thành công user");
             responseData.setStatusCode(200);
         }else {
@@ -178,6 +168,72 @@ public class UserController {
         }
 
         return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
+
+    // OTP of forgetting password
+    @PostMapping("/findPasswordByEmail")
+    public ResponseEntity<?> findPasswordByEmail(@RequestParam String inputEmail) {
+
+        ResponseData responseData = new ResponseData();
+        if(usersServiceImp.checkExistEmail(inputEmail)) {
+            EmailDTO emailDTO = supportEmail(inputEmail);
+            email = inputEmail;
+            responseData.setData(emailServiceImp.sendSimpleMail(emailDTO)+OTP);
+            responseData.setStatusCode(200);
+            responseData.setDesc("Gui thanh cong OTP");
+        }else {
+            responseData.setDesc("Email khong ton tai");
+            responseData.setData(false);
+            responseData.setStatusCode(400);
+        }
+
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
+
+    @PostMapping("/checkOTPOfForgettingPassword")
+    public ResponseEntity<?> checkOTPOfForgettingPassword(@RequestParam String inputOTP,
+                                                          @RequestParam String newPassword) {
+
+        ResponseData responseData = new ResponseData();
+        if(inputOTP.equals(OTP)) {
+            UserDTO userDTO = usersServiceImp.getUserByEmail(email);
+            System.out.println(userDTO.getEmail()+" "+userDTO.getPhone()+" "+userDTO.getPassword());
+            userDTO.setPassword(newPassword);
+            if(usersServiceImp.updateUser(userDTO, null)) {
+                responseData.setData(true);
+                responseData.setDesc("Thay doi mat khau thanh cong");
+                responseData.setStatusCode(200);
+            }else {
+                responseData.setData(false);
+                responseData.setDesc("Thay doi mat khau khong thanh cong");
+                responseData.setStatusCode(400);
+            }
+        }else {
+            responseData.setData(false);
+            responseData.setDesc("Sai OTP");
+            responseData.setStatusCode(400);
+        }
+
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
+
+    //  Support email
+    private EmailDTO supportEmail(String email) {
+
+        // Create OTP
+        Random random = new Random();
+        OTP = Integer.toString(
+                random.ints(100000, 999999)
+                        .findFirst()
+                        .getAsInt());
+
+        // Set emailDTO
+        EmailDTO emailDTO = new EmailDTO();
+        emailDTO.setMsgBody("Your OTP is " + OTP);
+        emailDTO.setRecipient(email);
+        emailDTO.setSubject("[eFashion OTP]");
+
+        return emailDTO;
     }
 
 }
