@@ -99,10 +99,14 @@ public class UsersService implements UsersServiceImp {
             }
         }
 
+        if(userDTO.getPassword() != null) {
+            users.setAddress(userDTO.getAddress());
+        }
+
         try {
             users.setPhone(userDTO.getPhone());
             users.setFullname(userDTO.getFullName());
-            users.setAddress(userDTO.getAddress());
+            users.setPassword(userDTO.getPassword());
 
             userRepository.save(users);
 
@@ -135,8 +139,11 @@ public class UsersService implements UsersServiceImp {
     }
 
     @Override
-    public UserDTO getUserByEmail(UserDTO userDTO) {
-        Users user = userRepository.findByEmail(userDTO.getEmail()).get(0);
+    public UserDTO getUserByEmail(String email) {
+        UserDTO userDTO = new UserDTO();
+        Users user = userRepository.findByEmail(email).get(0);
+        userDTO.setId(user.getId());
+        userDTO.setEmail(email);
         userDTO.setFullName(user.getFullname());
         userDTO.setAvatar(user.getAvatar());
         userDTO.setPhone(user.getPhone());
