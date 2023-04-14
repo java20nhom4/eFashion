@@ -1,11 +1,17 @@
 package com.cybersoft.eFashion.dto;
 
 public class UserDTO {
-    private int id;
-    private int phone;
-    private String fullname;
 
+
+    private int id;
     private String email;
+    private String password;
+    private String fullName;
+    private String phone;
+    private String avatar;
+    private String address;
+    private int roleId;
+
 
     public int getId() {
         return id;
@@ -15,20 +21,21 @@ public class UserDTO {
         this.id = id;
     }
 
-    public int getPhone() {
+
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getAddress() {
+        return address;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {
@@ -38,4 +45,38 @@ public class UserDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
 }

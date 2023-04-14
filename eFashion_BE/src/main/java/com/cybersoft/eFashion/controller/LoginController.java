@@ -19,17 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/***
- * NGƯỜI THỰC HIỆN: PHẠM NGỌC HÙNG
- * NGÀY: 29/03/2023
- *
- * LƯU Ý CALL API:
- *     - /signin /signup không cần chứng thực (/signin truyền vào username password type form-data)
- *     - tất cả các link còn lại đều phải chứng thực
- */
-
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/api/login")
 public class LoginController {
 
     @Autowired
@@ -37,6 +28,7 @@ public class LoginController {
 
     @Autowired
     JwtUtilsHelpers jwtUtilsHelpers;
+
     @PostMapping("/signin")
     public ResponseEntity<?> signin(
             @RequestParam String username,
@@ -61,12 +53,6 @@ public class LoginController {
         tokenDTO.setToken(jwtUtilsHelpers.generateToken(data));
         responseData.setData(tokenDTO.getToken());
         return new ResponseEntity<>(responseData, HttpStatus.OK);
-    }
-
-    @PostMapping("/signup")
-    public ResponseEntity<?> signup() {
-
-        return new ResponseEntity<>("Hello signup", HttpStatus.OK);
     }
 
 }
