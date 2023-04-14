@@ -22433,6 +22433,24 @@ tr:first-child {
   border-radius: 50%;
   background: #fff;
 }
+.close_btn{
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: -50px;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+}
 .product-details-popup .product-details-close-btn:hover i {
   color: red;
 }
