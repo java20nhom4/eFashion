@@ -12,6 +12,7 @@ async function getApi(uri, token) {
 
     const data = await res.json();
 
+    console.log(data.data)
     return data.data
 }
 
@@ -40,7 +41,7 @@ async function renderData() {
             </div>
         </td>
         <td class="last-td"><a class="remove-btn" id="${c.id}">Remove</a></button></td>
-        <td class="last-td"><a href="checkout.html">Buy now</a></td>
+        <td class="last-td"><a href="checkout.html" class="btn-buy" id="${c.id}">Buy now</a></td>
     </tr>`).join("")
 }
 
@@ -93,5 +94,12 @@ $(document).ready(function() {
 
         })
         console.log(id)
+    })
+})
+$(document).ready(function() {
+    $('.btn-buy').click(function() {
+        const id = $(this).attr('id')
+        console.log(id)
+        localStorage.setItem('cartId', id)
     })
 })

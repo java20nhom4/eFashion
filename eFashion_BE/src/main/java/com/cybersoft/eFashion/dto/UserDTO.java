@@ -2,6 +2,7 @@ package com.cybersoft.eFashion.dto;
 
 public class UserDTO {
 
+
     private int id;
     private String email;
     private String password;
@@ -11,6 +12,7 @@ public class UserDTO {
     private String address;
     private int roleId;
 
+
     public int getId() {
         return id;
     }
@@ -18,6 +20,7 @@ public class UserDTO {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getPhone() {
         return phone;
@@ -42,6 +45,7 @@ public class UserDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     public String getPassword() {
         return password;
@@ -74,4 +78,5 @@ public class UserDTO {
     public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
+
 }

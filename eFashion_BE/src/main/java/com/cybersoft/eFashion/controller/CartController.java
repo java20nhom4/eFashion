@@ -48,7 +48,7 @@ public class CartController {
         return new ResponseEntity<>("",HttpStatus.OK);
     }
 
-    @GetMapping("/removeProduct")
+    @DeleteMapping("/removeProduct")
     public ResponseEntity<?>removeProduct(@RequestParam("id") int id){
         ResponseData responseData = new ResponseData();
         responseData.setData(cartService.deleteProductById(id));
