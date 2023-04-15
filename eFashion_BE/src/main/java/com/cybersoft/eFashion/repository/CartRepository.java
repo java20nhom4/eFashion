@@ -13,6 +13,8 @@ public interface CartRepository extends JpaRepository<OrderItems,Integer> {
     @Query("select o from order_item o")
     List<OrderItems> getAllOrderItems();
 
+    List<OrderItems> getOrderItemById(int id);
+
     @Query("select quantity from order_item where id =1")
     Integer getQuantityById(int id);
 

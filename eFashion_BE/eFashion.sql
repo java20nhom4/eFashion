@@ -59,6 +59,12 @@ CREATE TABLE IF NOT EXISTS order_item (
     quantity INT NOT NULL,
     PRIMARY KEY (id)
 );
+CREATE TABLE IF NOT EXISTS place_order (
+	id INT NOT NULL AUTO_INCREMENT,
+    order_item_id INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (id)
+);
 
 ALTER TABLE users ADD FOREIGN KEY (role_id) REFERENCES roles (id)  ON DELETE CASCADE;
 ALTER TABLE products ADD FOREIGN KEY (cate_id) REFERENCES category (id)  ON DELETE CASCADE;
@@ -66,3 +72,5 @@ ALTER TABLE rating_product ADD FOREIGN KEY (user_id) REFERENCES users (id)  ON D
 ALTER TABLE rating_product ADD FOREIGN KEY (product_id) REFERENCES products (id)  ON DELETE CASCADE;
 ALTER TABLE orders ADD FOREIGN KEY (user_id) REFERENCES users (id)  ON DELETE CASCADE;
 ALTER TABLE order_item ADD FOREIGN KEY (product_id) REFERENCES products (id)  ON DELETE CASCADE;
+ALTER TABLE place_order ADD FOREIGN KEY (order_item_id) REFERENCES order_item (id)  ON DELETE CASCADE;
+ALTER TABLE place_order ADD FOREIGN KEY (user_id) REFERENCES users (id)  ON DELETE CASCADE;

@@ -502,10 +502,10 @@
     </header>
     <!--================= Header Section End Here =================-->
     <div class="rts-checkout-section">
-        <!-- <div class="container">
+        <div class="container">
             <div class="row justify-content-between">
-                <div class="col-xl-8">
-                    <div class="coupon-area">
+                <div class="col-xl-8 userdata">
+                    <!-- <div class="coupon-area">
                         <div class="coupon-ask">
                             <span>Have a coupon?</span>
                             <button class="coupon-click">Click here to enter your code</button>
@@ -573,10 +573,10 @@
                             </div>
                         </div>
                         <textarea id="orderNotes" cols="80" rows="4" placeholder="Order notes (optional)"></textarea>
-                    </form>
+                    </form> -->
                 </div>
-                <div class="col-xl-4">
-                    <div class="action-item">
+                <div class="col-xl-4 cartdata">
+                    <!-- <div class="action-item">
                         <div class="action-top">
                             <span class="action-title">Product</span>
                             <span class="subtotal">Subtotal</span>
@@ -642,12 +642,85 @@
                             </form>
                         </div>
                     </div>
-                    <a href="thank-you.html" class="place-order-btn">Place Order</a>
+                    <a href="thank-you.html" class="place-order-btn">Place Order</a> -->
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
+    <div class="product-details-popup-wrapper">
+        <div class="rts-product-details-section rts-product-details-section2 product-details-popup-section">
+            <div class="product-details-popup">
+                <div class="details-product-area">
+                    <div class="product-thumb-area">
+                        <div class="cursor"></div>
+                        <div class="thumb-wrapper one filterd-items figure">
+                            <div class="product-thumb zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-details.jpg)"><img src="assets/images/products/product-details.jpg" alt="product-thumb">
+                            </div>
+                        </div>
+                        <div class="thumb-wrapper two filterd-items hide">
+                            <div class="product-thumb zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-filt2.jpg)"><img src="assets/images/products/product-filt2.jpg" alt="product-thumb">
+                            </div>
+                        </div>
+                        <div class="thumb-wrapper three filterd-items hide">
+                            <div class="product-thumb zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-filt3.jpg)"><img src="assets/images/products/product-filt3.jpg" alt="product-thumb">
+                            </div>
+                        </div>
+                        <div class="product-thumb-filter-group">
+                            <div class="thumb-filter filter-btn active" data-show=".one"><img src="assets/images/products/product-filt1.jpg" alt="product-thumb-filter"></div>
+                            <div class="thumb-filter filter-btn" data-show=".two"><img src="assets/images/products/product-filt2.jpg" alt="product-thumb-filter"></div>
+                            <div class="thumb-filter filter-btn" data-show=".three"><img src="assets/images/products/product-filt3.jpg" alt="product-thumb-filter"></div>
+                        </div>
+                    </div>
+                    <div class="contents">
+                        <div class="product-status">
+                            <span class="product-catagory">Dress</span>
+                            <div class="rating-stars-group">
+                                <div class="rating-star"><i class="fas fa-star"></i></div>
+                                <div class="rating-star"><i class="fas fa-star"></i></div>
+                                <div class="rating-star"><i class="fas fa-star-half-alt"></i></div>
+                                <span>10 Reviews</span>
+                            </div>
+                        </div>
+                        <h2 class="product-title">Wide Cotton Tunic Dress <span class="stock">In Stock</span></h2>
+                        <span class="product-price"><span class="old-price">$9.35</span> $7.25</span>
+                        <p>
+                            Priyoshop has brought to you the Hijab 3 Pieces Combo Pack PS23. It is a completely modern design and you feel comfortable to put on this hijab. Buy it at the best price.
+                        </p>
+                        <div class="product-bottom-action">
+                            <div class="cart-edit">
+                                <div class="quantity-edit action-item">
+                                    <button class="button minus"><i class="fal fa-minus minus"></i></button>
+                                    <input type="text" class="input" value="01" />
+                                    <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                                </div>
+                            </div>
+                            <a href="cart.html" class="addto-cart-btn action-item"><i class="rt-basket-shopping"></i>
+                                Add To
+                                Cart</a>
+                            <a href="wishlist.html" class="wishlist-btn action-item"><i class="rt-heart"></i></a>
+                        </div>
+                        <div class="product-uniques">
+                            <span class="sku product-unipue"><span>SKU: </span> BO1D0MX8SJ</span>
+                            <span class="catagorys product-unipue"><span>Categories: </span> T-Shirts, Tops, Mens</span>
+                            <span class="tags product-unipue"><span>Tags: </span> fashion, t-shirts, Men</span>
+                        </div>
+                        <div class="share-social">
+                            <span>Share:</span>
+                            <a class="platform" href="http://facebook.com" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="platform" href="http://twitter.com" target="_blank"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="platform" href="http://behance.com" target="_blank"><i
+                                    class="fab fa-behance"></i></a>
+                            <a class="platform" href="http://youtube.com" target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--================= Footer Start Here =================-->
     <div class="footer footer-1">
@@ -781,12 +854,16 @@
 
     <!--================= Jquery latest version =================-->
     <script src="assets/js/vendors/jquery-3.6.0.min.js"></script>
+
     <!--================= Bootstrap latest version =================-->
     <script src="assets/js/vendors/bootstrap.min.js"></script>
+
     <!--================= Wow.js =================-->
     <script src="assets/js/vendors/wow.min.js"></script>
+
     <!--================= Swiper Slider =================-->
     <script src="assets/js/vendors/swiper-bundle.min.js"></script>
+    <script src="assets/js/checkout.js"></script>
     <!--================= Nice Select =================-->
     <script src="assets/js/vendors/jquery.nice-select.js"></script>
     <!--================= Swiper Slider =================-->
@@ -795,13 +872,18 @@
     <script src="assets/js/vendors/metisMenu.min.js"></script>
     <!--================= Main Menu Plugin =================-->
     <script src="assets/js/vendors/rtsmenu.js"></script>
+
     <!--================= Magnefic Popup Plugin =================-->
     <script src="assets/js/vendors/isotope.pkgd.min.js"></script>
     <!--================= Magnefic Popup Plugin =================-->
+
     <script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
     <!--================= Main Script =================-->
-    <script src="assets/js/checkout.js"></script>
+
     <script src="assets/js/main.js"></script>
+
+
+
 </body>
 
 </html>
