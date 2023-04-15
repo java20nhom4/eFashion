@@ -2,7 +2,7 @@ async function getToken(username, password) {
     const option = {
         method: "POST"
     }
-    const res = await fetch("http://localhost:8080/login/signin?username=" + username + "&password=" + password, option);
+    const res = await fetch("http://localhost:8080/api/login/signin?username=" + username + "&password=" + password, option);
 
     const data = await res.json();
 
@@ -12,10 +12,10 @@ async function getToken(username, password) {
 
 }
 
+
 $(document).ready(function() {
 
     $('#sunmit-login').click(function() {
-        console.log(1)
         const username = document.getElementById("email").value
         const password = document.getElementById("password").value
         getToken(username, password)

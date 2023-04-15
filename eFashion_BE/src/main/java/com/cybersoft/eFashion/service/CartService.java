@@ -23,6 +23,22 @@ public class CartService implements CartServiceImp {
             orderItemsDTO.setQuantity(orderItems.getQuantity());
             orderItemsDTO.setName(orderItems.getProducts().getName());
             orderItemsDTO.setPrice(orderItems.getProducts().getPrice());
+            orderItemsDTO.setProductId(orderItems.getProducts().getId());
+            list.add(orderItemsDTO);
+        }
+        return list;
+    }
+
+    @Override
+    public List<OrderItemsDTO> getOrderItemsById(int id) {
+        List<OrderItemsDTO> list= new ArrayList<>();
+        for ( OrderItems orderItems :cartRepository.getOrderItemById(id)){
+            OrderItemsDTO orderItemsDTO = new OrderItemsDTO();
+            orderItemsDTO.setId(orderItems.getId());
+            orderItemsDTO.setQuantity(orderItems.getQuantity());
+            orderItemsDTO.setName(orderItems.getProducts().getName());
+            orderItemsDTO.setPrice(orderItems.getProducts().getPrice());
+            orderItemsDTO.setProductId(orderItems.getProducts().getId());
 
             list.add(orderItemsDTO);
         }
