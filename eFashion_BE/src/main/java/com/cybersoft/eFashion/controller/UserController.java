@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Random;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
