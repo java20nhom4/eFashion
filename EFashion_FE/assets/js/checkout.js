@@ -28,6 +28,7 @@ async function getId() {
     const data = await getEmailFromToken(token)
     const id = data.map((c) => c.id)
     localStorage.setItem("userId", id)
+    console.log(id)
 }
 getId()
 
