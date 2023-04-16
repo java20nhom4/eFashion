@@ -11,6 +11,7 @@ import com.cybersoft.eFashion.service.imp.FileStorageServiceImp;
 import com.cybersoft.eFashion.service.imp.RatingServiceImp;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +21,9 @@ import java.util.Calendar;
 import java.util.List;
 @Service
 public class RatingService implements RatingServiceImp {
+    @Value("${fileStorage.path}")
+    private String parentFolder;
+
     @Autowired
     RatingRepository ratingRepository;
 
@@ -39,7 +43,9 @@ public class RatingService implements RatingServiceImp {
         rate_dto.setPro_id(rate.getProducts().getId());
         rate_dto.setStar(rate.getStar());
         rate_dto.setComment(rate.getComment());
-        rate_dto.setImage(rate.getImage());
+        String path  = parentFolder + "\\" + FolderType.Ratings.toString() + "\\" + rate.getImage();
+        System.out.println(path);
+        rate_dto.setImage(path);
         return rate_dto;
     }
 
