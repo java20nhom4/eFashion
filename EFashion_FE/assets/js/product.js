@@ -1,4 +1,4 @@
-  class Pagination {
+class Pagination {
   constructor(items, itemsPerPage) {
     this.items = items;
     this.itemsPerPage = itemsPerPage;
@@ -20,12 +20,12 @@
   }
 }
 
-const productList = document.querySelector('#product-list');
+const productList = document.querySelector("#product-list");
 
 // Lấy danh sách sản phẩm từ API GET
-fetch('http://localhost:8080/api/products')
-  .then(response => response.json())
-  .then(products => {
+fetch("http://localhost:8080/api/products")
+  .then((response) => response.json())
+  .then((products) => {
     const itemsPerPage = 9;
     const pagination = new Pagination(products, itemsPerPage);
 
@@ -37,14 +37,14 @@ fetch('http://localhost:8080/api/products')
 
     function renderPage(items) {
       // Xóa danh sách sản phẩm hiện tại
-      productList.innerHTML = '';
+      productList.innerHTML = "";
 
       // Tạo phần tử HTML cho mỗi sản phẩm
-      items.forEach(product => {
-        const productItem = document.createElement('div');
-        productItem.classList.add('col-xl-4', 'col-md-4', 'col-sm-6');
+      items.forEach((product) => {
+        const productItem = document.createElement("div");
+        productItem.classList.add("col-xl-4", "col-md-4", "col-sm-6");
         productItem.innerHTML = `
-          <div class="product-item product-item2 element-item3 sidebar-left">
+          <div class="product-item product-item2 element-item3 sidebar-left" data-id="${product.id} >
               <a href="#" class="product-image">
                   <img src="${product.image}" alt="product-image">
               </a>
@@ -61,18 +61,23 @@ fetch('http://localhost:8080/api/products')
               </div>
           </div>
         `;
+        // Bắt sự kiện click vào sản phẩm
+        productItem.addEventListener("click", () => {
+          // Chuyển sang trang product details
+          window.location.href = `product-details.html?id=${product.id}`;
+        });
         productList.appendChild(productItem);
       });
     }
 
     function renderPaginationControls(pagination) {
-      const paginationContainer = document.querySelector('#pagination');
+      const paginationContainer = document.querySelector("#pagination");
       const totalPages = pagination.totalPages;
 
       for (let i = 1; i <= totalPages; i++) {
-        const pageButton = document.createElement('button');
+        const pageButton = document.createElement("button");
         pageButton.textContent = i;
-        pageButton.addEventListener('click', () => {
+        pageButton.addEventListener("click", () => {
           pagination.goToPage(i);
           renderPage(pagination.visibleItems);
         });
