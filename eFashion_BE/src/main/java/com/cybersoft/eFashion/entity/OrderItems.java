@@ -2,6 +2,7 @@ package com.cybersoft.eFashion.entity;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "order_item")
 public class OrderItems {
@@ -18,6 +19,9 @@ public class OrderItems {
     @ManyToOne
     @JoinColumn(name = "product_id" , insertable = false, updatable = false)
     private Products products;
+
+    @OneToMany(mappedBy = "orderItems")
+    private Set<PlaceOrders> placeOrders;
 
 
     public int getId() {
@@ -42,5 +46,13 @@ public class OrderItems {
 
     public void setProducts(Products products) {
         this.products = products;
+    }
+
+    public Set<PlaceOrders> getPlaceOrders() {
+        return placeOrders;
+    }
+
+    public void setPlaceOrders(Set<PlaceOrders> placeOrders) {
+        this.placeOrders = placeOrders;
     }
 }

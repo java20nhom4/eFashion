@@ -31,14 +31,33 @@
     <link rel="stylesheet" type="text/css" href="assets/css/variables/variable6.css">
     <!--================= Main Stylesheet =================-->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <style>
+        /* .rts-product-details-section .product-full-details-area .full-details.dls-three.filterd-items .full-details-inner .reveiw-form-main .contact-form .input-box.text-input::before {
+        content: "\f030";
+        cursor: pointer;
+    } */
+        /* .rts-product-details-section .product-full-details-area .full-details.dls-three.filterd-items .full-details-inner .reveiw-form-main .contact-form .input-box.text-input::before:hover {
+        background-color: gray;
+    } */
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    div[id^="divRating__"] span a .fas.fa-star, div[id^="divRating__"] span a .fal.fa-star, 
+    #divCreateRating span .fas.fa-star, #divCreateRating span .fal.fa-star {
+        color: red;
+    }
+    </style>        
+    
 </head>
 
 <body>
     <!--================= Preloader Section Start Here =================-->
     <div id="weiboo-load">
         <div class="preloader-new">
-            <svg class="cart_preloader" role="img" aria-label="Shopping cart_preloader line animation"
-                viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
+            <svg class="cart_preloader" role="img" aria-label="Shopping cart_preloader line animation" viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
                     <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
                         <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
@@ -73,7 +92,7 @@
                     <div class="menu-item">
                     </div>
                     <div class="menu-area-right-side">
-                        <div class="contact"><i aria-hidden="true" class="fas fa-phone"></i>Need help? Call us:  <strong>038.123.456</strong>
+                        <div class="contact"><i aria-hidden="true" class="fas fa-phone"></i>Need help? Call us: <strong>038.123.456</strong>
                         </div>
                         <div class="topbar-select-area">
                             <select class="topbar-select custom-select">
@@ -111,106 +130,14 @@
                         </div>
                         <div class="rts-menu">
                             <nav class="menus menu-toggle">
-                                <ul class="nav__menu">                                    
+                                <ul class="nav__menu">
                                     <li class="has-dropdown"><a class="menu-item" href="#">Clothes <i
                                                 class="rt-plus"></i></a>
-                                        <ul class="dropdown-ul mega-dropdown">
-                                            <li class="mega-dropdown-li">
-                                                <ul class="mega-dropdown-ul">
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">All Tops</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">T-Shirt</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Polo Shirts</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Hoodies</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Casual Shirts</a>
-                                                     </li>                                                   
-                                                </ul>
-                                            </li>
-                                            <li class="mega-dropdown-li">
-                                                <ul class="mega-dropdown-ul">
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                        href="products.html">All Bottoms</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Jeans</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Shorts</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Kaki Pants</a>
-                                                    </li>                                                   
-                                                </ul>
-                                            </li>
-                                            <li class="mega-dropdown-li last-child">
-                                                <ul class="mega-dropdown-ul">
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                        href="products.html">All Outerwear</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Blousons</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Jackets</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Blazers</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-dropdown-li last-child">
-                                                <ul class="mega-dropdown-ul">
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                        href="products.html">All Underwear</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Boxers</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Undershirts</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Socks</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-dropdown-li last-child">
-                                                <ul class="mega-dropdown-ul">
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                        href="products.html">Sport Utility Wear</a>
-                                                    </li>                                                    
-                                                </ul>
-                                            </li>
-                                            <li class="mega-dropdown-li last-child">
-                                                <ul class="mega-dropdown-ul">
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                        href="products.html">All Accessories</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Bags</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Belts</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html">Sunglasses</a>
-                                                    </li>
-                                                    <li class="dropdown-li"><a class="dropdown-link2"
-                                                        href="products.html">Shoes</a>
-                                                </li>
-                                                </ul>
-                                            </li>
+                                        <ul class="dropdown-ul mega-dropdown" id ="show-detail">
+                                           
                                         </ul>
-                                    </li>       
-                                   
+                                    </li>
+
                                     <li><a class="menu-item" href="contact.html">About E-Fashion</a></li>
                                     <li><a class="menu-item" href="contact.html">Blog</a></li>
                                 </ul>
@@ -238,8 +165,7 @@
                                     <div class="container">
                                         <div class="search-input-inner">
                                             <div class="input-div">
-                                                <input id="searchInput1" class="search-input" type="text"
-                                                    placeholder="Search by keyword or #">
+                                                <input id="searchInput1" class="search-input" type="text" placeholder="Search by keyword or #">
                                             </div>
                                             <div class="search-close-icon"><i class="rt-xmark"></i></div>
                                         </div>
@@ -250,154 +176,152 @@
                             <div class="cart action-item">
                                 <div class="cart-nav">
                                     <div class="cart-icon icon"><a href="#0"><i aria-hidden="true"
-                                                class="fas fa-shopping-basket"></i></a><span
-                                            class="wishlist-dot icon-dot">3</span></div>
+                                                class="fas fa-shopping-basket"></i></a><span class="wishlist-dot icon-dot">3</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <div class="cart-bar">
-            <div class="cart-header">
-                <h3 class="cart-heading">MY CART (3 ITEMS)</h3>
-                <div class="close-cart"><i class="fal fa-times"></i></div>
-            </div>
-            <div class="product-area">
-                <div class="product-item">
-                    <div class="product-detail">
-                        <div class="product-thumb"><img src="assets/images/slider/image1.jpg" alt="product-thumb"></div>
-                        <div class="item-wrapper">
-                            <span class="product-name">Parachute Jacket</span>
+            <div class="cart-bar">
+                <div class="cart-header">
+                    <h3 class="cart-heading">MY CART (3 ITEMS)</h3>
+                    <div class="close-cart"><i class="fal fa-times"></i></div>
+                </div>
+                <div class="product-area">
+                    <div class="product-item">
+                        <div class="product-detail">
+                            <div class="product-thumb"><img src="assets/images/slider/image1.jpg" alt="product-thumb"></div>
                             <div class="item-wrapper">
-                                <span class="product-variation"><span class="color">Green /</span>
+                                <span class="product-name">Parachute Jacket</span>
+                                <div class="item-wrapper">
+                                    <span class="product-variation"><span class="color">Green /</span>
                                     <span class="size">XL</span></span>
+                                </div>
+                                <div class="item-wrapper">
+                                    <span class="product-qnty">3 ×</span>
+                                    <span class="product-price">$198.00</span>
+                                </div>
                             </div>
-                            <div class="item-wrapper">
-                                <span class="product-qnty">3 ×</span>
-                                <span class="product-price">$198.00</span>
+                        </div>
+                        <div class="cart-edit">
+                            <div class="quantity-edit">
+                                <button class="button"><i class="fal fa-minus minus"></i></button>
+                                <input type="text" class="input" value="3" />
+                                <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                            </div>
+                            <div class="item-wrapper d-flex mr--5 align-items-center">
+                                <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
+                                <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="cart-edit">
-                        <div class="quantity-edit">
-                            <button class="button"><i class="fal fa-minus minus"></i></button>
-                            <input type="text" class="input" value="3" />
-                            <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                    <div class="product-item">
+                        <div class="product-detail">
+                            <div class="product-thumb"><img src="assets/images/slider/image2.jpg" alt="product-thumb"></div>
+                            <div class="item-wrapper">
+                                <span class="product-name">Narrow Trouser</span>
+                                <div class="item-wrapper">
+                                    <span class="product-variation"><span class="color">Green /</span>
+                                    <span class="size">XL</span></span>
+                                </div>
+                                <div class="item-wrapper">
+                                    <span class="product-qnty">2 ×</span>
+                                    <span class="product-price">$88.00</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="item-wrapper d-flex mr--5 align-items-center">
-                            <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
-                            <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
+                        <div class="cart-edit">
+                            <div class="quantity-edit">
+                                <button class="button"><i class="fal fa-minus minus"></i></button>
+                                <input type="text" class="input" value="2" />
+                                <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                            </div>
+                            <div class="item-wrapper d-flex mr--5 align-items-center">
+                                <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
+                                <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item last-child">
+                        <div class="product-detail">
+                            <div class="product-thumb"><img src="assets/images/slider/image5.jpg" alt="product-thumb"></div>
+                            <div class="item-wrapper">
+                                <span class="product-name">Bellyless Hoodie</span>
+                                <div class="item-wrapper">
+                                    <span class="product-variation"><span class="color">Green /</span>
+                                    <span class="size">XL</span></span>
+                                </div>
+                                <div class="item-wrapper">
+                                    <span class="product-qnty">1 ×</span>
+                                    <span class="product-price">$289.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-edit">
+                            <div class="quantity-edit">
+                                <button class="button"><i class="fal fa-minus minus"></i></button>
+                                <input type="text" class="input" value="2" />
+                                <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                            </div>
+                            <div class="item-wrapper d-flex mr--5 align-items-center">
+                                <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
+                                <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="product-item">
-                    <div class="product-detail">
-                        <div class="product-thumb"><img src="assets/images/slider/image2.jpg" alt="product-thumb"></div>
-                        <div class="item-wrapper">
-                            <span class="product-name">Narrow Trouser</span>
-                            <div class="item-wrapper">
-                                <span class="product-variation"><span class="color">Green /</span>
-                                    <span class="size">XL</span></span>
-                            </div>
-                            <div class="item-wrapper">
-                                <span class="product-qnty">2 ×</span>
-                                <span class="product-price">$88.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-edit">
-                        <div class="quantity-edit">
-                            <button class="button"><i class="fal fa-minus minus"></i></button>
-                            <input type="text" class="input" value="2" />
-                            <button class="button plus">+<i class="fal fa-plus plus"></i></button>
-                        </div>
-                        <div class="item-wrapper d-flex mr--5 align-items-center">
-                            <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
-                            <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item last-child">
-                    <div class="product-detail">
-                        <div class="product-thumb"><img src="assets/images/slider/image5.jpg" alt="product-thumb"></div>
-                        <div class="item-wrapper">
-                            <span class="product-name">Bellyless Hoodie</span>
-                            <div class="item-wrapper">
-                                <span class="product-variation"><span class="color">Green /</span>
-                                    <span class="size">XL</span></span>
-                            </div>
-                            <div class="item-wrapper">
-                                <span class="product-qnty">1 ×</span>
-                                <span class="product-price">$289.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-edit">
-                        <div class="quantity-edit">
-                            <button class="button"><i class="fal fa-minus minus"></i></button>
-                            <input type="text" class="input" value="2" />
-                            <button class="button plus">+<i class="fal fa-plus plus"></i></button>
-                        </div>
-                        <div class="item-wrapper d-flex mr--5 align-items-center">
-                            <a href="#" class="product-edit"><i class="fal fa-edit"></i></a>
-                            <a href="#" class="delete-cart"><i class="fal fa-times"></i></a>
-                        </div>
-                    </div>
+                <div class="cart-bottom-area">
+                    <span class="spend-shipping"><i class="fal fa-truck"></i> SPENT <span class="amount">$199.00</span> MORE FOR FREE SHIPPING</span>
+                    <span class="total-price">TOTAL: <span class="price">$556</span></span>
+                    <a href="checkout.html" class="checkout-btn cart-btn">PROCEED TO CHECKOUT</a>
+                    <a href="cart.html" class="view-btn cart-btn">VIEW CART</a>
                 </div>
             </div>
-            <div class="cart-bottom-area">
-                <span class="spend-shipping"><i class="fal fa-truck"></i> SPENT <span class="amount">$199.00</span> MORE
-                    FOR FREE SHIPPING</span>
-                <span class="total-price">TOTAL: <span class="price">$556</span></span>
-                <a href="checkout.html" class="checkout-btn cart-btn">PROCEED TO CHECKOUT</a>
-                <a href="cart.html" class="view-btn cart-btn">VIEW CART</a>
-            </div>
-        </div>
-        <!-- slide-bar start -->
-        <aside class="slide-bar">
-            <div class="offset-sidebar">
-                <a class="hamburger-1 mobile-hamburger-1 ml--30" href="#"><span><i class="rt-xmark"></i></span></a>
-            </div>
-            <!-- offset-sidebar start -->
-            <div class="offset-sidebar-main">
-                <div class="offset-widget mb-40">
-                    <div class="info-widget">
-                        <img src="assets/images/logo1.svg" alt="">
-                        <p class="mb-30">
-                            We must explain to you how all seds this mistakens idea denouncing pleasures and praising account.
-                        </p>
-                    </div>
-                    <div class="info-widget info-widget2">
-                        <h4 class="offset-title mb-20">Get In Touch </h4>
-                        <ul>
-                            <li class="info phone"><a href="tel:78090790890208806803">780 907 908 90, 208 806 803</a></li>
-                            <li class="info email"><a href="email:info@webmail.com">info@webmail.com</a></li>
-                            <li class="info web"><a href="www.webexample.com">www.webexample.com</a></li>
-                            <li class="info location">13/A, New Pro State, NYC</li>
-                        </ul>
-                        <div class="offset-social-link">
-                            <h4 class="offset-title mb-20">Follow Us </h4>
-                            <ul class="social-icon">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+            <!-- slide-bar start -->
+            <aside class="slide-bar">
+                <div class="offset-sidebar">
+                    <a class="hamburger-1 mobile-hamburger-1 ml--30" href="#"><span><i class="rt-xmark"></i></span></a>
+                </div>
+                <!-- offset-sidebar start -->
+                <div class="offset-sidebar-main">
+                    <div class="offset-widget mb-40">
+                        <div class="info-widget">
+                            <img src="assets/images/logo1.svg" alt="">
+                            <p class="mb-30">
+                                We must explain to you how all seds this mistakens idea denouncing pleasures and praising account.
+                            </p>
+                        </div>
+                        <div class="info-widget info-widget2">
+                            <h4 class="offset-title mb-20">Get In Touch </h4>
+                            <ul>
+                                <li class="info phone"><a href="tel:78090790890208806803">780 907 908 90, 208 806 803</a></li>
+                                <li class="info email"><a href="email:info@webmail.com">info@webmail.com</a></li>
+                                <li class="info web"><a href="www.webexample.com">www.webexample.com</a></li>
+                                <li class="info location">13/A, New Pro State, NYC</li>
                             </ul>
+                            <div class="offset-social-link">
+                                <h4 class="offset-title mb-20">Follow Us </h4>
+                                <ul class="social-icon">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-		    <!-- offset-sidebar end -->
-            
-            <div class="header-action-items header-action-items1 header-action-items-side">
-                <div class="search-part">
-                    <div class="search-icon action-item icon"><i class="rt-search"></i></div>
-                    <div class="search-input-area">
-                        <div class="container">
-                            <div class="search-input-inner">
-                                <select id="custom-select">
+                <!-- offset-sidebar end -->
+
+                <div class="header-action-items header-action-items1 header-action-items-side">
+                    <div class="search-part">
+                        <div class="search-icon action-item icon"><i class="rt-search"></i></div>
+                        <div class="search-input-area">
+                            <div class="container">
+                                <div class="search-input-inner">
+                                    <select id="custom-select">
                                     <option value="hide">All Catagory</option>
                                     <option value="all">All</option>
                                     <option value="men">Men</option>
@@ -407,43 +331,58 @@
                                     <option value="shoes">Bags</option>
                                     <option value="shoes">Assesories</option>
                                 </select>
-                                <div class="input-div">
-                                    <div class="search-input-icon"><i class="rt-search mr--10"></i></div>
-                                    <input class="search-input" type="text" placeholder="Search by keyword or #">
+                                    <div class="input-div">
+                                        <div class="search-input-icon"><i class="rt-search mr--10"></i></div>
+                                        <input class="search-input" type="text" placeholder="Search by keyword or #">
+                                    </div>
+                                    <div class="search-close-icon"><i class="rt-xmark"></i></div>
                                 </div>
-                                <div class="search-close-icon"><i class="rt-xmark"></i></div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="cart action-item">
-                    <div class="cart-nav">
-                        <div class="cart-icon icon"><i class="rt-cart"></i><span class="wishlist-dot icon-dot">3</span>
+                    <div class="cart action-item">
+                        <div class="cart-nav">
+                            <div class="cart-icon icon"><i class="rt-cart"></i><span class="wishlist-dot icon-dot">3</span>
+                            </div>
                         </div>
                     </div>
+                    <div class="wishlist action-item">
+                        <div class="favourite-icon icon"><i class="rt-heart"></i><span class="cart-dot icon-dot">0</span>
+                        </div>
+                    </div>
+                    <a href="login.html" class="account"><i class="rt-user-2"></i></a>
                 </div>
-                <div class="wishlist action-item">
-                    <div class="favourite-icon icon"><i class="rt-heart"></i><span class="cart-dot icon-dot">0</span>
+                <!-- side-mobile-menu end -->
+            </aside>
+            <div class="page-path">
+                <div class="container">
+                    <div class="breadcrumbs-inner">
+                        <h1 class="path-title">Product-Details</h1>
+                        <ul>
+                            <li><a class="home-page-link" href="index.html">Home <i class="fal fa-angle-right"></i></a></li>
+                            <li><a class="current-page" href="#">Product-Details</a></li>
+                        </ul>
                     </div>
                 </div>
-                <a href="login.html" class="account"><i class="rt-user-2"></i></a>
             </div>
-            <!-- side-mobile-menu end -->
-        </aside>
-        <div class="page-path">
-            <div class="container">
-                <div class="breadcrumbs-inner">
-                    <h1 class="path-title">Product-Details</h1>
-                    <ul>
-                        <li><a class="home-page-link" href="index.html">Home <i class="fal fa-angle-right"></i></a></li>
-                        <li><a class="current-page" href="#">Product-Details</a></li>
-                    </ul>
+    </header>
+    <!--================= Header Section End Here =================-->
+    <div class="product-details-popup-wrapper">
+        <div class="rts-product-details-section rts-product-details-section2 product-details-popup-section">
+            <div class="product-details-popup" style="height: 260px !important; display: flex;width: 500px; justify-content: center;">
+                <div class="message-contents">
+                    <h1 class="message-title">Login to add to cart</h1>
+                    <div class="message-btn">
+                        <a href="login.html">Login</a>
+                    </div>
+                    <div class="message-link">No account?
+                        <a href="register.html"> Signup now</a>
+                        <p style="margin-left:12px;">Tap anywhere to exit.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-    <!--================= Header Section End Here =================-->
-
+    </div>
     <!--================= Product-details Section Start Here =================-->
     <div class="rts-product-details-section section-gap">
         <div id="product-details" class="container">
@@ -451,11 +390,23 @@
                 <div class="product-thumb-area">
                     <div class="cursor"></div>
                     <div class="thumb-wrapper one filterd-items figure">
-                        <div class="product-thumb zoom" onmousemove="zoom(event)"
-                            style="background-image: url(assets/images/products/product-details.jpg)"><img
-                                src="assets/images/products/product-details.jpg" alt="product-thumb">
+                        <div class="product-thumb zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-details.jpg)"><img src="assets/images/products/product-details.jpg" alt="product-thumb">
                         </div>
-                    </div>            
+                    </div> 
+                    </div>
+                    <div class="thumb-wrapper two filterd-items hide">
+                        <div class="product-thumb zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-filt2.jpg)"><img src="assets/images/products/product-filt2.jpg" alt="product-thumb">
+                        </div>
+                    </div>
+                    <div class="thumb-wrapper three filterd-items hide">
+                        <div class="product-thumb zoom" onmousemove="zoom(event)" style="background-image: url(assets/images/products/product-filt3.jpg)"><img src="assets/images/products/product-filt3.jpg" alt="product-thumb">
+                        </div>
+                    </div>
+                    <div class="product-thumb-filter-group">
+                        <div class="thumb-filter filter-btn active" data-show=".one"><img src="assets/images/products/product-filt1.jpg" alt="product-thumb-filter"></div>
+                        <div class="thumb-filter filter-btn" data-show=".two"><img src="assets/images/products/product-filt2.jpg" alt="product-thumb-filter"></div>
+                        <div class="thumb-filter filter-btn" data-show=".three"><img src="assets/images/products/product-filt3.jpg" alt="product-thumb-filter"></div>
+                    </div>
                 </div>
                 <div class="contents">
                     <div class="product-status">
@@ -470,9 +421,7 @@
                     <h2 class="product-title">Wide Cotton Tunic Dress <span class="stock">In Stock</span></h2>
                     <span class="product-price"> $7.25</span>
                     <p>
-                        Priyoshop has brought to you the Hijab 3 Pieces Combo Pack PS23. It is a
-                        completely modern design and you feel comfortable to put on this hijab.
-                        Buy it at the best price.
+                        Priyoshop has brought to you the Hijab 3 Pieces Combo Pack PS23. It is a completely modern design and you feel comfortable to put on this hijab. Buy it at the best price.
                     </p>
                     <div class="product-bottom-action">
                         <div class="cart-edit">
@@ -482,7 +431,7 @@
                                 <button class="button plus">+<i class="fal fa-plus plus"></i></button>
                             </div>
                         </div>
-                        <a href="cart.html" class="addto-cart-btn action-item"><i class="rt-basket-shopping"></i> Add To
+                        <a href="#" class="product-action addto-cart-btn action-item"><i class="rt-basket-shopping"></i> Add To
                             Cart</a>
                         <a href="wishlist.html" class="wishlist-btn action-item"><i class="rt-heart"></i></a>
                     </div>
@@ -508,82 +457,63 @@
                 </div>
                 <div class="full-details dls-one filterd-items">
                     <div class="full-details-inner">
-                        <p class="mb--30">In marketing a product is an object or system made available for consumer use
-                            it is anything that can be offered to a market to satisfy the desire or need of a customer.
-                            In retailing, products are
-                            merchandise, and in manufacturing, products are bought as raw materials and then sold as
-                            finished goods. A service is also regarded to as a type of product. Commodities are usually
-                            raw material
-                            and agricultural products, but a commodity can also be anything widely available in the open
-                            market. In project management, products are the formal definition of the project
-                            deliverables that
-                            to delivering the objectives of the project.</p>
-                        <p>A product can be classified as tangible or intangible. A tangible product is a physical
-                            object that can be perceived by touch such as a building, vehicle, gadget, or clothing. An
-                            intangible product is
-                            can only be perceived indirectly such as an insurance policy. Services can be broadly
-                            classified under intangible products which can be durable or non durable. A product line is
-                            "a group of
-                            closely related, either because they function in a similar manner, are sold to the same
-                            customer groups, are marketed through the same types of outlets, or fall within given price
-                            ranges."Many
-                            range of product lines which may be unique to a single organisation or may be common across
-                            the business's industry. In 2002 the US Census compiled revenue figures for the finance and
-                            various product lines such as "accident, health and medical insurance premiums" and "income
-                            from secured consumer loans.</p>
+                        <p class="mb--30">In marketing a product is an object or system made available for consumer use it is anything that can be offered to a market to satisfy the desire or need of a customer. In retailing, products are merchandise, and in manufacturing,
+                            products are bought as raw materials and then sold as finished goods. A service is also regarded to as a type of product. Commodities are usually raw material and agricultural products, but a commodity can also be anything
+                            widely available in the open market. In project management, products are the formal definition of the project deliverables that to delivering the objectives of the project.</p>
+                        <p>A product can be classified as tangible or intangible. A tangible product is a physical object that can be perceived by touch such as a building, vehicle, gadget, or clothing. An intangible product is can only be perceived indirectly
+                            such as an insurance policy. Services can be broadly classified under intangible products which can be durable or non durable. A product line is "a group of closely related, either because they function in a similar manner,
+                            are sold to the same customer groups, are marketed through the same types of outlets, or fall within given price ranges."Many range of product lines which may be unique to a single organisation or may be common across the business's
+                            industry. In 2002 the US Census compiled revenue figures for the finance and various product lines such as "accident, health and medical insurance premiums" and "income from secured consumer loans.</p>
                     </div>
                 </div>
                 <div class="full-details dls-three filterd-items hide">
                     <div class="full-details-inner">
-                        <p>There are no reveiws yet.</p>
+                        <div class="row" id="showReview">
+                        </div>
+                        <p id="noReviewYet">There are no reveiws yet.</p>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 mr-10">
                                 <div class="reveiw-form">
-                                    <h2 class="section-title">
-                                        Be the first to reveiw <strong> <a href="product-details.html">"Wide Cotton Tunic Dress"</a></strong></h2>
-                                        <h4 class="sect-title">Your email address will not be published. Required fields are marked* </h4>
-                                        <div class="reveiw-form-main mb-10">
-                                            <div class="contact-form">
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-sm-12">
-                                                        <div class="input-box text-input mb-20">
-                                                            <textarea name="Message" id="validationDefault01"  cols="30" rows="10"
-                                                                placeholder="Your Review*" required></textarea>
-                                                        </div>
+                                    <div class="reveiw-form-main mb-10">
+                                        <div class="contact-form">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <div class="input-box text-input mb-20">
+                                                        <textarea name="Message" id="textCommentRating" cols="30" rows="10" placeholder="Write review and upload picture (optional)*" required></textarea>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-12">
-                                                        <div class="col-lg-12">
-                                                            <div class="input-box mb-20">
-                                                                <input type="text" id="validationDefault02" placeholder="Name*" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="input-box mail-input mb-20">
-                                                                <input type="text" id="validationDefault03" placeholder="E-mail*" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="rating">
-                                                                <p>Your Rating :</p>
-                                                                <div class="rating-icon">
-                                                                    <span class="one"><a href="#"> <i class="fal fa-star"></i></a></span>
-                                                                    <span class="two"><a href="#"> <i class="fal fa-star"></i></a></span>
-                                                                    <span class="three"><a href="#"> <i class="fal fa-star"></i></a></span>
-                                                                    <span class="four"><a href="#"> <i class="fal fa-star"></i></a></span>
-                                                                    <span class="five"><a href="#"> <i class="fal fa-star"></i></a></span>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-12">                                                    
+                                                    <div class="col-lg-12">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-lg-6">
+                                                                <div class="rating">
+                                                                    <p>Your Rating :</p>
+                                                                    <div class="rating-icon" id="divCreateRating">
+                                                                        <span class="one" numberRating="1"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                        <span class="two" numberRating="2"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                        <span class="three" numberRating="3"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                        <span class="four" numberRating="4"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                        <span class="five" numberRating="5"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-6 col-lg-6">
+                                                                <input type="file" name="fileCreateRating" id="fileCreateRating" onchange="readURL(this)" accept="image/png, image/gif, image/jpeg" />
+                                                                <img id="imageCreateRating" src="">
+                                                            </div>
                                                         </div>
-                                                        <div class="col-12 mb-15">
-                                                            <button class="form-btn form-btn4">
+                                                        
+                                                    </div>
+                                                    <div class="col-12 mb-15">
+                                                        <button class="form-btn form-btn4" onclick="addRating()">
                                                                 Submit <i class="fal fa-long-arrow-right"></i>
-                                                            </button>
-                                                        </div>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
-            
                                         </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -607,11 +537,9 @@
                     <div  id="related-products" class="col-xl-3 col-md-4 col-sm-6 col-12">
                         <div class="product-item element-item1">
                             <a href="product-details.html" class="product-image image-hover-variations">
-                                <div class="image-vari1 image-vari"><img
-                                        src="assets/images/hand-picked/slider-img13-1.webp" alt="product-image">
+                                <div class="image-vari1 image-vari"><img src="assets/images/hand-picked/slider-img13-1.webp" alt="product-image">
                                 </div>
-                                <div class="image-vari2 image-vari"><img
-                                        src="assets/images/hand-picked/slider-img13.webp" alt="product-image">
+                                <div class="image-vari2 image-vari"><img src="assets/images/hand-picked/slider-img13.webp" alt="product-image">
                                 </div>
                             </a>
                             <div class="bottom-content">
@@ -643,7 +571,133 @@
                             </div>
                         </div>
                     </div>
-               
+                    <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                        <div class="product-item element-item1">
+                            <a href="product-details.html" class="product-image image-hover-variations">
+                                <div class="image-vari1 image-vari"><img src="assets/images/hand-picked/slider-img14.webp" alt="product-image">
+                                </div>
+                                <div class="image-vari2 image-vari"><img src="assets/images/hand-picked/slider-img14-1.webp" alt="product-image">
+                                </div>
+                            </a>
+                            <div class="bottom-content">
+                                <div class="star-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="product-details.html" class="product-name">Girl's Sport Bra</a>
+                                <div class="action-wrap">
+                                    <span class="price">$31.00</span>
+                                </div>
+                            </div>
+                            <div class="quick-action-button">
+                                <div class="cta-single cta-plus">
+                                    <a href="#"><i class="rt-plus"></i></a>
+                                </div>
+                                <div class="cta-single cta-quickview">
+                                    <a href="#"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="cta-single cta-wishlist">
+                                    <a href="#"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div class="cta-single cta-addtocart">
+                                    <a href="#"><i class="rt-basket-shopping"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                        <div class="product-item element-item2">
+                            <a href="product-details.html" class="product-image image-slider-variations">
+                                <div class="swiper productSlide">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="image-vari1 image-vari"><img src="assets/images/hand-picked/slider-img12-1.webp" alt="product-image">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="image-vari2 image-vari"><img src="assets/images/hand-picked/slider-img11_1.webp" alt="product-image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-buttons">
+                                    <div class="button-prev slider-btn"><i class="rt-arrow-left-long"></i></div>
+                                    <div class="button-next slider-btn"><i class="rt-arrow-right-long"></i></div>
+                                </div>
+                            </a>
+                            <div class="bottom-content">
+                                <div class="star-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <a href="product-details.html" class="product-name">Maidenform Bra</a>
+                                <div class="action-wrap">
+                                    <span class="price">$31.00</span>
+                                </div>
+                            </div>
+                            <div class="quick-action-button">
+                                <div class="cta-single cta-plus">
+                                    <a href="#"><i class="rt-plus"></i></a>
+                                </div>
+                                <div class="cta-single cta-quickview">
+                                    <a href="#"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="cta-single cta-wishlist">
+                                    <a href="#"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div class="cta-single cta-addtocart">
+                                    <a href="#"><i class="rt-basket-shopping"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                        <div class="product-item element-item1">
+                            <a href="product-details.html" class="product-image image-hover-variations">
+                                <div class="image-vari1 image-vari"><img src="assets/images/hand-picked/slider-img12.webp" alt="product-image">
+                                </div>
+                                <div class="image-vari2 image-vari"><img src="assets/images/hand-picked/slider-img12-3.webp" alt="product-image">
+                                </div>
+                            </a>
+                            <div class="bottom-content">
+                                <div class="star-rating">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <a href="product-details.html" class="product-name">Hanes Women's Bra</a>
+                                <div class="action-wrap">
+                                    <span class="price">$31.00</span>
+                                </div>
+                            </div>
+                            <div class="quick-action-button">
+                                <div class="cta-single cta-plus">
+                                    <a href="#"><i class="rt-plus"></i></a>
+                                </div>
+                                <div class="cta-single cta-quickview">
+                                    <a href="#"><i class="far fa-eye"></i></a>
+                                </div>
+                                <div class="cta-single cta-wishlist">
+                                    <a href="#"><i class="far fa-heart"></i></a>
+                                </div>
+                                <div class="cta-single cta-addtocart">
+                                    <a href="#"><i class="rt-basket-shopping"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-features">
+                                <div class="discount-tag product-tag">-38%</div>
+                                <div class="new-tag product-tag">HOT</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -668,8 +722,7 @@
                             </div>
                             <div class="title">
                                 <h1 class="box-title">International Shipment</h1>
-                                <p>Orders are shipped seamlessly
-                                    between countries</p>
+                                <p>Orders are shipped seamlessly between countries</p>
                             </div>
                         </div>
                     </div>
@@ -682,8 +735,7 @@
                             </div>
                             <div class="title">
                                 <h1 class="box-title">Online Support 24/7</h1>
-                                <p>Orders are shipped seamlessly
-                                    between countries</p>
+                                <p>Orders are shipped seamlessly between countries</p>
                             </div>
                         </div>
                     </div>
@@ -696,8 +748,7 @@
                             </div>
                             <div class="title">
                                 <h1 class="box-title">Money Return</h1>
-                                <p>Orders are shipped seamlessly
-                                    between countries</p>
+                                <p>Orders are shipped seamlessly between countries</p>
                             </div>
                         </div>
                     </div>
@@ -710,8 +761,7 @@
                             </div>
                             <div class="title">
                                 <h1 class="box-title">Member Discount</h1>
-                                <p>Orders are shipped seamlessly
-                                    between countries</p>
+                                <p>Orders are shipped seamlessly between countries</p>
                             </div>
                         </div>
                     </div>
@@ -727,10 +777,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="quick-contact">
                             <div class="phone contact-item">
-                                <div class="icon"><svg 
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="40px" height="40px">
+                                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="40px">
                                    <defs>
                                    <filter id="Filter_0">
                                        <feFlood flood-color="rgb(238, 64, 61)" flood-opacity="1" result="floodOut" />
@@ -749,7 +796,7 @@
                                     <span class="title">Mon - Fri: 9:00-20:00</span>
                                     <a href="tel:0020500" class="service-time info">0020 500 - CALL - 000</a>
                                 </div>
-                            </div>                           
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-25 col-md-8 col-sm-8">
@@ -769,8 +816,8 @@
                     </div>
                     <div class="col-xl-3 col-md-4 col-sm-4 ">
                         <div class="payment-methods"><img src="assets/images/footer/payment2.svg" alt="payment-methods">
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -788,8 +835,7 @@
 
 
     <!--================= Scroll to Top Start =================-->
-    <div class="scroll-top-btn scroll-top-btn1"><i class="fas fa-angle-up arrow-up"></i><i
-            class="fas fa-circle-notch"></i></div>
+    <div class="scroll-top-btn scroll-top-btn1"><i class="fas fa-angle-up arrow-up"></i><i class="fas fa-circle-notch"></i></div>
     <!--================= Scroll to Top End =================-->
 
     <!--================= Jquery latest version =================-->
@@ -800,6 +846,7 @@
     <script src="assets/js/vendors/wow.min.js"></script>
     <!--================= Swiper Slider =================-->
     <script src="assets/js/vendors/swiper-bundle.min.js"></script>
+
     <!--================= Nice Select =================-->
     <script src="assets/js/vendors/jquery.nice-select.js"></script>
     <!--================= Swiper Slider =================-->
@@ -813,8 +860,9 @@
     <!--================= Magnefic Popup Plugin =================-->
     <script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
     <!--================= Main Script =================-->
+    <script src="assets/js/product-details.js"></script>
+    <script src="assets/js/rating.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/product-detail.js"></script>
 </body>
 
 </html>

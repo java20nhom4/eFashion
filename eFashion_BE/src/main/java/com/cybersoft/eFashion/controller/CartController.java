@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/cart")
 public class CartController {
@@ -48,7 +49,7 @@ public class CartController {
         return new ResponseEntity<>("",HttpStatus.OK);
     }
 
-    @GetMapping("/removeProduct")
+    @DeleteMapping("/removeProduct")
     public ResponseEntity<?>removeProduct(@RequestParam("id") int id){
         ResponseData responseData = new ResponseData();
         responseData.setData(cartService.deleteProductById(id));

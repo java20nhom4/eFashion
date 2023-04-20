@@ -63,6 +63,5 @@ public class ProductService {
                 .orElseThrow(() -> new EntityNotFoundException("Product not found with id " + id));
         productRepository.delete(entity);
 
-
     }
 }

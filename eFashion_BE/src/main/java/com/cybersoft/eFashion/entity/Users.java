@@ -37,6 +37,11 @@ public class Users {
     @OneToMany(mappedBy = "users")
     private Set<Orders> listOrders;
 
+    @OneToMany(mappedBy = "users")
+    private Set<PlaceOrders> placeOrders;
+
+
+
     public String getAddress() {
         return address;
     }
@@ -116,5 +121,13 @@ public class Users {
 
     public void setListOrders(Set<Orders> listOrders) {
         this.listOrders = listOrders;
+    }
+
+    public Set<PlaceOrders> getPlaceOrders() {
+        return placeOrders;
+    }
+
+    public void setPlaceOrders(Set<PlaceOrders> placeOrders) {
+        this.placeOrders = placeOrders;
     }
 }
