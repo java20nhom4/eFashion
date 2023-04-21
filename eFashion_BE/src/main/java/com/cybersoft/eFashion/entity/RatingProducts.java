@@ -15,11 +15,11 @@ public class RatingProducts {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "user_id")
     private Users users;
 
     @ManyToOne
-    @JoinColumn(name = "product_id" , insertable = false, updatable = false)
+    @JoinColumn(name = "product_id")
     private Products products;
 
     @Column(name = "image")
