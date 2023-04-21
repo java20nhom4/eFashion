@@ -16,7 +16,6 @@ import java.util.Random;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin
 public class UserController {
 
     @Autowired
