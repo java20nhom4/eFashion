@@ -1,5 +1,6 @@
 package com.cybersoft.eFashion.security;
 
+import com.cybersoft.eFashion.entity.Roles;
 import com.cybersoft.eFashion.service.imp.LoginServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -9,6 +10,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class CustomAuthentication implements AuthenticationProvider {

@@ -16,6 +16,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/login")
@@ -51,6 +52,7 @@ public class LoginController {
         TokenDTO tokenDTO = new TokenDTO();
         tokenDTO.setToken(jwtUtilsHelpers.generateToken(data));
         responseData.setData(tokenDTO.getToken());
+
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 
