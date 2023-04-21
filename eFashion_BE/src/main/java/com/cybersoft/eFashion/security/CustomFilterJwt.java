@@ -36,7 +36,7 @@ public class CustomFilterJwt extends OncePerRequestFilter {
                 SecurityContext securityContext = SecurityContextHolder.getContext();
                 securityContext.setAuthentication(token);
 
-                System.out.println("Hello filter: "+data);
+                System.out.println("Id role "+jwtUtilsHelpers.getRoleIdByToken(jwt));
             }
         }catch (Exception e) {
 

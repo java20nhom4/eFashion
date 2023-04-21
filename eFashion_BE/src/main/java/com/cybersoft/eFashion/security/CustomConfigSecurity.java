@@ -38,7 +38,7 @@ public class CustomConfigSecurity {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/login/**","/api/products/**","/api/category/**", "/api/user/**", "/cart", "/cart/**",
+                .antMatchers("/api/login/**","/api/products/**","/api/category/**", "/cart", "/cart/**",
                         "/checkout", "/checkout/**", "/rating/product", "/rating/add", "/rating/test")
                 .permitAll()
                 .anyRequest()

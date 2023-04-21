@@ -1,5 +1,6 @@
 package com.cybersoft.eFashion.utils;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,10 +15,9 @@ public class JwtUtilsHelpers {
     @Value("${jwt.privateKey}")
     private String privateKey;
 
-    private long expiredTime = 8 * 60 * 60 * 1000;
+    private long expiredTime = 60 * 60 * 1000;
 
-    public String generateToken(String data) {
-        System.out.println("Kiem tra: "+privateKey);
+    public String generateToken(String data, int idRole) {
 
         SecretKey key = Keys.hmacShaKeyFor(privateKey.getBytes());
 
@@ -27,11 +27,11 @@ public class JwtUtilsHelpers {
 
         String jwt = Jwts.builder()
                 .setSubject(data)
+                .claim("idRole", idRole)
                 .signWith(key)
                 .setExpiration(expiredDate)
                 .compact();
 
-        System.out.println("Token: "+jwt);
         return jwt;
     }
 
@@ -52,6 +52,15 @@ public class JwtUtilsHelpers {
         }catch (Exception e) {
             return "";
         }
+    }
+
+    public int getRoleIdByToken(String token) {
+        Claims claims = Jwts.parser()
+                .setSigningKey(privateKey.getBytes())
+                .parseClaimsJws(token)
+                .getBody();
+
+        return claims.get("idRole", Integer.class);
     }
 
 }
