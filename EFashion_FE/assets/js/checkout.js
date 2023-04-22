@@ -136,8 +136,10 @@ async function renderCartData() {
 }
 renderCartData()
 
+
 $(document).ready(function() {
     $('.place-order-btn').click(function() {
+        console.log('hello')
         $(".product-details-popup-wrapper").addClass("popup")
         $(".anywere").addClass("bgshow")
 
@@ -146,21 +148,22 @@ $(document).ready(function() {
         const address = document.getElementById("address").value
 
         const option = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${ token }`,
-            },
-        }
-        const res = fetch("http://localhost:8080/checkout?userId=" + localStorage.getItem('userId') + "&orderItemId=" + localStorage.getItem('cartId'), option);
-        const resUser = fetch("http://localhost:8080/checkout/updateUser?id=" + localStorage.getItem('userId') + "&phone=" + phone + "&fullname=" + fullname + "&address=" + address, option);
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${ token }`,
+                },
+            }
+            // const res = fetch("http://localhost:8080/checkout?userId=" + localStorage.getItem('userId') + "&orderItemId=" + localStorage.getItem('cartId'), option);
+            // const resUser = fetch("http://localhost:8080/checkout/updateUser?id=" + localStorage.getItem('userId') + "&phone=" + phone + "&fullname=" + fullname + "&address=" + address, option);
     })
 })
 
-$(".place-order-btn").on('click', function() {
-    $(".product-details-popup-wrapper").addClass("popup")
-    $(".anywere").addClass("bgshow")
-});
+// $(".place-order-btn").on('click', function() {
+//     console.log('hello')
+//     $(".product-details-popup-wrapper").addClass("popup")
+//     $(".anywere").addClass("bgshow")
+// });
 
 
 $(".product-bottom-action .view-btn").on('click', function() {
@@ -176,16 +179,16 @@ $(".anywere").on('click', function() {
     $(".anywere").removeClass("bgshow")
 });
 
-$(document).ready(function (){
+$(document).ready(function() {
     $.ajax({
         method: 'GET',
         url: `http://localhost:8080/api/category/getAll`,
-    }).done(function (data){
+    }).done(function(data) {
         console.log(data)
-        if(data.data != null){
-            for (const i in data.data){
+        if (data.data != null) {
+            for (const i in data.data) {
 
-                let stt = Number(Number(i)+1)
+                let stt = Number(Number(i) + 1)
                 const html = `<li class="mega-dropdown-li">
                                                 <ul class="mega-dropdown-ul">
                                                     <li class="dropdown-li"><a class="dropdown-link2"
