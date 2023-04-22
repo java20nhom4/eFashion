@@ -60,6 +60,17 @@ public class CategoryService implements CategoryServiceImp{
     }
 
     @Override
+    public CategoryDTO getCategoryById(long id) {
+        Category category = categoryRepository.findById(id);
+        CategoryDTO categoryDTO = new CategoryDTO();
+        categoryDTO.setName(category.getName());
+        categoryDTO.setId(category.getId());
+        categoryDTO.setDescription(category.getDescription());
+
+        return categoryDTO;
+    }
+
+    @Override
     public List<CategoryDTO> getAllCategory() {
         List<Category> list = categoryRepository.findAll();
         List<CategoryDTO> dtoList = new ArrayList<>();

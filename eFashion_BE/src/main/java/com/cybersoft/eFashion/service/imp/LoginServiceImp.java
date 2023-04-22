@@ -9,4 +9,5 @@ import java.util.List;
 public interface LoginServiceImp {
     List<UserDTO> getUserByEmail(String email);
     boolean login(String username, String password);
+    int getIdRole(String username);
 }

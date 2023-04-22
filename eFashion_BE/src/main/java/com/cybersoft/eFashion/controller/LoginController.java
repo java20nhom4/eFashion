@@ -4,6 +4,8 @@ package com.cybersoft.eFashion.controller;
 import com.cybersoft.eFashion.dto.TokenDTO;
 
 import com.cybersoft.eFashion.payload.ResponseData;
+import com.cybersoft.eFashion.repository.UserRepository;
+import com.cybersoft.eFashion.service.imp.LoginServiceImp;
 import com.cybersoft.eFashion.utils.JwtUtilsHelpers;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,10 @@ import org.springframework.web.bind.annotation.*;
 //@CrossOrigin
 @RestController
 @RequestMapping("/api/login")
-//@CrossOrigin
 public class LoginController {
+
+    @Autowired
+    LoginServiceImp loginServiceImp;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -45,11 +49,9 @@ public class LoginController {
         Gson gson = new Gson();
         String data = gson.toJson(authentication);
 
-        System.out.println("Data: "+data);
-
         ResponseData responseData = new ResponseData();
         TokenDTO tokenDTO = new TokenDTO();
-        tokenDTO.setToken(jwtUtilsHelpers.generateToken(data));
+        tokenDTO.setToken(jwtUtilsHelpers.generateToken(data, loginServiceImp.getIdRole(username)));
         responseData.setData(tokenDTO.getToken());
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
