@@ -11,7 +11,15 @@ public class UserDTO {
     private String avatar;
     private String address;
     private int roleId;
+    private RoleDTO roleDTO;
 
+    public RoleDTO getRoleDTO() {
+        return roleDTO;
+    }
+
+    public void setRoleDTO(RoleDTO roleDTO) {
+        this.roleDTO = roleDTO;
+    }
 
     public int getId() {
         return id;
