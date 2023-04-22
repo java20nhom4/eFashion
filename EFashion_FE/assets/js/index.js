@@ -11,7 +11,7 @@ $(document).ready(function() {
                 const html = `<li class="mega-dropdown-li">
                                                 <ul class="mega-dropdown-ul">
                                                     <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="cart.html">${data.data[i]["name"]}</a>
+                                                            href="products.html?id=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                     </li>                                         
                                                 </ul>
                                 </li>`
@@ -21,26 +21,18 @@ $(document).ready(function() {
         }
     })
 })
+_ = document.querySelector.bind(document)
+if (localStorage.getItem('RoleId') == 1) {
+    navItem = _('.nav__menu')
+    navItem.innerHTML = `
+    <li class="has-dropdown"><a class="menu-item" href="#">Clothes <i class="rt-plus"></i></a>
+    <ul class="dropdown-ul mega-dropdown" id="show-index">
 
-async function getEmailFromToken() {
-    const token = localStorage.getItem('token')
-    const option = {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${ token }`,
-        },
-    }
-    const resToken = await fetch("http://localhost:8080/checkout?token=" + token, option);
+    </ul>
+    </li>
 
-    const dataToken = await resToken.json();
-
-    const obj = JSON.parse(dataToken.data)
-
-    const resUser = await fetch("http://localhost:8080/api/user/getUserByEmail?email=" + obj.principal, option);
-
-    const dataUser = await resUser.json()
-    localStorage.setItem('RoleId', dataUser.data.roleId)
-    return dataUser.data
+    <li><a class="menu-item" href="contact.html">About E-Fashion</a></li>
+    <li><a class="menu-item" href="contact.html">Blog</a></li>
+    <li><a class="menu-item" href="admin-product.html">Manage product</a></li>
+    <li><a class="menu-item" href="admin-user-table.html">Manage user</a></li>`
 }
-getEmailFromToken()

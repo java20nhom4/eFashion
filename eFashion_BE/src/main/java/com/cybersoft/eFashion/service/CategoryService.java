@@ -76,6 +76,7 @@ public class CategoryService implements CategoryServiceImp{
         List<CategoryDTO> dtoList = new ArrayList<>();
         for (Category category : list){
             CategoryDTO categoryDTO = new CategoryDTO();
+            categoryDTO.setId(category.getId());
             categoryDTO.setDescription(category.getDescription());
             categoryDTO.setName(category.getName());
 
