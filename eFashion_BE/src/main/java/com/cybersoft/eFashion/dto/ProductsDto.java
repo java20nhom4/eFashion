@@ -1,11 +1,13 @@
 package com.cybersoft.eFashion.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductsDto {
     private Long id;
     private String name;
     private Double price;
     private String description;
-    private Long quantity;
+    private int quantity;
     private String image;
     private String status;
     private Long categoryId;
@@ -42,11 +44,11 @@ public class ProductsDto {
         this.description = description;
     }
 
-    public Long getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

@@ -39,7 +39,7 @@ public class CustomConfigSecurity {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/api/login/**","/api/products/**","/api/category/**", "/cart", "/cart/**",
-                        "/checkout", "/checkout/**", "/rating/product", "/rating/add", "/rating/test")
+                        "/checkout", "/checkout/**", "/rating/product", "/rating/add")
                 .permitAll()
                 .anyRequest()
                 .authenticated();

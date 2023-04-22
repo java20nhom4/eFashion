@@ -89,12 +89,13 @@ public class RatingService implements RatingServiceImp {
     public boolean insertRating(MultipartFile file, RatingDTO ratingDTO) {
         boolean isInsertSuccess = false;
         boolean isSaveFileSuccess = true;
+        int idImage = ratingRepository.getMaxId() + 1;
         String newFileName = "";
         // Save Image First
         if (file != null){
             String now = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
             String extension = FilenameUtils.getExtension(file.getOriginalFilename());
-            newFileName = ratingDTO.getId() + "_" + ratingDTO.getUser_id() + "_" + ratingDTO.getPro_id() + "_" + now  + "." + extension;
+            newFileName = idImage + "_" + ratingDTO.getUser_id() + "_" + ratingDTO.getPro_id() + "_" + now  + "." + extension;
             isSaveFileSuccess = fileStorageServiceImp.saveFiles(file, newFileName, FolderType.Ratings);
         }
         // Insert then
@@ -115,7 +116,7 @@ public class RatingService implements RatingServiceImp {
                 isInsertSuccess = true;
             }
         }
-        System.out.println("ADd: " + isInsertSuccess);
+        System.out.println("Add: " + isInsertSuccess);
         return isInsertSuccess;
     }
 

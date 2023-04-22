@@ -52,7 +52,6 @@ public class RatingController {
         rate_dto.setPro_id(product_id);
         rate_dto.setStar(star);
         rate_dto.setComment(comment);
-        System.out.println("adsfdsfsdf");
         responseData.setData(ratingService.insertRating(file, rate_dto));
         return new ResponseEntity<>(responseData,HttpStatus.OK);
     }

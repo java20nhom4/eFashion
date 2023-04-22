@@ -1,11 +1,13 @@
 package com.cybersoft.eFashion.controller;
 
 import com.cybersoft.eFashion.dto.ProductsDto;
-import com.cybersoft.eFashion.entity.Products;
+import com.cybersoft.eFashion.payload.ResponseData;
 import com.cybersoft.eFashion.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -50,6 +52,36 @@ public class ProductController {
     public ResponseEntity<Object> delete(@PathVariable int id) {
         productService.delete(id);
         return ResponseEntity.ok("Product deleted successfully");
+    }
+
+    @PostMapping(value = "/add")
+    public ResponseEntity<?> addProduct(@RequestParam("file") MultipartFile file,
+                                        @RequestParam String pro_name,
+                                        @RequestParam Double pro_price,
+                                        @RequestParam String pro_des,
+                                        @RequestParam int pro_quant,
+                                        @RequestParam String pro_status,
+                                        @RequestParam Long pro_cate){
+        ResponseData responseData = new ResponseData();
+        System.out.println("hello add product");
+        ProductsDto product = new ProductsDto();
+        product.setName(pro_name);
+        product.setPrice(pro_price);
+        product.setDescription(pro_des);
+        product.setQuantity(pro_quant);
+        product.setStatus(pro_status);
+        product.setCategoryId(pro_cate);
+
+        responseData.setData(productService.addProduct(file, product));
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/adda")
+    public ResponseEntity<?> addProduct1(
+                                        @RequestParam int id){
+        ResponseData responseData = new ResponseData();
+        System.out.println("hello add product");
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 }
 
