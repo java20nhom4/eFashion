@@ -13,6 +13,27 @@ async function getToken(username, password) {
     return data.data
 }
 
+async function getEmailFromToken() {
+    const token = localStorage.getItem('token')
+    const option = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${ token }`,
+        },
+    }
+    const resToken = await fetch("http://localhost:8080/checkout?token=" + token, option);
+
+    const dataToken = await resToken.json();
+
+    const obj = JSON.parse(dataToken.data)
+
+    const resUser = await fetch("http://localhost:8080/api/user/getUserByEmail?email=" + obj.principal, option);
+
+    const dataUser = await resUser.json()
+    localStorage.setItem('RoleId', dataUser.data.roleId)
+    return dataUser.data
+}
 
 
 $('#sunmit-login').on('click', function() {
@@ -20,10 +41,6 @@ $('#sunmit-login').on('click', function() {
     const username = document.getElementById("email").value
     const password = document.getElementById("password").value
     getToken(username, password)
-
-    if (true) {
-
-    }
 })
 
 
