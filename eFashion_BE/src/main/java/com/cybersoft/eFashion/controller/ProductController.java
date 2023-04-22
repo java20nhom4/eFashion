@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin
+//@CrossOrigin
 public class ProductController {
     @Autowired
     private ProductService productService;

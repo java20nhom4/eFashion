@@ -13,10 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Random;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin
+//@CrossOrigin
 public class UserController {
 
     @Autowired
