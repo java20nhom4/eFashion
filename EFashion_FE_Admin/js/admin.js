@@ -3,6 +3,7 @@ $(document).ready(function (){
         method: 'GET',
         url: `http://localhost:8080/api/admin/admin`,
     }).done(function (data){
+        console.log(data.data)
         console.log(data.data["name"])
 
         if (data.data != null) {

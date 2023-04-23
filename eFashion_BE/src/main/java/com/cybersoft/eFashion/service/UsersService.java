@@ -54,16 +54,16 @@ public class UsersService implements UsersServiceImp {
 
     //delete user
     @Override
-    public boolean deleteUser(UserDTO userDTO) {
+    public boolean deleteUser(int id) {
 
         //Delete image of user by email user
-        boolean isSuccess = fileStorageService.removeFile(
-                userRepository.findByEmail(userDTO.getEmail()).get(0).getAvatar(), FolderType.Users);
+//        boolean isSuccess = fileStorageService.removeFile(
+//                userRepository.findById(userDTO.getEmail()).get(0).getAvatar(), FolderType.Users);
 
-        if(isSuccess) {
+        if(true) {
             try {
                 //delete user by id user
-                userRepository.deleteById(userRepository.findByEmail(userDTO.getEmail()).get(0).getId());
+                userRepository.deleteById(id);
 
                 return true;
             }catch (Exception e) {
@@ -99,14 +99,38 @@ public class UsersService implements UsersServiceImp {
             }
         }
 
-        if(userDTO.getPassword() != null) {
-            users.setAddress(userDTO.getAddress());
-        }
-
         try {
+            users.setAddress(userDTO.getAddress());
             users.setPhone(userDTO.getPhone());
             users.setFullname(userDTO.getFullName());
             users.setPassword(userDTO.getPassword());
+            Roles roles = new Roles();
+            roles.setId(userDTO.getRoleId());
+            users.setRoles(roles);
+
+            userRepository.save(users);
+
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean addUser(UserDTO userDTO, MultipartFile file) {
+
+        try {
+            Users users = new Users();
+            users.setEmail(userDTO.getEmail());
+            users.setAddress(userDTO.getAddress());
+            users.setPhone(userDTO.getPhone());
+            users.setFullname(userDTO.getFullName());
+            users.setPassword(userDTO.getPassword());
+            users.setAvatar(userDTO.getAvatar());
+
+            Roles roles = new Roles();
+            roles.setId(userDTO.getRoleId());
+            users.setRoles(roles);
 
             userRepository.save(users);
 
@@ -149,6 +173,7 @@ public class UsersService implements UsersServiceImp {
         userDTO.setPhone(user.getPhone());
         userDTO.setAddress(user.getAddress());
         userDTO.setRoleId(user.getRoles().getId());
+        userDTO.setPassword(user.getPassword());
 
         return userDTO;
     }

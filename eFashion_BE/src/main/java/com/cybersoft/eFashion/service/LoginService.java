@@ -28,7 +28,7 @@ public class LoginService implements LoginServiceImp {
             userDTO.setFullName(users.getFullname());
             userDTO.setEmail(users.getEmail());
             userDTO.setAddress(users.getAddress());
-            userDTO.setRoleId(users.getRoles().getId());
+
             list.add(userDTO);
         }
         return list;

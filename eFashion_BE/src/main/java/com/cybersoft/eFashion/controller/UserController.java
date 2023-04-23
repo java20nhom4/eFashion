@@ -6,6 +6,7 @@ import com.cybersoft.eFashion.payload.ResponseData;
 import com.cybersoft.eFashion.service.imp.EmailServiceImp;
 import com.cybersoft.eFashion.service.imp.UsersServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Random;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -83,10 +84,10 @@ public class UserController {
     }
 
     // Delete user
-    @DeleteMapping("/delete")
-    public ResponseEntity<?> deleteUser(@RequestBody UserDTO userDTO) {
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") int idUser) {
 
-        boolean isSuccess = usersServiceImp.deleteUser(userDTO);
+        boolean isSuccess = usersServiceImp.deleteUser(idUser);
 
         //Set responseData
         ResponseData responseData = new ResponseData();
@@ -103,37 +104,6 @@ public class UserController {
         return new ResponseEntity(responseData, HttpStatus.OK);
     }
 
-    // Update user
-    @PutMapping("/update")
-    private ResponseEntity<?> update(@RequestParam String email,
-                                     @RequestParam String phone,
-                                     @RequestParam String fullName,
-                                     @RequestParam String address,
-                                     @RequestParam MultipartFile file) {
-
-            //Set DTO
-            UserDTO userDTO = new UserDTO();
-            userDTO.setEmail(email);
-            userDTO.setPhone(phone);
-            userDTO.setFullName(fullName);
-            userDTO.setAddress(address);
-            userDTO.setAvatar(file.getOriginalFilename());
-
-            //Set responseData
-            ResponseData responseData = new ResponseData();
-            if(usersServiceImp.updateUser(userDTO, file)) {
-                responseData.setData(true);
-                responseData.setStatusCode(200);
-                responseData.setDesc("Cập nhật thành công");
-            } else {
-                responseData.setData(false);
-                responseData.setStatusCode(400);
-                responseData.setDesc("Cập nhật thất bại");
-            }
-
-        return new ResponseEntity<>(responseData, HttpStatus.OK);
-    }
-
     // Get all users
     @GetMapping("/getAllUsers")
     public ResponseEntity<?> getAllUsers() {
@@ -147,24 +117,6 @@ public class UserController {
         }else {
             responseData.setData(false);
             responseData.setDesc("Lấy thất bại danh sách user");
-            responseData.setStatusCode(400);
-        }
-
-        return new ResponseEntity<>(responseData, HttpStatus.OK);
-    }
-
-    // Get user by email
-    @GetMapping("/getUserByEmail")
-    public ResponseEntity<?> getUserById(@RequestParam String email) {
-
-        ResponseData responseData = new ResponseData();
-        if(usersServiceImp.getUserByEmail(email) != null) {
-            responseData.setData(usersServiceImp.getUserByEmail(email));
-            responseData.setDesc("Lấy thành công user");
-            responseData.setStatusCode(200);
-        }else {
-            responseData.setData(false);
-            responseData.setDesc("Lấy thất bại user");
             responseData.setStatusCode(400);
         }
 
