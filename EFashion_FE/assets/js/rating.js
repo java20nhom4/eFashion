@@ -149,9 +149,9 @@ async function addRating() {
     $.ajax({
         url: 'http://localhost:8080/rating/add',
         type: 'POST',
-        // headers: {
-        //     'Content-Type':'application/json'
-        // },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', token);
+        },
         data: formData,
         contentType: false,
         processData: false,
