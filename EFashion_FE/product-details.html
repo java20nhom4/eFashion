@@ -39,18 +39,22 @@
         /* .rts-product-details-section .product-full-details-area .full-details.dls-three.filterd-items .full-details-inner .reveiw-form-main .contact-form .input-box.text-input::before:hover {
         background-color: gray;
     } */
-    .avatar {
-        vertical-align: middle;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-    div[id^="divRating__"] span a .fas.fa-star, div[id^="divRating__"] span a .fal.fa-star, 
-    #divCreateRating span .fas.fa-star, #divCreateRating span .fal.fa-star {
-        color: red;
-    }
-    </style>        
-    
+        
+        .avatar {
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        div[id^="divRating__"] span a .fas.fa-star,
+        div[id^="divRating__"] span a .fal.fa-star,
+        #divCreateRating span .fas.fa-star,
+        #divCreateRating span .fal.fa-star {
+            color: red;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -133,8 +137,8 @@
                                 <ul class="nav__menu">
                                     <li class="has-dropdown"><a class="menu-item" href="#">Clothes <i
                                                 class="rt-plus"></i></a>
-                                        <ul class="dropdown-ul mega-dropdown" id ="show-detail">
-                                           
+                                        <ul class="dropdown-ul mega-dropdown" id="show-detail">
+
                                         </ul>
                                     </li>
 
@@ -175,8 +179,8 @@
                             <a href="login.html" class="account"><i class="rt-user-2"></i></a>
                             <div class="cart action-item">
                                 <div class="cart-nav">
-                                    <div class="cart-icon icon"><a href="#0"><i aria-hidden="true"
-                                                class="fas fa-shopping-basket"></i></a><span class="wishlist-dot icon-dot">3</span></div>
+                                    <div class="cart-icon icon"><a href="cart.html"><i aria-hidden="true"
+                                        class="fas fa-shopping-basket"></i></a></div>
                                 </div>
                             </div>
                         </div>
@@ -342,8 +346,8 @@
                     </div>
                     <div class="cart action-item">
                         <div class="cart-nav">
-                            <div class="cart-icon icon"><i class="rt-cart"></i><span class="wishlist-dot icon-dot">3</span>
-                            </div>
+                            <div class="cart-icon icon"><a href="cart.html"><i aria-hidden="true"
+                                class="fas fa-shopping-basket"></i></a></div>
                         </div>
                     </div>
                     <div class="wishlist action-item">
@@ -449,71 +453,70 @@
                         <a class="platform" href="http://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div> -->
+        </div>
+        <div class="product-full-details-area">
+            <div class="details-filter-bar2">
+                <button class="details-filter filter-btn active" data-show=".dls-one">Description</button>
+                <button class="details-filter filter-btn" data-show=".dls-three">Reviews (0)</button>
             </div>
-            <div class="product-full-details-area">
-                <div class="details-filter-bar2">
-                    <button class="details-filter filter-btn active" data-show=".dls-one">Description</button>
-                    <button class="details-filter filter-btn" data-show=".dls-three">Reviews (0)</button>
+            <div class="full-details dls-one filterd-items">
+                <div class="full-details-inner">
+                    <p class="mb--30">In marketing a product is an object or system made available for consumer use it is anything that can be offered to a market to satisfy the desire or need of a customer. In retailing, products are merchandise, and in manufacturing,
+                        products are bought as raw materials and then sold as finished goods. A service is also regarded to as a type of product. Commodities are usually raw material and agricultural products, but a commodity can also be anything widely
+                        available in the open market. In project management, products are the formal definition of the project deliverables that to delivering the objectives of the project.</p>
+                    <p>A product can be classified as tangible or intangible. A tangible product is a physical object that can be perceived by touch such as a building, vehicle, gadget, or clothing. An intangible product is can only be perceived indirectly
+                        such as an insurance policy. Services can be broadly classified under intangible products which can be durable or non durable. A product line is "a group of closely related, either because they function in a similar manner, are
+                        sold to the same customer groups, are marketed through the same types of outlets, or fall within given price ranges."Many range of product lines which may be unique to a single organisation or may be common across the business's
+                        industry. In 2002 the US Census compiled revenue figures for the finance and various product lines such as "accident, health and medical insurance premiums" and "income from secured consumer loans.</p>
                 </div>
-                <div class="full-details dls-one filterd-items">
-                    <div class="full-details-inner">
-                        <p class="mb--30">In marketing a product is an object or system made available for consumer use it is anything that can be offered to a market to satisfy the desire or need of a customer. In retailing, products are merchandise, and in manufacturing,
-                            products are bought as raw materials and then sold as finished goods. A service is also regarded to as a type of product. Commodities are usually raw material and agricultural products, but a commodity can also be anything
-                            widely available in the open market. In project management, products are the formal definition of the project deliverables that to delivering the objectives of the project.</p>
-                        <p>A product can be classified as tangible or intangible. A tangible product is a physical object that can be perceived by touch such as a building, vehicle, gadget, or clothing. An intangible product is can only be perceived indirectly
-                            such as an insurance policy. Services can be broadly classified under intangible products which can be durable or non durable. A product line is "a group of closely related, either because they function in a similar manner,
-                            are sold to the same customer groups, are marketed through the same types of outlets, or fall within given price ranges."Many range of product lines which may be unique to a single organisation or may be common across the business's
-                            industry. In 2002 the US Census compiled revenue figures for the finance and various product lines such as "accident, health and medical insurance premiums" and "income from secured consumer loans.</p>
+            </div>
+            <div class="full-details dls-three filterd-items hide">
+                <div class="full-details-inner">
+                    <div class="row" id="showReview">
                     </div>
-                </div>
-                <div class="full-details dls-three filterd-items hide">
-                    <div class="full-details-inner">
-                        <div class="row" id="showReview">
-                        </div>
-                        <p id="noReviewYet">There are no reveiws yet.</p>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 mr-10">
-                                <div class="reveiw-form">
-                                    <div class="reveiw-form-main mb-10">
-                                        <div class="contact-form">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-sm-12">
-                                                    <div class="input-box text-input mb-20">
-                                                        <textarea name="Message" id="textCommentRating" cols="30" rows="10" placeholder="Write review and upload picture (optional)*" required></textarea>
-                                                    </div>
+                    <p id="noReviewYet">There are no reveiws yet.</p>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 mr-10">
+                            <div class="reveiw-form">
+                                <div class="reveiw-form-main mb-10">
+                                    <div class="contact-form">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-sm-12">
+                                                <div class="input-box text-input mb-20">
+                                                    <textarea name="Message" id="textCommentRating" cols="30" rows="10" placeholder="Write review and upload picture (optional)*" required></textarea>
                                                 </div>
-                                                <div class="col-lg-6 col-sm-12">                                                    
-                                                    <div class="col-lg-12">
-                                                        <div class="row">
-                                                            <div class="col-md-6 col-lg-6">
-                                                                <div class="rating">
-                                                                    <p>Your Rating :</p>
-                                                                    <div class="rating-icon" id="divCreateRating">
-                                                                        <span class="one" numberRating="1"><i class="fal fa-star" style="cursor: pointer;"></i></span>
-                                                                        <span class="two" numberRating="2"><i class="fal fa-star" style="cursor: pointer;"></i></span>
-                                                                        <span class="three" numberRating="3"><i class="fal fa-star" style="cursor: pointer;"></i></span>
-                                                                        <span class="four" numberRating="4"><i class="fal fa-star" style="cursor: pointer;"></i></span>
-                                                                        <span class="five" numberRating="5"><i class="fal fa-star" style="cursor: pointer;"></i></span>
-                                                                    </div>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-12">
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-lg-6">
+                                                            <div class="rating">
+                                                                <p>Your Rating :</p>
+                                                                <div class="rating-icon" id="divCreateRating">
+                                                                    <span class="one" numberRating="1"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                    <span class="two" numberRating="2"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                    <span class="three" numberRating="3"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                    <span class="four" numberRating="4"><i class="fal fa-star" style="cursor: pointer;"></i></span>
+                                                                    <span class="five" numberRating="5"><i class="fal fa-star" style="cursor: pointer;"></i></span>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 col-lg-6">
-                                                                <input type="file" name="fileCreateRating" id="fileCreateRating" onchange="readURL(this)" accept="image/png, image/gif, image/jpeg" />
-                                                                <img id="imageCreateRating" src="">
-                                                            </div>
                                                         </div>
-                                                        
+                                                        <div class="col-md-6 col-lg-6">
+                                                            <input type="file" name="fileCreateRating" id="fileCreateRating" onchange="readURL(this)" accept="image/png, image/gif, image/jpeg" />
+                                                            <img id="imageCreateRating" src="">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12 mb-15">
-                                                        <button class="form-btn form-btn4" onclick="addRating()">
+
+                                                </div>
+                                                <div class="col-12 mb-15">
+                                                    <button class="form-btn form-btn4" onclick="addRating()">
                                                                 Submit <i class="fal fa-long-arrow-right"></i>
                                                         </button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -521,6 +524,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!--================= Product-details Section End Here =================-->
 
@@ -534,7 +538,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div  id="related-products" class="col-xl-3 col-md-4 col-sm-6 col-12">
+                    <div id="related-products" class="col-xl-3 col-md-4 col-sm-6 col-12">
                         <div class="product-item element-item1">
                             <a href="product-details.html" class="product-image image-hover-variations">
                                 <div class="image-vari1 image-vari"><img src="assets/images/hand-picked/slider-img13-1.webp" alt="product-image">

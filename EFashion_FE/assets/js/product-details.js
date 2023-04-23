@@ -21,20 +21,20 @@ if (localStorage.getItem('token') != null) {
         $(".anywere").removeClass("bgshow")
     });
 }
-$(document).ready(function (){
+$(document).ready(function() {
     $.ajax({
         method: 'GET',
         url: `http://localhost:8080/api/category/getAll`,
-    }).done(function (data){
+    }).done(function(data) {
         console.log(data)
-        if(data.data != null){
-            for (const i in data.data){
+        if (data.data != null) {
+            for (const i in data.data) {
 
-                let stt = Number(Number(i)+1)
+                let stt = Number(Number(i) + 1)
                 const html = `<li class="mega-dropdown-li">
                                                 <ul class="mega-dropdown-ul">
                                                     <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="cart.html">${data.data[i]["name"]}</a>
+                                                            href="products.html?id=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                     </li>                                         
                                                 </ul>
                                 </li>`
