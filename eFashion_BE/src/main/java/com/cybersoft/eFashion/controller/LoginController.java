@@ -48,7 +48,6 @@ public class LoginController {
         //Parse về Json
         Gson gson = new Gson();
         String data = gson.toJson(authentication);
-        System.out.println(data);
 
         ResponseData responseData = new ResponseData();
         TokenDTO tokenDTO = new TokenDTO();

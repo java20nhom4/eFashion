@@ -75,5 +75,13 @@ public class ProductController {
         responseData.setData(productService.addProduct(file, product));
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
+
+    @PostMapping(value = "/adda")
+    public ResponseEntity<?> addProduct1(
+                                        @RequestParam int id){
+        ResponseData responseData = new ResponseData();
+        System.out.println("hello add product");
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
 }
 

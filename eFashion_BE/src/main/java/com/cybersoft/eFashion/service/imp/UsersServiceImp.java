@@ -14,10 +14,13 @@ public interface UsersServiceImp {
     boolean checkExistEmail(String email);
 
     //Delete user
-    boolean deleteUser(UserDTO userDTO);
+    boolean deleteUser(int id);
 
     //Update user
     boolean updateUser(UserDTO userDTO, MultipartFile file);
+
+    // Add user
+    boolean addUser(UserDTO userDTO, MultipartFile file);
 
     //Get all users
     List<UserDTO> getAllUsers();
