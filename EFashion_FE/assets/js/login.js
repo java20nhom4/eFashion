@@ -3,43 +3,27 @@ async function getToken(username, password) {
     const option = {
         method: "POST"
     }
-    const res = await fetch("http://localhost:8080/api/login/signin?username=" + username + "&password=" + password, option);
+    try {
+        const res = await fetch("http://localhost:8080/api/login/signin?username=" + username + "&password=" + password, option);
+        const data = await res.json();
 
-    const data = await res.json();
-
-    localStorage.setItem('token', data.data)
-    console.log("localStorage: " + localStorage.getItem('token'))
-
-    return data.data
-}
-
-async function getEmailFromToken() {
-    const token = localStorage.getItem('token')
-    const option = {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${ token }`,
-        },
+        localStorage.setItem('token', data.data)
+        console.log("localStorage: " + localStorage.getItem('token'))
+        location.href = 'index.html'
+    } catch (e) {
+        console.log('dang nhap that bai')
+        $(".product-details-popup-wrapper").addClass("popup")
+        $(".anywere").addClass("bgshow")
     }
-    const resToken = await fetch("http://localhost:8080/checkout?token=" + token, option);
-
-    const dataToken = await resToken.json();
-
-    const obj = JSON.parse(dataToken.data)
-
-    const resUser = await fetch("http://localhost:8080/api/user/getUserByEmail?email=" + obj.principal, option);
-
-    const dataUser = await resUser.json()
-    localStorage.setItem('RoleId', dataUser.data.roleId)
-    return dataUser.data
 }
+
 
 
 $('#sunmit-login').on('click', function() {
 
     const username = document.getElementById("email").value
     const password = document.getElementById("password").value
+
     getToken(username, password)
 })
 
@@ -59,7 +43,7 @@ $(document).ready(function() {
                 const html = `<li class="mega-dropdown-li">
                                                 <ul class="mega-dropdown-ul">
                                                     <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="cart.html">${data.data[i]["name"]}</a>
+                                                            href="products.html?id=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                     </li>                                         
                                                 </ul>
                                 </li>`
