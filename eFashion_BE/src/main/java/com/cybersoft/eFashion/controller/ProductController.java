@@ -59,7 +59,7 @@ public class ProductController {
                                         @RequestParam String pro_name,
                                         @RequestParam Double pro_price,
                                         @RequestParam String pro_des,
-                                        @RequestParam int pro_quant,
+                                        @RequestParam Integer pro_quant,
                                         @RequestParam String pro_status,
                                         @RequestParam Long pro_cate){
         ResponseData responseData = new ResponseData();

@@ -1,6 +1,9 @@
 _ = document.querySelector.bind(document)
 var valueRate = 5;
 const token = localStorage.getItem('token')
+const userId = localStorage.getItem('userId')
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
 
 async function getRatingByProduct(pro_id) {
     const option = {
@@ -141,10 +144,10 @@ async function addRating() {
     // var object_ = {file: valueImage, user_id: 1, product_id:2, star:3, comment: "sddd"};
     var formData = new FormData()
     formData.append('file', valueImage)
-    formData.append('user_id', 1)
-    formData.append('product_id', 2)
+    formData.append('user_id', userId)
+    formData.append('product_id', productId)
     formData.append('star', valueRating)
-    formData.append('comment', 'fhgÁDFASDFS')
+    formData.append('comment', valueText)
     console.log(valueImage);
     $.ajax({
         url: 'http://localhost:8080/rating/add',
@@ -165,6 +168,6 @@ async function addRating() {
 }
 
 $(document).ready(function() {
-    getRatingByProduct(2);
+    getRatingByProduct(productId);
     ChooseStarRating();
 })
