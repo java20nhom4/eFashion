@@ -2,8 +2,8 @@ package com.cybersoft.eFashion.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class ProductsDto {
-    private Long id;
+public class ProductsDTO {
+    private int id;
     private String name;
     private Double price;
     private String description;
@@ -11,12 +11,21 @@ public class ProductsDto {
     private String image;
     private String status;
     private Long categoryId;
+    private CategoryDTO categoryDTO;
 
-    public Long getId() {
+    public CategoryDTO getCategoryDTO() {
+        return categoryDTO;
+    }
+
+    public void setCategoryDTO(CategoryDTO categoryDTO) {
+        this.categoryDTO = categoryDTO;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

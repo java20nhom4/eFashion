@@ -35,40 +35,40 @@
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header">
-                <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="top-left-part">
-                    <a class="logo" href="admin.html">
-                        <b>
+                <div class="navbar-header"> 
+                    <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="top-left-part">
+                        <a class="logo" href="admin.html">
+                            <b>
                                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
                             </b>
-                        <span class="hidden-xs">
+                            <span class="hidden-xs">
                                 <img src="plugins/images/pixeladmin-text.png" alt="home" />
                             </span>
-                    </a>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right pull-right">
+                        <li>
+                            <div class="dropdown">
+                                <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#"> 
+                                    <img id="nav-avatar" src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
+                                    <b class="hidden-xs" id="nav-name">Full Name</b> 
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="profile.html">User Information</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Log Out</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="nav navbar-top-links navbar-right pull-right">
-                    <li>
-                        <div class="dropdown">
-                            <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#">
-                                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                                <b class="hidden-xs">Full Name</b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="profile.html">User Information</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Log Out</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-header -->
-            <!-- /.navbar-top-links -->
-            <!-- /.navbar-static-side -->
-        </nav>
+                <!-- /.navbar-header -->
+                <!-- /.navbar-top-links -->
+                <!-- /.navbar-static-side -->
+            </nav>
         <!-- Left navbar-header -->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
@@ -103,58 +103,53 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" id="user-detail">
                                 <div class="form-group">
                                     <label class="col-md-12">Full Name</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line"> </div>
+                                        <input id="fullName" type="text" placeholder="Johnathan Doe"
+                                            class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email" class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email"> </div>
+                                        <input id="email-user" type="email" placeholder="johnathan@admin.com"
+                                            class="form-control form-control-line" name="example-email"
+                                            id="example-email"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Password</label>
+                                    <label  class="col-md-12">Password</label>
                                     <div class="col-md-12">
-                                        <input type="password" value="password" class="form-control form-control-line">
+                                        <input id="password" type="password" value="password" class="form-control form-control-line">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div  class="form-group">
                                     <label class="col-md-12">Phone No</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="123 456 7890" class="form-control form-control-line"> </div>
+                                        <input id="phone-user" type="text" placeholder="123 456 7890"
+                                            class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-12">Role</label>
-                                    <div class="col-sm-12">
-                                        <select class="form-control form-control-line">
-                                            <option>Admin</option>
-                                            <option>Client</option>
-                                        </select>
-                                    </div>
+                                    <label class="col-md-12">Role Id</label>
+                                    <div class="col-md-12">
+                                        <input id="role-id" type="text" placeholder="Address"
+                                            class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Address</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Address" class="form-control form-control-line"> </div>
+                                        <input id="address-user" type="text" placeholder="Address"
+                                            class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Image</label>
                                     <div class="col-md-12">
-                                        <div class="col-md-11">
-                                            <input type="text" placeholder="Image" class="form-control form-control-line">
-                                        </div>
-                                        <div class="col-md-1">
-                                            <button type="submit" class="btn btn-success">Upload</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                    </div>
+                                        <input id="image-user" type="file" placeholder="Address"
+                                            class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success">Add User</button>
+                                        <button type="submit" class="btn btn-success" id="btn-add-update">Add User</button>
                                         <a href="admin-user-table.html" class="btn btn-primary">Quay lại</a>
                                     </div>
                                 </div>
@@ -181,13 +176,11 @@
     <script src="js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
     <script src="js/waves.js"></script>
+
+    <script src="adminjs/admin-user-add.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
-    <script>
-        if (localStorage.getItem('RoleId') == 2) {
-            location.href = '404.html'
-        }
-    </script>
 </body>
 
 </html>
