@@ -1,6 +1,6 @@
 package com.cybersoft.eFashion.controller;
 
-import com.cybersoft.eFashion.dto.ProductsDto;
+import com.cybersoft.eFashion.dto.ProductsDTO;
 import com.cybersoft.eFashion.payload.ResponseData;
 import com.cybersoft.eFashion.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,44 +11,62 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
+
+    int idProductDetail = 0;
+
     @Autowired
     private ProductService productService;
 
     // GET all products
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<Object> findAll() {
-        List<ProductsDto> products = productService.findAll();
+        List<ProductsDTO> products = productService.findAll();
         return ResponseEntity.ok(products);
+    }
+
+    @PostMapping("/postIdProductDetail")
+    public ResponseEntity<?> postIdProductDetail(@RequestParam int id) {
+        ResponseData responseData = new ResponseData();
+        idProductDetail = id;
+
+        if (idProductDetail != 0) {
+            responseData.setData(idProductDetail);
+            responseData.setStatusCode(200);
+        } else {
+            responseData.setData(idProductDetail);
+            responseData.setStatusCode(400);
+        }
+        return new ResponseEntity<>(idProductDetail, HttpStatus.OK);
     }
 
     // GET product by id
     @GetMapping("/{id}")
     public ResponseEntity<Object> findById(@PathVariable int id) {
-        ProductsDto product = productService.findById(id);
+        ProductsDTO product = productService.findById(id);
         return ResponseEntity.ok(product);
     }
 
     // POST create new product
     @PostMapping
-    public ResponseEntity<Object> create(@RequestBody ProductsDto dto) {
+    public ResponseEntity<Object> create(@RequestBody ProductsDTO dto) {
         productService.save(dto);
         return ResponseEntity.ok("Product created successfully");
     }
 
     // PUT update product by id
-    @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ProductsDto dto) {
+    @PostMapping("/update")
+    public ResponseEntity<Object> update(@PathVariable int id, @RequestBody ProductsDTO dto) {
         dto.setId(id);
         productService.save(dto);
         return ResponseEntity.ok("Product updated successfully");
     }
 
     // DELETE delete product by id
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete/{id}")
     public ResponseEntity<Object> delete(@PathVariable int id) {
         productService.delete(id);
         return ResponseEntity.ok("Product deleted successfully");
@@ -59,12 +77,12 @@ public class ProductController {
                                         @RequestParam String pro_name,
                                         @RequestParam Double pro_price,
                                         @RequestParam String pro_des,
-                                        @RequestParam Integer pro_quant,
+                                        @RequestParam int pro_quant,
                                         @RequestParam String pro_status,
                                         @RequestParam Long pro_cate){
         ResponseData responseData = new ResponseData();
         System.out.println("hello add product");
-        ProductsDto product = new ProductsDto();
+        ProductsDTO product = new ProductsDTO();
         product.setName(pro_name);
         product.setPrice(pro_price);
         product.setDescription(pro_des);
