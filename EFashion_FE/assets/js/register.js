@@ -20,4 +20,35 @@ $(document).ready(function (){
             }
         }
     })
+
+    $('#sign-up-user').click(function (e) {
+        const email = $('#username').val()
+        const password = $('#password').val()
+        const fullName = $('#fullname').val()
+        const phone = $('#phone').val()
+        const address = $('#address').val()
+        var avatar = $('#avatar')[0].files[0]
+
+        var formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('fullName', fullName);
+            formData.append('phone', phone);
+            formData.append('address', address);
+            formData.append('avatar', avatar);
+            e.preventDefault()
+        $.ajax({
+            url: `http://localhost:8080/api/user/sendEmailConfirmOTP`,
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                window.location.href="confirm-otp.html"
+            },
+            error: function() {
+                alert("Đã xảy ra lỗi khi cập nhật thông tin user");
+            }
+        })
+    })
 })
