@@ -23,7 +23,7 @@ class Pagination {
 const productList = document.querySelector("#product-list");
 
 // Lấy danh sách sản phẩm từ API GET
-fetch("http://localhost:8080/api/products")
+fetch("http://localhost:8080/api/products/getAll")
     .then((response) => response.json())
     .then((products) => {
         const itemsPerPage = 9;
