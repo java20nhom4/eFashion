@@ -31,9 +31,23 @@ public class UserController {
 
     // Send OTP
     @PostMapping("/sendEmailConfirmOTP")
-    public ResponseEntity<?> sendMail(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> sendMail(@RequestParam String email,
+                                      @RequestParam String password,
+                                      @RequestParam String fullName,
+                                      @RequestParam String phone,
+                                      @RequestParam String address,
+                                      @RequestParam MultipartFile avatar) {
 
         ResponseData responseData = new ResponseData();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setEmail(email);
+        userDTO.setPassword(password);
+        userDTO.setFullName(fullName);
+        userDTO.setPhone(phone);
+        userDTO.setAddress(address);
+        userDTO.setAvatar(avatar.getName());
+        userDTO.setRoleId(3);
+
         if(usersServiceImp.checkExistEmail(userDTO.getEmail()) == false) {
 
             EmailDTO emailDTO = supportEmail(userDTO.getEmail());
@@ -46,7 +60,7 @@ public class UserController {
             // Set UserDTO
             checkUserDTO = userDTO;
         }else {
-            responseData.setData("Gửi thất bại OTP");
+            responseData.setData(false);
             responseData.setDesc("Email đã tồn tại !");
             responseData.setStatusCode(400);
         }
@@ -60,6 +74,7 @@ public class UserController {
 
         //Set responseData
         ResponseData responseData = new ResponseData();
+        System.out.println(inputOTP);
 
         if(inputOTP.equals(OTP)) {
             if (usersServiceImp.signup(checkUserDTO)) {
@@ -128,6 +143,7 @@ public class UserController {
     public ResponseEntity<?> findPasswordByEmail(@RequestParam String inputEmail) {
 
         ResponseData responseData = new ResponseData();
+        System.out.println(inputEmail);
         if(usersServiceImp.checkExistEmail(inputEmail)) {
             EmailDTO emailDTO = supportEmail(inputEmail);
             email = inputEmail;
@@ -148,6 +164,7 @@ public class UserController {
                                                           @RequestParam String newPassword) {
 
         ResponseData responseData = new ResponseData();
+        System.out.println(inputOTP+newPassword);
         if(inputOTP.equals(OTP)) {
             UserDTO userDTO = usersServiceImp.getUserByEmail(email);
             System.out.println(userDTO.getEmail()+" "+userDTO.getPhone()+" "+userDTO.getPassword());
