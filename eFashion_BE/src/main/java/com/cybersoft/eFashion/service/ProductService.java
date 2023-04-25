@@ -1,11 +1,9 @@
 package com.cybersoft.eFashion.service;
 
-import com.cybersoft.eFashion.dto.ProductsDto;
-import com.cybersoft.eFashion.dto.RatingDTO;
+import com.cybersoft.eFashion.dto.CategoryDTO;
+import com.cybersoft.eFashion.dto.ProductsDTO;
 import com.cybersoft.eFashion.entity.Category;
 import com.cybersoft.eFashion.entity.Products;
-import com.cybersoft.eFashion.entity.RatingProducts;
-import com.cybersoft.eFashion.entity.Users;
 import com.cybersoft.eFashion.repository.CategoryRepository;
 import com.cybersoft.eFashion.repository.ProductRepository;
 import com.cybersoft.eFashion.service.imp.FileStorageServiceImp;
@@ -20,9 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ProductService implements ProductsServiceImp {
@@ -39,28 +37,43 @@ public class ProductService implements ProductsServiceImp {
     private ProductRepository productRepository;
 
     // Convert entity to dto
-    private ProductsDto mapEntityToDto(Products entity) {
+    private ProductsDTO mapEntityToDto(Products entity) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(entity, ProductsDto.class);
+        return modelMapper.map(entity, ProductsDTO.class);
     }
 
     // Convert dto to entity
-    private Products mapDtoToEntity(ProductsDto dto) {
+    private Products mapDtoToEntity(ProductsDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, Products.class);
     }
 
     // Get all products
-    public List<ProductsDto> findAll() {
-        List<Products> entities = productRepository.findAll();
-        for(Products pro: entities){
-            pro.setImage(parentFolder + "\\" + FolderType.Products.toString() + "\\" + pro.getImage());
+    public List<ProductsDTO> findAll() {
+        List<ProductsDTO> list = new ArrayList<>();
+        List<Products> productsList = productRepository.findAll();
+        for (Products products: productsList) {
+            ProductsDTO productsDto = new ProductsDTO();
+            productsDto.setId(products.getId());
+            productsDto.setName(products.getName());
+            productsDto.setPrice(products.getPrice());
+            productsDto.setStatus(products.getStatus());
+
+            CategoryDTO categoryDTO = new CategoryDTO();
+            Category category = categoryRepository.getCategoryById(products.getCategory().getId());
+            categoryDTO.setId(category.getId());
+            categoryDTO.setName(category.getName());
+
+            productsDto.setCategoryDTO(categoryDTO);
+
+            list.add(productsDto);
         }
-        return entities.stream().map(this::mapEntityToDto).collect(Collectors.toList());
+
+        return list;
     }
 
     // Get product by id
-    public ProductsDto findById(int id) {
+    public ProductsDTO findById(int id) {
         Products entity = productRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Product not found with id " + id));
         return mapEntityToDto(entity);
@@ -68,11 +81,11 @@ public class ProductService implements ProductsServiceImp {
 
     @Transactional
     // Create or update product
-    public void save(ProductsDto dto) {
+    public void save(ProductsDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
 
-        modelMapper.typeMap(ProductsDto.class,Products.class).addMappings(mapper->{
-            mapper.<Long>map(ProductsDto::getCategoryId,(dest,value)->dest.getCategory().setId(value)
+        modelMapper.typeMap(ProductsDTO.class,Products.class).addMappings(mapper->{
+            mapper.<Long>map(ProductsDTO::getCategoryId,(dest, value)->dest.getCategory().setId(value)
             );
         });
 
@@ -89,7 +102,7 @@ public class ProductService implements ProductsServiceImp {
     }
 
     @Override
-    public boolean addProduct(MultipartFile file, ProductsDto productDTO) {
+    public boolean addProduct(MultipartFile file, ProductsDTO productDTO) {
         boolean isInsertSuccess = false;
         boolean isSaveFileSuccess = true;
         int idImage = productRepository.getMaxId() + 1;
