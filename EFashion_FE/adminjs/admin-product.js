@@ -4,7 +4,7 @@ $(document).ready(function (){
         url: `http://localhost:8080/api/products/getAll`,
     }).done(function (data){
         console.log(data[1])
-
+        
         if (data != null) {
             for (const i in data) {
                 let stt = Number(Number(i)+1)
@@ -38,15 +38,7 @@ $(document).ready(function (){
                     'id': id
                 }
             }).done(function (data) {
-                console.log(data[1]) 
-                $.ajax({
-                    method:'POST',
-                    url:'http://localhost:8080/api/products/update',
-                    data: {
-                        'name':id
-                    }
-                })
-                // window.location.href=""
+                window.location.href="admin-product-edit.html?id=" + id
             })
         })
 
@@ -69,6 +61,5 @@ $(document).ready(function (){
 
         
     })
-
     
 })

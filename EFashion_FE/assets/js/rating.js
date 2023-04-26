@@ -1,9 +1,9 @@
-_ = document.querySelector.bind(document)
+// _ = document.querySelector.bind(document)
 var valueRate = 5;
 const token = localStorage.getItem('token')
 const userId = localStorage.getItem('userId')
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get("id");
+const urlParams_rate = new URLSearchParams(window.location.search);
+const productId_rate = urlParams_rate.get("id");
 
 async function getRatingByProduct(pro_id) {
     const option = {
@@ -22,6 +22,12 @@ async function getRatingByProduct(pro_id) {
     if (dataRating.data.length > 0){
         var strHtml = "";
         for(var i = 0 ; i< dataRating.data.length; i++) {
+            var pathImage = dataRating.data[i].image
+            var splitPath = pathImage.split("\\")
+            var divImage = ""
+            if (splitPath[splitPath.length -1] !== 'null'){
+                divImage = `<img src="${dataRating.data[i].image}" style="width: 150px !important; height: 150px !important;" alt="product-thumb" id="imageRating__${dataRating.data[i].id}">`
+            }
             strHtml += `<div class="col-lg-12 col-md-12 mr-10">
             <div class="row"  style="margin-bottom: 50px;">
                     <div class="col-lg-3 col-sm-12">
@@ -30,7 +36,7 @@ async function getRatingByProduct(pro_id) {
                                 <img src="assets/images/slider/image2.jpg" alt="Avatar" class="avatar"> 
                             </div>  
                             <div class="col-sm-9" style="padding-left: 0px;">
-                                <div style="font-weight: normal; color: #777777;">Tran Hoang Huy</div>
+                                <div style="font-weight: normal; color: #777777;"> ${dataRating.data[i].user_name}</div>
                                 <div class="rating-icon" style="margin-top: 5px;" id="divRating__${dataRating.data[i].id}">
                                     ${RenderHTMLStar(dataRating.data[i].star)}
                                 </div>
@@ -45,12 +51,12 @@ async function getRatingByProduct(pro_id) {
                     <div class="col-lg-3 col-sm-12">
             
                     </div>
-                    <div class="col-lg-9 col-sm-12">
-
-                        <img src="${dataRating.data[i].image}" style="width: 150px !important; height: 150px !important;" alt="product-thumb">
-                    </div>
+                    <div class="col-lg-9 col-sm-12">` + 
+                    divImage +
+                    `</div>
                 </div>
             </div>`
+            
         }
         //<div class="product-thumb zoom" onmousemove="zoom(event)" style="background-image: url(${dataRating.data[i].image.replaceAll("\\", '/')}); width: 175px !important; height: 175px !important; margin-top: 5px;">
         //</div>
@@ -142,32 +148,84 @@ async function addRating() {
     }
     console.log(token);
     // var object_ = {file: valueImage, user_id: 1, product_id:2, star:3, comment: "sddd"};
-    var formData = new FormData()
-    formData.append('file', valueImage)
-    formData.append('user_id', userId)
-    formData.append('product_id', productId)
-    formData.append('star', valueRating)
-    formData.append('comment', valueText)
-    console.log(valueImage);
-    $.ajax({
-        url: 'http://localhost:8080/rating/add',
-        type: 'POST',
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', token);
-        },
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-            console.log('thanh cong', data)
-        },
-        error: function (data) {
-            console.log('that bai')
-        },
-    })
+    if (valueImage === ""){
+        if (!userId){
+            alert("Bạn chưa đăng nhập! Vui lòng đăng nhập")
+            window.location.href = window.location
+        }else{
+            $.ajax({
+                url: 'http://localhost:8080/rating/addNoImage',
+                type: 'POST',
+                // beforeSend: function (xhr) {
+                //     xhr.setRequestHeader('Authorization', token);
+                // },
+                headers: {
+                    Authorization: `Bearer ${ token }`,
+                },
+                data: {
+                    'user_id': userId,
+                    'product_id': productId_rate,
+                    'star':valueRating,
+                    'comment':valueText
+                },
+                success: function(data) {
+                    console.log('thanh cong', data)
+                },
+                error: function (data) {
+                    console.log('that bai')
+                },
+            }).done(function (data){
+                if(data.statusCode === 400){
+                    alert(data.desc)
+                }else {
+                    alert(data.desc)
+                }
+                window.location.href = window.location;
+            })
+        }
+    }else{
+        var formData = new FormData()
+        formData.append('file', valueImage)
+        formData.append('user_id', userId)
+        formData.append('product_id', productId_rate)
+        formData.append('star', valueRating)
+        formData.append('comment', valueText)
+        console.log(valueImage)
+        if (!userId){
+            alert("Bạn chưa đăng nhập! Vui lòng đăng nhập")
+            window.location.href = window.location
+        }else{
+            $.ajax({
+                url: 'http://localhost:8080/rating/add',
+                type: 'POST',
+                // beforeSend: function (xhr) {
+                //     xhr.setRequestHeader('Authorization', token);
+                // },
+                headers: {
+                    Authorization: `Bearer ${ token }`,
+                },
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    console.log('thanh cong', data)
+                },
+                error: function (data) {
+                    console.log('that bai')
+                },
+            }).done(function (data){
+                if(data.statusCode === 400){
+                    alert(data.desc)
+                }else {
+                    alert(data.desc)
+                }
+                window.location.href = window.location;
+            })
+        }
+    }
 }
 
 $(document).ready(function() {
-    getRatingByProduct(productId);
+    getRatingByProduct(productId_rate);
     ChooseStarRating();
 })
