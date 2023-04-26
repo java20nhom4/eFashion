@@ -59,6 +59,7 @@ async function editProduct() {
     if (valueImage === undefined){
         alert('Vui long insert hinh anh!')
     } else{
+        alert(idPro+" "+namePro+" "+catePro+" "+pricePro+" "+desPro+" "+quanPro+" "+statusPro+" "+valueImage)
         var formData = new FormData()
         formData.append('image', valueImage)
         formData.append('pro_id', idPro)
@@ -70,18 +71,17 @@ async function editProduct() {
         formData.append('pro_cate', catePro)
         console.log(valueImage);
         $.ajax({
-            url: 'http://localhost:8080/api/products/edit',
+            url: `http://localhost:8080/api/products/edit`,
             type: 'POST',
             data: formData,
             contentType: false,
             processData: false,
             success: function(data) {
-                alert('thanh cong')
-                window.location.href = window.location;
+                alert('Cập nhật thành công !');
             },
-            error: function (data) {
-                alert('that bai')
-            },
+            error: function() {
+                alert("Đã xảy ra lỗi khi cập nhật thông tin user");
+            }
         })
     }
     
