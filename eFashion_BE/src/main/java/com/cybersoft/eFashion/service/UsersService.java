@@ -83,7 +83,7 @@ public class UsersService implements UsersServiceImp {
         //save new image if exist
         if(userDTO.getAvatar() != null) {
             if (!userDTO.getAvatar().equals("")) {
-//                fileStorageService.saveFiles(file, file.getOriginalFilename(), FolderType.Users);
+                fileStorageService.saveFiles(file, file.getOriginalFilename(), FolderType.Users);
 
                 //delete old image if exist
                 if (users.getAvatar() != null) {
@@ -93,8 +93,6 @@ public class UsersService implements UsersServiceImp {
                 }
 
                 //update name avatar
-                users.setAvatar(userDTO.getAvatar());
-            } else {
                 users.setAvatar(userDTO.getAvatar());
             }
         }
@@ -127,6 +125,10 @@ public class UsersService implements UsersServiceImp {
             users.setFullname(userDTO.getFullName());
             users.setPassword(userDTO.getPassword());
             users.setAvatar(userDTO.getAvatar());
+
+            if (file.getName() != null) {
+                fileStorageService.saveFiles(file, file.getOriginalFilename(), FolderType.Users);
+            }
 
             Roles roles = new Roles();
             roles.setId(userDTO.getRoleId());
