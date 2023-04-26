@@ -81,7 +81,7 @@ public class ProductService implements ProductsServiceImp {
 
     @Transactional
     // Create or update product
-    public void save(ProductsDTO dto) {
+    public void save(ProductsDTO dto, MultipartFile image) {
         ModelMapper modelMapper = new ModelMapper();
 
         modelMapper.typeMap(ProductsDTO.class,Products.class).addMappings(mapper->{
@@ -90,7 +90,12 @@ public class ProductService implements ProductsServiceImp {
         });
 
         Products entity = modelMapper.map(dto,Products.class);
-        productRepository.save(entity);
+        try {
+            productRepository.save(entity);
+            fileStorageServiceImp.saveFiles(image, image.getOriginalFilename(), FolderType.Products);
+        } catch (Exception e) {
+            System.out.println("error save product");
+        }
     }
 
     // Delete product by id

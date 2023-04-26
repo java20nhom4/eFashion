@@ -6,6 +6,7 @@ import com.cybersoft.eFashion.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -53,15 +54,30 @@ public class ProductController {
     // POST create new product
     @PostMapping
     public ResponseEntity<Object> create(@RequestBody ProductsDTO dto) {
-        productService.save(dto);
+        productService.save(dto, null);
         return ResponseEntity.ok("Product created successfully");
     }
 
     // PUT update product by id
-    @PostMapping("/update")
-    public ResponseEntity<Object> update(@PathVariable int id, @RequestBody ProductsDTO dto) {
-        dto.setId(id);
-        productService.save(dto);
+    @PostMapping("/edit")
+    public ResponseEntity<Object> update(@RequestParam int pro_id,
+                                         @RequestParam String pro_name,
+                                         @RequestParam Double pro_price,
+                                         @RequestParam String pro_des,
+                                         @RequestParam int pro_quant,
+                                         @RequestParam MultipartFile image,
+                                         @RequestParam String pro_status,
+                                         @RequestParam Long pro_cate) {
+        ProductsDTO productsDTO = new ProductsDTO();
+        productsDTO.setId(pro_id);
+        productsDTO.setName(pro_name);
+        productsDTO.setPrice(pro_price);
+        productsDTO.setDescription(pro_des);
+        productsDTO.setQuantity(pro_quant);
+        productsDTO.setImage(image.getName());
+        productsDTO.setCategoryId(pro_cate);
+        productsDTO.setStatus(pro_status);
+        productService.save(productsDTO, image);
         return ResponseEntity.ok("Product updated successfully");
     }
 
@@ -91,14 +107,6 @@ public class ProductController {
         product.setCategoryId(pro_cate);
 
         responseData.setData(productService.addProduct(file, product));
-        return new ResponseEntity<>(responseData, HttpStatus.OK);
-    }
-
-    @PostMapping(value = "/adda")
-    public ResponseEntity<?> addProduct1(
-                                        @RequestParam int id){
-        ResponseData responseData = new ResponseData();
-        System.out.println("hello add product");
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 }
