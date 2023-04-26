@@ -22,7 +22,7 @@ public class CartController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> addCart(@RequestBody OrderItemsDTO orderItemsDTO, @RequestParam("id") int id){
+    public ResponseEntity<?> addCart( @RequestParam("id") int id){
 
         ResponseData responseData = new ResponseData();
         boolean isExists = cartService.findProductById(id);
@@ -30,7 +30,7 @@ public class CartController {
         if(isExists){
             cartService.plusQuantity(id);
         }else {
-            responseData.setData(cartService.addCart(orderItemsDTO));
+            responseData.setData(cartService.addCart(id));
         }
         return new ResponseEntity<>(responseData,HttpStatus.OK);
     }

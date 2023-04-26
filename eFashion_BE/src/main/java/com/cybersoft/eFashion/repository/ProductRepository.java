@@ -14,4 +14,6 @@ public interface ProductRepository extends JpaRepository<Products,Integer> {
     Products getProductsById(int id);
 
     List<Products> findAll();
+    @Query("select p from products p where cate_id=?1")
+    List<Products> getProductsByCateId(int id);
 }

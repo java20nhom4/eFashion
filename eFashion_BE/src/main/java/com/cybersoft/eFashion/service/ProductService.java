@@ -149,6 +149,28 @@ public class ProductService implements ProductsServiceImp {
     }
 
     @Override
+    public List<ProductsDTO> getProductByCateId(int id) {
+        List<ProductsDTO> list = new ArrayList<>();
+        List<Products> productsList = productRepository.getProductsByCateId(id);
+        for (Products products : productsList) {
+            ProductsDTO productsDto = new ProductsDTO();
+            productsDto.setId(products.getId());
+            productsDto.setName(products.getName());
+            productsDto.setPrice(products.getPrice());
+            productsDto.setStatus(products.getStatus());
+
+            CategoryDTO categoryDTO = new CategoryDTO();
+            Category category = categoryRepository.getCategoryById(products.getCategory().getId());
+            categoryDTO.setId(category.getId());
+            categoryDTO.setName(category.getName());
+
+            productsDto.setCategoryDTO(categoryDTO);
+
+            list.add(productsDto);
+        }
+
+        return list;
+    }
     public boolean editProduct(MultipartFile file, ProductsDTO productDTO) {
         System.out.println("hello edit 2");
         boolean isEdittSuccess = false;
@@ -156,21 +178,20 @@ public class ProductService implements ProductsServiceImp {
         int idImage = productRepository.getMaxId() + 1;
         String newFileName = "";
         // Save Image First
-        if (file != null){
+        if (file != null) {
             // Set name image as format: "id_cateId_time.typeFile"
             String now = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
             String extension = FilenameUtils.getExtension(file.getOriginalFilename());
-            newFileName = idImage + "_" + productDTO.getCategoryId()  + "_" + now  + "." + extension;
+            newFileName = idImage + "_" + productDTO.getCategoryId() + "_" + now + "." + extension;
             isSaveFileSuccess = fileStorageServiceImp.saveFiles(file, newFileName, FolderType.Products);
         }
         // Insert then
-        if (isSaveFileSuccess){
+        if (isSaveFileSuccess) {
             Category cate = categoryRepository.getCategoryById(productDTO.getCategoryId());
-            if (cate == null){
+            if (cate == null) {
                 isEdittSuccess = false;
                 System.out.println("Get null category, please add category first");
-            }
-            else{
+            } else {
                 Products product = productRepository.getProductsById(productDTO.getId());
                 product.setCategory(cate);
                 product.setName(productDTO.getName());

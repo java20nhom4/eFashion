@@ -21,9 +21,10 @@ class Pagination {
 }
 
 const productList = document.querySelector("#product-list");
-
+const urlParams = new URLSearchParams(window.location.search);
+const cateId = urlParams.get("cateId");
 // Lấy danh sách sản phẩm từ API GET
-fetch("http://localhost:8080/api/products/getAll")
+fetch(`http://localhost:8080/api/products/getProductByCateId?cateId=${cateId}`)
     .then((response) => response.json())
     .then((products) => {
         const itemsPerPage = 9;

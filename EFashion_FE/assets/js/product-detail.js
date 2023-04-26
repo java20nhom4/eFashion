@@ -3,10 +3,10 @@ const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 
 fetch(`http://localhost:8080/api/products/${productId}`)
-  .then((response) => response.json())
-  .then((product) => {
-    const productDetails = document.getElementById("product-details");
-    productDetails.innerHTML = `
+    .then((response) => response.json())
+    .then((product) => {
+        const productDetails = document.getElementById("product-details");
+        productDetails.innerHTML = `
     <div class="details-product-area mb--70">
     <div class="product-thumb-area">
         <div class="cursor"></div>
@@ -19,7 +19,6 @@ fetch(`http://localhost:8080/api/products/${productId}`)
     </div>
     <div class="contents">
         <div class="product-status">
-            <span class="product-catagory">${product.categoryId}</span>
             <div class="rating-stars-group">
                 <div class="rating-star"><i class="fas fa-star"></i></div>
                 <div class="rating-star"><i class="fas fa-star"></i></div>
@@ -33,21 +32,12 @@ fetch(`http://localhost:8080/api/products/${productId}`)
         ${product.description}
         </p>
         <div class="product-bottom-action">
-            <div class="cart-edit">
-                <div class="quantity-edit action-item">
-                    <button class="button"><i class="fal fa-minus minus"></i></button>
-                    <input type="text" class="input" value="01" />
-                    <button class="button plus">+<i class="fal fa-plus plus"></i></button>
-                </div>
-            </div>
-            <a href="cart.html" class="addto-cart-btn action-item"><i class="rt-basket-shopping"></i> Add To
-                Cart</a>
-            <a href="wishlist.html" class="wishlist-btn action-item"><i class="rt-heart"></i></a>
+            <div style="cursor:pointer;" class="addto-cart-btn action-item"><i class="rt-basket-shopping"></i> Add To
+                Cart</div>
+          
         </div>
         <div class="product-uniques">
-            <span class="sku product-unipue"><span>SKU: </span> BO1D0MX8SJ</span>
-            <span class="catagorys product-unipue"><span>Categories: </span> T-Shirts, Tops, Mens</span>
-            <span class="tags product-unipue"><span>Tags: </span> fashion, t-shirts, Men</span>
+            <span class="catagorys product-unipue"><span>Categories: </span> ${product.categoryId}</span>
         </div>
         <div class="share-social">
             <span>Share:</span>
@@ -60,7 +50,67 @@ fetch(`http://localhost:8080/api/products/${productId}`)
     </div>
 </div>
   `;
-  })
-  .catch((error) => {
-    console.log("Error at Product Details" + error);
-  });
+        if (localStorage.getItem('token') != null) {
+            $(".addto-cart-btn").on('click', function() {
+                const token = localStorage.getItem('token')
+                const option = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${ token }`,
+                    },
+                }
+                fetch(`http://localhost:8080/cart?id=${productId}`, option).then(window.location.href = 'cart.html');
+
+
+            });
+
+        } else {
+            $(".addto-cart-btn").on('click', function() {
+                $(".product-details-popup-wrapper").addClass("popup")
+                $(".anywere").addClass("bgshow")
+            });
+            $(".product-bottom-action .view-btn").on('click', function() {
+                $(".product-details-popup-wrapper").addClass("popup")
+                $(".anywere").addClass("bgshow")
+            });
+            $(".product-details-popup-wrapper .cart-edit").on('click', function() {
+                $(".product-details-popup-wrapper").addClass("popup")
+                $(".anywere-home").addClass("bgshow")
+            });
+            $(".anywere").on('click', function() {
+                $(".product-details-popup-wrapper").removeClass("popup")
+                $(".anywere").removeClass("bgshow")
+            });
+        }
+
+    })
+    .catch((error) => {
+        console.log("Error at Product Details" + error);
+    });
+
+
+
+$(document).ready(function() {
+    $.ajax({
+        method: 'GET',
+        url: `http://localhost:8080/api/category/getAll`,
+    }).done(function(data) {
+        console.log(data)
+        if (data.data != null) {
+            for (const i in data.data) {
+
+                let stt = Number(Number(i) + 1)
+                const html = `<li class="mega-dropdown-li">
+                                                    <ul class="mega-dropdown-ul">
+                                                        <li class="dropdown-li"><a class="dropdown-link2"
+                                                                href="products.html?id=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
+                                                        </li>                                         
+                                                    </ul>
+                                    </li>`
+                $('#show-detail').append(html)
+
+            }
+        }
+    })
+})

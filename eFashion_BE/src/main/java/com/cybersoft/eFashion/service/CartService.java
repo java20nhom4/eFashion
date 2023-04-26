@@ -56,12 +56,10 @@ public class CartService implements CartServiceImp {
     }
 
     @Override
-    public boolean addCart(OrderItemsDTO orderItemsDTO) {
+    public boolean addCart(int proId) {
         OrderItems orderItems = new OrderItems();
-        orderItems.setQuantity(orderItemsDTO.getQuantity());
-        Products products = new Products();
-        products.setId(orderItemsDTO.getProductId());
-        orderItems.setProducts(products);
+        orderItems.setQuantity(1);
+        orderItems.setProductId(proId);
 
         try{
             cartRepository.save(orderItems);

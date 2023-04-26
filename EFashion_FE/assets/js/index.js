@@ -52,7 +52,7 @@ async function getEmailFromToken(token) {
                     const html = `<li class="mega-dropdown-li">
                                                     <ul class="mega-dropdown-ul">
                                                         <li class="dropdown-li"><a class="dropdown-link2"
-                                                                href="products.html?id=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
+                                                                href="products.html?cateId=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                         </li>                                         
                                                     </ul>
                                     </li>`

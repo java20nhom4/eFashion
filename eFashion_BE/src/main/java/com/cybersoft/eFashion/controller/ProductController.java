@@ -28,7 +28,11 @@ public class ProductController {
         List<ProductsDTO> products = productService.findAll();
         return ResponseEntity.ok(products);
     }
-
+    @GetMapping("/getProductByCateId")
+    public ResponseEntity<Object> getProductByCateId(@RequestParam int cateId) {
+        List<ProductsDTO> products = productService.getProductByCateId(cateId);
+        return ResponseEntity.ok(products);
+    }
     @PostMapping("/postIdProductDetail")
     public ResponseEntity<?> postIdProductDetail(@RequestParam int id) {
         ResponseData responseData = new ResponseData();
@@ -58,7 +62,7 @@ public class ProductController {
         return ResponseEntity.ok("Product created successfully");
     }
 
-    // PUT update product by id
+//     PUT update product by id
     @PostMapping("/edit")
     public ResponseEntity<Object> update(@RequestParam int pro_id,
                                          @RequestParam String pro_name,

@@ -1,17 +1,17 @@
-$(document).ready(function (){
+$(document).ready(function() {
     $.ajax({
         method: 'GET',
         url: `http://localhost:8080/api/category/getAll`,
-    }).done(function (data){
+    }).done(function(data) {
         console.log(data)
-        if(data.data != null){
-            for (const i in data.data){
+        if (data.data != null) {
+            for (const i in data.data) {
 
-                let stt = Number(Number(i)+1)
+                let stt = Number(Number(i) + 1)
                 const html = `<li class="mega-dropdown-li">
                                                 <ul class="mega-dropdown-ul">
                                                     <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="cart.html">${data.data[i]["name"]}</a>
+                                                            href="products.html?cateId=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                     </li>                                         
                                                 </ul>
                                 </li>`
@@ -20,8 +20,8 @@ $(document).ready(function (){
         }
     })
 
-    $(document).ready(function (){
-        $('#send-otp').click(function (e) {
+    $(document).ready(function() {
+        $('#send-otp').click(function(e) {
             e.preventDefault()
             const email = $('#email').val()
 
@@ -31,9 +31,9 @@ $(document).ready(function (){
                 data: {
                     'inputEmail': email
                 }
-            }).done(function (data){
+            }).done(function(data) {
                 if (data.statusCode === 200) {
-                    window.location.href="forget-password-otp.html"
+                    window.location.href = "forget-password-otp.html"
                 } else {
                     alert(data.desc)
                 }
@@ -41,22 +41,22 @@ $(document).ready(function (){
         })
     })
 
-    $(document).ready(function (){
-        $('#send-otp').click(function (e) {
+    $(document).ready(function() {
+        $('#send-otp').click(function(e) {
             e.preventDefault()
             const otp = $('#confirm-otp').val()
             const password = $('#password')
-            
+
             $.ajax({
                 method: 'POST',
                 url: `http://localhost:8080/api/user/signup`,
                 data: {
                     'inputOTP': otp
                 }
-            }).done(function (data){
-                if(data.statusCode === 400){
+            }).done(function(data) {
+                if (data.statusCode === 400) {
                     alert(data.desc)
-                }else {
+                } else {
                     alert(data.desc)
                 }
             })
