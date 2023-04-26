@@ -5,4 +5,5 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface ProductsServiceImp {
     boolean addProduct(MultipartFile file, ProductsDTO productDTO);
+    boolean editProduct(MultipartFile file, ProductsDTO productDTO);
 }

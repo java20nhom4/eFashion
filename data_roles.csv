@@ -1,0 +1,4 @@
+id,name,description
+1,ADMIN,"The highest authority"
+2,STAFF,"Staff authority"
+3,CLIENT,"Client authority"

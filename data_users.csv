@@ -1,0 +1,4 @@
+id,email,phone,password,fullname,avatar,role_id,address
+9,admin,997788778,123456,"Nguyen Van A",1_admin_20230427_010946.jpg,1,TP.HCM
+10,staff,385553612,123456,"Nguyen Van B",10_staff_20230427_011019.jpg,2,"Ha Noi"
+11,client,99445531,123456,"Nguyen Van C",11_client_20230427_011224.jpg,3,"Da Nang"
