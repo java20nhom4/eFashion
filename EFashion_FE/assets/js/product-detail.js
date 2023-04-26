@@ -12,8 +12,8 @@ fetch(`http://localhost:8080/api/products/${productId}`)
         <div class="cursor"></div>
         <div class="thumb-wrapper one filterd-items figure">
             <div class="product-thumb zoom" onmousemove="zoom(event)"
-                style="background-image: url(${product.image})"><img
-                    src="${product.image}" alt="product-thumb">
+                style="background-image: url(..\\eFashion_BE\\${product.image})"><img
+                    src="..\\eFashion_BE\\${product.image}" alt="product-thumb">
             </div>
         </div>            
     </div>

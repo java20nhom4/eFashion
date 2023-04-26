@@ -11,6 +11,7 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Products,Integer> {
     @Query("SELECT coalesce(max(id), 0) FROM products")
     int getMaxId();
+    Products getProductsById(int id);
 
     List<Products> findAll();
 }
