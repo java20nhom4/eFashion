@@ -47,7 +47,7 @@ fetch(`http://localhost:8080/api/products/getProductByCateId?cateId=${cateId}`)
                 productItem.innerHTML = `
           <div class="product-item product-item2 element-item3 sidebar-left" data-id="${product.id} >
               <a href="#" class="product-image">
-                  <img src="${product.image}" alt="product-image">
+                <img src="..\\eFashion_BE\\${product.image}" alt="product-image">
               </a>
               <div class="bottom-content">
                   <a href="#" class="product-name">${product.name}</a>

@@ -62,7 +62,7 @@ public class ProductController {
         return ResponseEntity.ok("Product created successfully");
     }
 
-    // PUT update product by id
+//     PUT update product by id
     @PostMapping("/edit")
     public ResponseEntity<Object> update(@RequestParam int pro_id,
                                          @RequestParam String pro_name,
@@ -93,15 +93,14 @@ public class ProductController {
     }
 
     @PostMapping(value = "/add")
-    public ResponseEntity<?> addProduct(@RequestParam("file") MultipartFile file,
+    public ResponseEntity<?> addProduct(@RequestParam("image") MultipartFile file,
                                         @RequestParam String pro_name,
-                                        @RequestParam Double pro_price,
+                                        @RequestParam double pro_price,
                                         @RequestParam String pro_des,
                                         @RequestParam int pro_quant,
                                         @RequestParam String pro_status,
-                                        @RequestParam Long pro_cate){
+                                        @RequestParam long pro_cate){
         ResponseData responseData = new ResponseData();
-        System.out.println("hello add product");
         ProductsDTO product = new ProductsDTO();
         product.setName(pro_name);
         product.setPrice(pro_price);
@@ -109,9 +108,32 @@ public class ProductController {
         product.setQuantity(pro_quant);
         product.setStatus(pro_status);
         product.setCategoryId(pro_cate);
-
         responseData.setData(productService.addProduct(file, product));
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
+    
+    @PostMapping(value = "/edit")
+    public ResponseEntity<?> editProduct(@RequestParam("image") MultipartFile file,
+                                         @RequestParam int pro_id,
+                                         @RequestParam String pro_name,
+                                        @RequestParam double pro_price,
+                                        @RequestParam String pro_des,
+                                        @RequestParam int pro_quant,
+                                        @RequestParam String pro_status,
+                                        @RequestParam long pro_cate){
+        ResponseData responseData = new ResponseData();
+        ProductsDTO product = new ProductsDTO();
+        System.out.println("hello edit");
+        product.setId(pro_id);
+        product.setName(pro_name);
+        product.setPrice(pro_price);
+        product.setDescription(pro_des);
+        product.setQuantity(pro_quant);
+        product.setStatus(pro_status);
+        product.setCategoryId(pro_cate);
+        responseData.setData(productService.editProduct(file, product));
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
+
 }
 

@@ -46,6 +46,7 @@ public class RatingService implements RatingServiceImp {
         String path  = parentFolder + "\\" + FolderType.Ratings.toString() + "\\" + rate.getImage();
         System.out.println(path);
         rate_dto.setImage(path);
+        rate_dto.setUser_name(rate.getUsers().getFullname());
         return rate_dto;
     }
 
@@ -111,7 +112,9 @@ public class RatingService implements RatingServiceImp {
                 rating.setProducts(product);
                 rating.setStar(ratingDTO.getStar());
                 rating.setComment(ratingDTO.getComment());
-                rating.setImage(newFileName);
+                if (file != null){
+                    rating.setImage(newFileName);
+                }
                 ratingRepository.save(rating);
                 isInsertSuccess = true;
             }

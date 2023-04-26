@@ -1,5 +1,6 @@
 package com.cybersoft.eFashion.controller;
 
+import com.cybersoft.eFashion.dto.EmailDTO;
 import com.cybersoft.eFashion.dto.OrderItemsDTO;
 import com.cybersoft.eFashion.dto.RatingDTO;
 import com.cybersoft.eFashion.payload.ResponseData;
@@ -52,27 +53,42 @@ public class RatingController {
         rate_dto.setPro_id(product_id);
         rate_dto.setStar(star);
         rate_dto.setComment(comment);
-        responseData.setData(ratingService.insertRating(file, rate_dto));
+        if(user_id == -1) {
+            responseData.setData(false);
+            responseData.setStatusCode(400);
+            responseData.setDesc("Ban chua dang nhap, rating failed");
+        }else {
+            responseData.setDesc("Rating succeeded!!");
+            responseData.setData(ratingService.insertRating(file, rate_dto));
+            responseData.setStatusCode(200);
+        }
         return new ResponseEntity<>(responseData,HttpStatus.OK);
     }
 
-    @PostMapping(value = "/test")
-    public ResponseEntity<?> test(
+    @PostMapping(value = "/addNoImage")
+    public ResponseEntity<?> addRatingNoImage(
                                        @RequestParam int user_id,
                                        @RequestParam int product_id,
                                        @RequestParam int star,
                                        @RequestParam String comment){
         ResponseData responseData = new ResponseData();
-//        RatingDTO rate_dto = new RatingDTO();
-//        rate_dto.setUser_id(user_id);
-//        rate_dto.setPro_id(product_id);
-//        rate_dto.setStar(star);
-//        rate_dto.setComment(comment);
-        System.out.println("adsfdsfsdf");
-//        responseData.setData(ratingService.insertRating(file, rate_dto));
+        RatingDTO rate_dto = new RatingDTO();
+        rate_dto.setUser_id(user_id);
+        rate_dto.setPro_id(product_id);
+        rate_dto.setStar(star);
+        rate_dto.setComment(comment);
+        if(user_id == -1) {
+            responseData.setData(false);
+            responseData.setStatusCode(400);
+            responseData.setDesc("Ban chua dang nhap, rating failed");
+        }else {
+            MultipartFile file = null;
+            responseData.setDesc("Rating succeeded!!");
+            responseData.setData(ratingService.insertRating(file, rate_dto));
+            responseData.setStatusCode(200);
+        }
         return new ResponseEntity<>(responseData,HttpStatus.OK);
     }
-
 
     @DeleteMapping()
     public ResponseEntity<?>removeRating(@RequestParam int rating_id){

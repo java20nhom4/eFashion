@@ -34,7 +34,7 @@ public class ProductService implements ProductsServiceImp {
     CategoryRepository categoryRepository;
 
     @Autowired
-    private ProductRepository productRepository;
+    ProductRepository productRepository;
 
     // Convert entity to dto
     private ProductsDTO mapEntityToDto(Products entity) {
@@ -58,6 +58,8 @@ public class ProductService implements ProductsServiceImp {
             productsDto.setName(products.getName());
             productsDto.setPrice(products.getPrice());
             productsDto.setStatus(products.getStatus());
+            String path  = parentFolder + "\\" + FolderType.Products.toString() + "\\" + products.getImage();
+            productsDto.setImage(path);
 
             CategoryDTO categoryDTO = new CategoryDTO();
             Category category = categoryRepository.getCategoryById(products.getCategory().getId());
@@ -76,6 +78,8 @@ public class ProductService implements ProductsServiceImp {
     public ProductsDTO findById(int id) {
         Products entity = productRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Product not found with id " + id));
+        String path  = parentFolder + "\\" + FolderType.Products.toString() + "\\" + entity.getImage();
+        entity.setImage(path);
         return mapEntityToDto(entity);
     }
 
@@ -148,7 +152,7 @@ public class ProductService implements ProductsServiceImp {
     public List<ProductsDTO> getProductByCateId(int id) {
         List<ProductsDTO> list = new ArrayList<>();
         List<Products> productsList = productRepository.getProductsByCateId(id);
-        for (Products products: productsList) {
+        for (Products products : productsList) {
             ProductsDTO productsDto = new ProductsDTO();
             productsDto.setId(products.getId());
             productsDto.setName(products.getName());
@@ -166,5 +170,41 @@ public class ProductService implements ProductsServiceImp {
         }
 
         return list;
+    }
+    public boolean editProduct(MultipartFile file, ProductsDTO productDTO) {
+        System.out.println("hello edit 2");
+        boolean isEdittSuccess = false;
+        boolean isSaveFileSuccess = true;
+        int idImage = productRepository.getMaxId() + 1;
+        String newFileName = "";
+        // Save Image First
+        if (file != null) {
+            // Set name image as format: "id_cateId_time.typeFile"
+            String now = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+            String extension = FilenameUtils.getExtension(file.getOriginalFilename());
+            newFileName = idImage + "_" + productDTO.getCategoryId() + "_" + now + "." + extension;
+            isSaveFileSuccess = fileStorageServiceImp.saveFiles(file, newFileName, FolderType.Products);
+        }
+        // Insert then
+        if (isSaveFileSuccess) {
+            Category cate = categoryRepository.getCategoryById(productDTO.getCategoryId());
+            if (cate == null) {
+                isEdittSuccess = false;
+                System.out.println("Get null category, please add category first");
+            } else {
+                Products product = productRepository.getProductsById(productDTO.getId());
+                product.setCategory(cate);
+                product.setName(productDTO.getName());
+                product.setPrice(productDTO.getPrice());
+                product.setDescription(productDTO.getDescription());
+                product.setQuantity(productDTO.getQuantity());
+                product.setStatus(productDTO.getStatus());
+                product.setImage(newFileName);
+                productRepository.save(product);
+                isEdittSuccess = true;
+            }
+        }
+        System.out.println("Edit product: " + isEdittSuccess);
+        return isEdittSuccess;
     }
 }

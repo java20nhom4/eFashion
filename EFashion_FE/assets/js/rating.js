@@ -26,7 +26,7 @@ async function getRatingByProduct(pro_id) {
             var splitPath = pathImage.split("\\")
             var divImage = ""
             if (splitPath[splitPath.length -1] !== 'null'){
-                divImage = `<img src="${dataRating.data[i].image}" style="width: 150px !important; height: 150px !important;" alt="product-thumb" id="imageRating__${dataRating.data[i].id}">`
+                divImage = `<img src="..\\eFashion_BE\\${dataRating.data[i].image}" style="width: 150px !important; height: 150px !important;" alt="product-thumb" id="imageRating__${dataRating.data[i].id}">`
             }
             strHtml += `<div class="col-lg-12 col-md-12 mr-10">
             <div class="row"  style="margin-bottom: 50px;">

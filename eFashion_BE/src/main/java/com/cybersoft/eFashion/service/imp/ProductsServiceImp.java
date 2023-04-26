@@ -11,4 +11,7 @@ public interface ProductsServiceImp {
     boolean addProduct(MultipartFile file, ProductsDTO productDTO);
 
     List<ProductsDTO> getProductByCateId(int id);
+
+    boolean editProduct(MultipartFile file, ProductsDTO productDTO);
+
 }
