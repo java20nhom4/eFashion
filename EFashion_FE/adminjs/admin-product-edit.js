@@ -1,5 +1,27 @@
 _ = document.querySelector.bind(document)
-const token = 'Bearer ' + localStorage.getItem('token')
+const urlParamsProduct = new URLSearchParams(window.location.search);
+const productId_edit = urlParamsProduct.get("id");
+
+async function originData(){
+    const option = {
+        method: "GET",
+    }
+    const resProduct = await fetch(`http://localhost:8080/api/products/${productId_edit}`, option);
+    dataProduct = await resProduct.json()
+    // Render du lieu
+    console.log(dataProduct)
+
+    if (dataProduct !== null){
+        $('#nameProduct').val(dataProduct.name)
+        $('#priceProduct').val(dataProduct.price)
+        $('#descriptionProduct').val(dataProduct.description)
+        $('#quantityProduct').val(dataProduct.quantity)
+        $('#statusProduct').val(dataProduct.status)
+        $('#categoryProduct').val(dataProduct.categoryId).change()
+        $('#imageProduct').val(dataProduct.image)
+    }
+}
+
 
 var dataCate = null
 async function getCategories() {
@@ -25,27 +47,8 @@ async function getCategories() {
     console.log(dataCate)
 }
 
-function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      var bResult = false;
-      reader.onload = function (e) {
-        if (input.files[0].type == "image/png" || input.files[0].type == "image/gif" || input.files[0].type == "image/jpeg"){
-            if (input.files[0].size <= 10097152){
-                bResult = true;
-                $('#imageCreateProduct').attr('src', e.target.result).width(175).height(175);
-            }
-        }
-        if(!bResult) {
-            input.value = "";
-            $('#imageCreateProduct').attr('src','').width(0).height(0);
-        }
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-}
-
-async function addProduct() {
+async function editProduct() {
+    var idPro = productId_edit;
     var namePro = $('#nameProduct').val();
     var catePro = $('#categoryProduct').val();
     var pricePro = $('#priceProduct').val();
@@ -58,6 +61,7 @@ async function addProduct() {
     } else{
         var formData = new FormData()
         formData.append('image', valueImage)
+        formData.append('pro_id', idPro)
         formData.append('pro_name', namePro)
         formData.append('pro_price', pricePro)
         formData.append('pro_des', desPro)
@@ -65,28 +69,33 @@ async function addProduct() {
         formData.append('pro_status', statusPro)
         formData.append('pro_cate', catePro)
         console.log(valueImage);
-        
         $.ajax({
-            url: 'http://localhost:8080/api/products/add',
+            url: 'http://localhost:8080/api/products/edit',
             type: 'POST',
             data: formData,
             contentType: false,
             processData: false,
             success: function(data) {
                 alert('thanh cong')
+                window.location.href = window.location;
             },
             error: function (data) {
                 alert('that bai')
             },
         })
     }
+    
+    
+    
 }
 
 $(document).ready(function() {
     getCategories();
 
+    originData()
+
     $('#btn-add-update').click(function (e) {
         e.preventDefault()
-        addProduct()
+        editProduct()
     })
 })
