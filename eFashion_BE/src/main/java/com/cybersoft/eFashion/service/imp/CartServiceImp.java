@@ -13,6 +13,6 @@ public interface CartServiceImp {
 
     boolean findProductById(int id);
 
-    boolean addCart(OrderItemsDTO orderItemsDTO);
+    boolean addCart(int proId);
 
 }

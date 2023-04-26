@@ -15,7 +15,8 @@ public class OrderItems {
     @Column(name = "quantity")
     private int quantity;
 
-
+    @Column(name = "product_id")
+    private int productId;
     @ManyToOne
     @JoinColumn(name = "product_id" , insertable = false, updatable = false)
     private Products products;
@@ -23,6 +24,13 @@ public class OrderItems {
     @OneToMany(mappedBy = "orderItems")
     private Set<PlaceOrders> placeOrders;
 
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
     public int getId() {
         return id;

@@ -14,7 +14,7 @@ $(document).ready(function() {
                 const html = `<li class="mega-dropdown-li">
                                                 <ul class="mega-dropdown-ul">
                                                     <li class="dropdown-li"><a class="dropdown-link2"
-                                                            href="products.html?cate_id=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
+                                                            href="products.html?cateId=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                     </li>                                         
                                                 </ul>
                                 </li>`
@@ -24,7 +24,7 @@ $(document).ready(function() {
                                     <div class="category-item-inner">
                                         <div class="category-title-area">
                                             <span class="point"></span>
-                                            <a href="products.html?cate_id=${data.data[i]["id"]}" class="category-title">${data.data[i]["name"]}</a>
+                                            <a href="products.html?cateId=${data.data[i]["id"]}" class="category-title">${data.data[i]["name"]}</a>
                                         </div>
                                     </div>
                                 `

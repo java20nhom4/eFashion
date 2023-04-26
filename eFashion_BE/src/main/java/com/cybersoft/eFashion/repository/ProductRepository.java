@@ -13,4 +13,6 @@ public interface ProductRepository extends JpaRepository<Products,Integer> {
     int getMaxId();
 
     List<Products> findAll();
+    @Query("select p from products p where cate_id=?1")
+    List<Products> getProductsByCateId(int id);
 }

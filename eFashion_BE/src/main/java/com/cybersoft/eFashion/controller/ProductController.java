@@ -28,7 +28,11 @@ public class ProductController {
         List<ProductsDTO> products = productService.findAll();
         return ResponseEntity.ok(products);
     }
-
+    @GetMapping("/getProductByCateId")
+    public ResponseEntity<Object> getProductByCateId(@RequestParam int cateId) {
+        List<ProductsDTO> products = productService.getProductByCateId(cateId);
+        return ResponseEntity.ok(products);
+    }
     @PostMapping("/postIdProductDetail")
     public ResponseEntity<?> postIdProductDetail(@RequestParam int id) {
         ResponseData responseData = new ResponseData();

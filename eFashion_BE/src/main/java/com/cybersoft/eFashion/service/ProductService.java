@@ -143,4 +143,28 @@ public class ProductService implements ProductsServiceImp {
         System.out.println("Add product: " + isInsertSuccess);
         return isInsertSuccess;
     }
+
+    @Override
+    public List<ProductsDTO> getProductByCateId(int id) {
+        List<ProductsDTO> list = new ArrayList<>();
+        List<Products> productsList = productRepository.getProductsByCateId(id);
+        for (Products products: productsList) {
+            ProductsDTO productsDto = new ProductsDTO();
+            productsDto.setId(products.getId());
+            productsDto.setName(products.getName());
+            productsDto.setPrice(products.getPrice());
+            productsDto.setStatus(products.getStatus());
+
+            CategoryDTO categoryDTO = new CategoryDTO();
+            Category category = categoryRepository.getCategoryById(products.getCategory().getId());
+            categoryDTO.setId(category.getId());
+            categoryDTO.setName(category.getName());
+
+            productsDto.setCategoryDTO(categoryDTO);
+
+            list.add(productsDto);
+        }
+
+        return list;
+    }
 }
