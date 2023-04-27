@@ -1,0 +1,51 @@
+INSERT INTO roles(name,description) VALUES("ROLE_ADMIN","ADMIN");
+INSERT INTO roles(name,description) VALUES("ROLE_USER","USER");
+
+INSERT INTO users(email,phone,password,fullname,avatar,role_id,address) VALUES("admin@gmail.com",0123456789,"1234","Admin","",1,"TP.HCM");
+INSERT INTO users(email,phone,password,fullname,avatar,role_id,address) VALUES("nguyenvanA@gmail.com",0123456789,"1234","Nguyen Van A","",2,"Long An");
+INSERT INTO users(email,phone,password,fullname,avatar,role_id,address) VALUES("nguyenvanB@gmail.com",0123456789,"1234","nguyễn văn B","",2,"Quảng Nam");
+INSERT INTO users(email,phone,password,fullname,avatar,role_id,address) VALUES("nguyenvanC@gmail.com",0123456789,"1234","nguyễn văn C","",2,"Quảng Ngãi");
+INSERT INTO users(email,phone,password,fullname,avatar,role_id,address) VALUES("nguyenvanD@gmail.com",0123456789,"1234","nguyễn văn D","",2,"Quảng Ninh");
+INSERT INTO users(email,phone,password,fullname,avatar,role_id,address) VALUES("nguyenvanE@gmail.com",0123456789,"1234","nguyễn văn E","",2,"Quảng Bình");
+
+
+INSERT INTO category(name,description) VALUES("Shoe","Shoe");
+INSERT INTO category(name,description) VALUES("Clothes","Clothes");
+INSERT INTO category(name,description) VALUES("Watch","Watch");
+INSERT INTO category(name,description) VALUES("Glasses","Glasses");
+
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Nike",400,"1_1_20230427_234531.jpg","New Brand Nike",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Vans",300,"2_1_20230427_235005.jpg","New Brand Vans",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Converse",500,"3_1_20230427_235046.jpg","New Brand Converse",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Nike",100,"4_1_20230427_235123.jpg","New Brand Nike",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Vans",700,"5_1_20230427_235146.jpg","New Brand Vans",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Converse 02",700,"6_1_20230427_235241.jpg","New Brand Converse",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Converse 03",500,"8_1_20230427_235440.jpg","New Brand Converse",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Adidas",600,"9_1_20230427_235506.jpg","New Brand Adidas",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Adidas 01",700,"10_1_20230427_235550.jpg","New Brand Adidas",1,1);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Vans 04",200,"11_1_20230427_235611.jpg","New Brand Vans",1,1);
+
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 01",200,"51_1_20230427_011959.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 02",200,"52_1_20230427_012019.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 03",200,"53_1_20230427_012042.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 04",200,"54_1_20230427_012100.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 05",200,"55_1_20230427_012122.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 06",200,"56_2_20230427_012237.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 07",200,"57_2_20230427_012249.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 08",200,"58_2_20230427_012307.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 09",200,"59_2_20230427_012325.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 10",200,"60_2_20230427_012337.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 11",200,"61_3_20230427_012509.jpg","Đồ thể thao Olympic",1,2);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Đồ thể thao 12",200,"62_3_20230427_012516.jpg","Đồ thể thao Olympic",1,2);
+
+
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Rolex R-100",5000,"23_3_20230428_004123.jpg","Brand new Rolex",1,3);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Rolex R-150 01",3000,"24_3_20230428_004144.jpg","Brand new Rolex",1,3);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Hublot H-35",6000,"25_3_20230428_004449.jpg","Brand new Hublot",1,3);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Tissot T-30",4000,"26_3_20230428_004540.jpg","Brand new Tissot",1,3);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Hublot Luxury",4000,"27_3_20230428_004710.jpg","Brand new Hublot",1,3);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Tissot T-60",7000,"28_3_20230428_004734.jpg","Brand new Tissot",1,3);
+
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Gucci Glasses 01",1000,"29_4_20230428_010127.jpg","Brand new Glasses",1,4);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Gucci Glasses 02",1500,"30_4_20230428_010149.jpg","Brand new Glasses",1,4);
+INSERT INTO products (name,price,image,description,quantity,cate_id) VALUES("Gucci Glasses 03",500,"31_4_20230428_010207.jpg","Brand new Glasses",1,4);

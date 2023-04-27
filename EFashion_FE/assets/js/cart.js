@@ -23,7 +23,7 @@ async function renderData() {
     const data = await getApi(`http://localhost:8080/cart?userId=` + userId + ``, token);
     cartItem.innerHTML = data.map((c) => `<tr>
         <td>
-            <div class="product-thumb"><img src="..\\eFashion_BE\\${c.image}" alt="product-thumb"></div>
+            <div class="product-thumb"><img style="width:130px;" src="..\\eFashion_BE\\${c.image}" alt="product-thumb"></div>
         </td>
         <td>
             <div class="product-title-area">
@@ -37,7 +37,7 @@ async function renderData() {
                 <div class="quantity-edit">
                     <button class="button btn_sub" id="${c.productId}"><i class="fal fa-minus minus"></i></button>
                     <input type="text" class="input" value="${c.quantity}" />
-                    <button class="button plus btn_plus" id="${c.productId}" >+<i class="fal fa-plus" ></i></button>
+                    <button class="button btn_plus" id="${c.productId}" >+<i class="fal fa-plus" ></i></button>
                 </div>
             </div>
         </td>
@@ -48,10 +48,12 @@ async function renderData() {
 
 renderData()
 
+
 const userId = localStorage.getItem('userId')
+
 $(document).ready(function() {
     const token = localStorage.getItem('token')
-    $('.remove-btn').click(function() {
+    $('.remove-btn').on('click', function() {
         const productId = $(this).attr('id')
         const This = $(this)
         $.ajax({
@@ -68,7 +70,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     const token = localStorage.getItem('token')
-    $('.btn_sub').click(function() {
+    $('.btn_sub').on('click', function() {
         const productId = $(this).attr('id')
         $.ajax({
             method: "PUT",
@@ -82,7 +84,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     const token = localStorage.getItem('token')
-    $('.btn_plus').click(function() {
+    $('.btn_plus').on('click', function() {
         const productId = $(this).attr('id')
 
         $.ajax({

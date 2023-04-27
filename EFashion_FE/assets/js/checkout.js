@@ -150,14 +150,14 @@ $(document).ready(function() {
         const address = document.getElementById("address").value
 
         const option = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${ token }`,
-                },
-            }
-            // const res = fetch("http://localhost:8080/checkout?userId=" + localStorage.getItem('userId') + "&orderItemId=" + localStorage.getItem('cartId'), option);
-            // const resUser = fetch("http://localhost:8080/checkout/updateUser?id=" + localStorage.getItem('userId') + "&phone=" + phone + "&fullname=" + fullname + "&address=" + address, option);
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${ token }`,
+            },
+        }
+        const res = fetch("http://localhost:8080/checkout?userId=" + localStorage.getItem('userId') + "&orderItemId=" + cartId, option);
+        const resUser = fetch("http://localhost:8080/checkout/updateUser?id=" + localStorage.getItem('userId') + "&phone=" + phone + "&fullname=" + fullname + "&address=" + address, option);
     })
 })
 
