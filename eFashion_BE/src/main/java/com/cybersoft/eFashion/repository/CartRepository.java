@@ -10,30 +10,31 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 @Repository
 public interface CartRepository extends JpaRepository<OrderItems,Integer> {
-    @Query("select o from order_item o")
-    List<OrderItems> getAllOrderItems();
+    @Query("select o from order_item o where user_id =?1")
+    List<OrderItems> getOrderItemByUid(int id);
 
     List<OrderItems> getOrderItemById(int id);
 
-    @Query("select quantity from order_item where id =1")
-    Integer getQuantityById(int id);
+    @Query("select quantity from order_item where product_id =?1 and user_id=?2")
+    Integer getQuantityById(int proId,int userId);
 
-    List<OrderItems> findProductById(int id);
-
-    @Modifying
-    @Transactional
-    @Query("update order_item set quantity = quantity+1 where id =?1")
-    Integer plusQuantity(int id);
+    @Query("select o from order_item o where product_id =?1 and user_id=?2")
+    List<OrderItems> findProductById(int proId, int userId);
 
     @Modifying
     @Transactional
-    @Query("update order_item set quantity = quantity-1 where id =?1")
-    Integer subtractQuantity(int id);
+    @Query("update order_item set quantity = quantity+1 where product_id =?1 and user_id=?2")
+    Integer plusQuantity(int proId, int userId);
 
     @Modifying
     @Transactional
-    @Query("delete from order_item where id =?1")
-    Integer deleteProductById(int id);
+    @Query("update order_item set quantity = quantity-1 where product_id =?1 and user_id=?2")
+    Integer subtractQuantity(int proId, int userId);
+
+    @Modifying
+    @Transactional
+    @Query("delete from order_item where product_id =?1 and user_id=?2")
+    Integer deleteProductById(int proId, int userId);
 
 
 }

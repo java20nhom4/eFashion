@@ -17,12 +17,13 @@ async function getApi(uri, token) {
 }
 
 async function renderData() {
+    const userId = localStorage.getItem('userId')
     const token = localStorage.getItem('token')
     cartItem = _('.order-item-js')
-    const data = await getApi('http://localhost:8080/cart', token);
+    const data = await getApi(`http://localhost:8080/cart?userId=` + userId + ``, token);
     cartItem.innerHTML = data.map((c) => `<tr>
         <td>
-            <div class="product-thumb"><img src="assets/images/products/inner/cart/1.jpg" alt="product-thumb"></div>
+            <div class="product-thumb"><img src="..\\eFashion_BE\\${c.image}" alt="product-thumb"></div>
         </td>
         <td>
             <div class="product-title-area">
@@ -34,31 +35,31 @@ async function renderData() {
         <td>
             <div class="cart-edit">
                 <div class="quantity-edit">
-                    <button class="button btn_sub" id="${c.id}"><i class="fal fa-minus minus"></i></button>
+                    <button class="button btn_sub" id="${c.productId}"><i class="fal fa-minus minus"></i></button>
                     <input type="text" class="input" value="${c.quantity}" />
-                    <button class="button plus btn_plus" id="${c.id}" >+<i class="fal fa-plus" ></i></button>
+                    <button class="button plus btn_plus" id="${c.productId}" >+<i class="fal fa-plus" ></i></button>
                 </div>
             </div>
         </td>
-        <td class="last-td"><a class="remove-btn" id="${c.id}">Remove</a></button></td>
-        <td class="last-td"><a href="checkout.html" class="btn-buy" id="${c.id}">Buy now</a></td>
+        <td class="last-td"><a class="remove-btn" id="${c.productId}">Remove</a></button></td>
+        <td class="last-td"><a href="checkout.html?id=${c.id}" class="btn-buy" id="">Buy now</a></td>
     </tr>`).join("")
 }
 
 renderData()
 
-
+const userId = localStorage.getItem('userId')
 $(document).ready(function() {
     const token = localStorage.getItem('token')
     $('.remove-btn').click(function() {
-        const id = $(this).attr('id')
+        const productId = $(this).attr('id')
         const This = $(this)
         $.ajax({
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${ token }`,
             },
-            url: `http://localhost:8080/cart/removeProduct?id=${id}`,
+            url: `http://localhost:8080/cart/removeProduct?proId=${productId}&userId=` + userId + ``,
         }).done(function() {
             This.closest('tr').remove()
         })
@@ -68,14 +69,13 @@ $(document).ready(function() {
 $(document).ready(function() {
     const token = localStorage.getItem('token')
     $('.btn_sub').click(function() {
-        const id = $(this).attr('id')
-        console.log(id)
+        const productId = $(this).attr('id')
         $.ajax({
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${ token }`,
             },
-            url: `http://localhost:8080/cart/subtractQuantity?id=${id}`,
+            url: `http://localhost:8080/cart/subtractQuantity?proId=${productId}&userId=` + userId + ``,
         })
     })
 })
@@ -83,24 +83,16 @@ $(document).ready(function() {
 $(document).ready(function() {
     const token = localStorage.getItem('token')
     $('.btn_plus').click(function() {
-        const id = $(this).attr('id')
+        const productId = $(this).attr('id')
 
         $.ajax({
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${ token }`,
             },
-            url: `http://localhost:8080/cart/plusQuantity?id=${id}`,
+            url: `http://localhost:8080/cart/plusQuantity?proId=${productId}&userId=` + userId + ``,
 
         })
-        console.log(id)
-    })
-})
-$(document).ready(function() {
-    $('.btn-buy').click(function() {
-        const id = $(this).attr('id')
-        console.log(id)
-        localStorage.setItem('cartId', id)
     })
 })
 
