@@ -5,12 +5,21 @@ import java.util.List;
 public class AdminDTO {
 
     private int id;
+    private String email;
     private String name;
     private String avatar;
     private int totalUsers;
     private int totalProducts;
     private int totalOrder;
     private List<UserDTO> list;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public List<UserDTO> getList() {
         return list;

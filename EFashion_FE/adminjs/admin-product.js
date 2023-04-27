@@ -56,6 +56,7 @@ $(document).ready(function (){
             }).done(function (data) {
                 alert(data)
                 const This = $(this)
+                window.location.href="admin-product.html"
             })
         })
 

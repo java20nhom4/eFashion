@@ -61,6 +61,16 @@ async function getEmailFromToken(token) {
                 }
             }
         })
+        $.ajax({
+            method: 'POST',
+            url: `http://localhost:8080/api/admin/postIdAdmin`,
+            data: {
+                'id': localStorage.getItem('userId')
+
+            }
+        }).done(function (data){
+            
+        })
     })
     return dataUser.data
 }

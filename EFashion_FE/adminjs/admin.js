@@ -8,7 +8,7 @@ $(document).ready(function (){
 
         if (data.data != null) {
             $('#user-name').html(data.data["name"])
-            $('#user-avatar').attr('src',"plugins/images/users/"+data.data["avatar"])
+            $('#user-avatar').attr('src',"../eFashion_BE/src/test/resources/eFashionFileStorage/Users/"+data.data["avatar"])
             $('#total-user').html(data.data["totalUsers"])
             $('#total-product').html(data.data["totalProducts"])
             $('#total-order').html(data.data["totalOrder"])

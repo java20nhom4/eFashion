@@ -60,8 +60,8 @@ public class UsersService implements UsersServiceImp {
     public boolean deleteUser(int id) {
 
         //Delete image of user by email user
-//        boolean isSuccess = fileStorageService.removeFile(
-//                userRepository.findById(userDTO.getEmail()).get(0).getAvatar(), FolderType.Users);
+        boolean isSuccess = fileStorageService.removeFile(
+                userRepository.findById(id).get(0).getAvatar(), FolderType.Users);
 
         if(true) {
             try {
