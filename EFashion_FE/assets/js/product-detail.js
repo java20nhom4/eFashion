@@ -13,7 +13,7 @@ fetch(`http://localhost:8080/api/products/${productId}`)
         <div class="thumb-wrapper one filterd-items figure">
             <div class="product-thumb zoom" onmousemove="zoom(event)"
                 style="background-image: url(..\\eFashion_BE\\${product.image})">
-                <img src="..\\eFashion_BE\\${product.image}" alt="product-thumb">
+                <img style=" width:440px; height:500px"src="..\\eFashion_BE\\${product.image}" alt="product-thumb">
             </div>
         </div>            
     </div>
@@ -27,7 +27,7 @@ fetch(`http://localhost:8080/api/products/${productId}`)
             </div>
         </div>
         <h2 class="product-title">${product.name} <span class="stock">In Stock</span></h2>
-        <span class="product-price"> ${product.price}</span>
+        <span class="product-price">$ ${product.price}</span>
         <p>
         ${product.description}
         </p>
