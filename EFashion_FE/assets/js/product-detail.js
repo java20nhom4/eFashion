@@ -12,8 +12,8 @@ fetch(`http://localhost:8080/api/products/${productId}`)
         <div class="cursor"></div>
         <div class="thumb-wrapper one filterd-items figure">
             <div class="product-thumb zoom" onmousemove="zoom(event)"
-                style="background-image: url(..\\eFashion_BE\\${product.image})"><img
-                    src="..\\eFashion_BE\\${product.image}" alt="product-thumb">
+                style="background-image: url(..\\eFashion_BE\\${product.image})">
+                <img src="..\\eFashion_BE\\${product.image}" alt="product-thumb">
             </div>
         </div>            
     </div>
@@ -53,6 +53,8 @@ fetch(`http://localhost:8080/api/products/${productId}`)
         if (localStorage.getItem('token') != null) {
             $(".addto-cart-btn").on('click', function() {
                 const token = localStorage.getItem('token')
+                const userId = localStorage.getItem('userId')
+                console.log(userId)
                 const option = {
                     method: "POST",
                     headers: {
@@ -60,7 +62,7 @@ fetch(`http://localhost:8080/api/products/${productId}`)
                         Authorization: `Bearer ${ token }`,
                     },
                 }
-                fetch(`http://localhost:8080/cart?id=${productId}`, option).then(window.location.href = 'cart.html');
+                fetch(`http://localhost:8080/cart?proId=${productId}&userId=` + userId + ``, option).then(location.href = "cart.html");
 
 
             });
@@ -104,7 +106,7 @@ $(document).ready(function() {
                 const html = `<li class="mega-dropdown-li">
                                                     <ul class="mega-dropdown-ul">
                                                         <li class="dropdown-li"><a class="dropdown-link2"
-                                                                href="products.html?id=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
+                                                                href="products.html?cateId=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                         </li>                                         
                                                     </ul>
                                     </li>`

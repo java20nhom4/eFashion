@@ -1,7 +1,8 @@
 _ = document.querySelector.bind(document)
 
 const token = localStorage.getItem('token')
-
+const urlParams = new URLSearchParams(window.location.search);
+const cartId = urlParams.get("id");
 async function getEmailFromToken(token) {
     const option = {
         method: "GET",
@@ -19,6 +20,8 @@ async function getEmailFromToken(token) {
     const resUser = await fetch("http://localhost:8080/checkout/getUser?email=" + obj.principal, option);
 
     const dataUser = await resUser.json()
+
+    console.log(dataUser.data)
 
     return dataUser.data
 }
@@ -74,7 +77,6 @@ async function renderData() {
 renderData()
 
 async function getOrderItemById() {
-    const id = localStorage.getItem('cartId')
     const option = {
         method: "GET",
         headers: {
@@ -82,7 +84,7 @@ async function getOrderItemById() {
             Authorization: `Bearer ${ token }`,
         },
     }
-    const res = await fetch("http://localhost:8080/checkout/getOderItems?id=" + id, option);
+    const res = await fetch("http://localhost:8080/checkout/getOderItems?id=" + cartId, option);
 
     const data = await res.json();
 

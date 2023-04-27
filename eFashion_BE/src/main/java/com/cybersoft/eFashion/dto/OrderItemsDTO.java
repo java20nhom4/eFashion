@@ -6,7 +6,16 @@ public class OrderItemsDTO {
     private int quantity;
     private double price;
 
+    private String image;
     private int productId;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public void setProductId(int productId) {
         this.productId = productId;

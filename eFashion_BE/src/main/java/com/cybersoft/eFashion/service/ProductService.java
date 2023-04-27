@@ -158,6 +158,8 @@ public class ProductService implements ProductsServiceImp {
             productsDto.setName(products.getName());
             productsDto.setPrice(products.getPrice());
             productsDto.setStatus(products.getStatus());
+            String path  = parentFolder + "\\" + FolderType.Products.toString() + "\\" + products.getImage();
+            productsDto.setImage(path);
 
             CategoryDTO categoryDTO = new CategoryDTO();
             Category category = categoryRepository.getCategoryById(products.getCategory().getId());

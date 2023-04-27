@@ -17,12 +17,33 @@ public class OrderItems {
 
     @Column(name = "product_id")
     private int productId;
+    @Column(name = "user_id")
+    private int userId;
     @ManyToOne
     @JoinColumn(name = "product_id" , insertable = false, updatable = false)
     private Products products;
+    @ManyToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private Users users;
 
     @OneToMany(mappedBy = "orderItems")
     private Set<PlaceOrders> placeOrders;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 
     public int getProductId() {
         return productId;

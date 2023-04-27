@@ -35,12 +35,23 @@ public class Users {
     private Set<RatingProducts> listRatingProducts;
 
     @OneToMany(mappedBy = "users")
+    private Set<OrderItems> listOrderItems;
+
+
+    @OneToMany(mappedBy = "users")
     private Set<Orders> listOrders;
 
     @OneToMany(mappedBy = "users")
-    private Set<PlaceOrders> placeOrders;
+    private Set<OrderItems> orderItems;
 
 
+    public Set<OrderItems> getListOrderItems() {
+        return listOrderItems;
+    }
+
+    public void setListOrderItems(Set<OrderItems> listOrderItems) {
+        this.listOrderItems = listOrderItems;
+    }
 
     public String getAddress() {
         return address;
@@ -123,11 +134,11 @@ public class Users {
         this.listOrders = listOrders;
     }
 
-    public Set<PlaceOrders> getPlaceOrders() {
-        return placeOrders;
+    public Set<OrderItems> getOrderItems() {
+        return orderItems;
     }
 
-    public void setPlaceOrders(Set<PlaceOrders> placeOrders) {
-        this.placeOrders = placeOrders;
+    public void setOrderItems(Set<OrderItems> orderItems) {
+        this.orderItems = orderItems;
     }
 }
