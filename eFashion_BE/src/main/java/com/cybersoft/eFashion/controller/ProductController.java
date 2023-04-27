@@ -63,27 +63,27 @@ public class ProductController {
     }
 
 //     PUT update product by id
-    @PostMapping("/edit")
-    public ResponseEntity<Object> update(@RequestParam int pro_id,
-                                         @RequestParam String pro_name,
-                                         @RequestParam Double pro_price,
-                                         @RequestParam String pro_des,
-                                         @RequestParam int pro_quant,
-                                         @RequestParam MultipartFile image,
-                                         @RequestParam String pro_status,
-                                         @RequestParam Long pro_cate) {
-        ProductsDTO productsDTO = new ProductsDTO();
-        productsDTO.setId(pro_id);
-        productsDTO.setName(pro_name);
-        productsDTO.setPrice(pro_price);
-        productsDTO.setDescription(pro_des);
-        productsDTO.setQuantity(pro_quant);
-        productsDTO.setImage(image.getName());
-        productsDTO.setCategoryId(pro_cate);
-        productsDTO.setStatus(pro_status);
-        productService.save(productsDTO, image);
-        return ResponseEntity.ok("Product updated successfully");
-    }
+//    @PostMapping("/edit")
+//    public ResponseEntity<Object> update(@RequestParam int pro_id,
+//                                         @RequestParam String pro_name,
+//                                         @RequestParam Double pro_price,
+//                                         @RequestParam String pro_des,
+//                                         @RequestParam int pro_quant,
+//                                         @RequestParam MultipartFile image,
+//                                         @RequestParam String pro_status,
+//                                         @RequestParam Long pro_cate) {
+//        ProductsDTO productsDTO = new ProductsDTO();
+//        productsDTO.setId(pro_id);
+//        productsDTO.setName(pro_name);
+//        productsDTO.setPrice(pro_price);
+//        productsDTO.setDescription(pro_des);
+//        productsDTO.setQuantity(pro_quant);
+//        productsDTO.setImage(image.getName());
+//        productsDTO.setCategoryId(pro_cate);
+//        productsDTO.setStatus(pro_status);
+//        productService.save(productsDTO, image);
+//        return ResponseEntity.ok("Product updated successfully");
+//    }
 
     // DELETE delete product by id
     @PostMapping("/delete/{id}")

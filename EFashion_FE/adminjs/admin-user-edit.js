@@ -8,7 +8,7 @@ $(document).ready(function (){
         console.log(data[1].data["fullName"])
         
         $('#nav-name').html(data[0].body.data["name"])
-        $('#nav-avatar').attr('src',"plugins/images/users/"+data[0].body.data["avatar"])
+        $('#nav-avatar').attr('src',"../eFashion_BE/src/test/resources/eFashionFileStorage/Users/"+data[0].body.data["avatar"])
 
         $('#fullName').val(data[1].data["fullName"])
         $('#email-user').val(data[1].data["email"])

@@ -1,14 +1,14 @@
 $(document).ready(function (){
-    // $.ajax({
-    //     method: 'GET',
-    //     url: `http://localhost:8080/api/admin/getUserByEmail`,
-    // }).done(function (data){
-    //     console.log(data)
-    //     console.log(data[0].body.data["name"])
-    //     console.log(data[1].data["fullName"])
+    $.ajax({
+        method: 'GET',
+        url: `http://localhost:8080/api/admin/getUserByEmail`,
+    }).done(function (data){
+        console.log(data)
+        console.log(data[0].body.data["name"])
+        console.log(data[1].data["fullName"])
         
-    //     $('#nav-name').html(data[0].body.data["name"])
-    //     $('#nav-avatar').attr('src',"plugins/images/users/"+data[0].body.data["avatar"])
+        $('#nav-name').html(data[0].body.data["name"])
+        $('#nav-avatar').attr('src',"../eFashion_BE/src/test/resources/eFashionFileStorage/Users/"+data[0].body.data["avatar"])
 
     //     $('#fullName').val(data[1].data["fullName"])
     //     $('#email-user').val(data[1].data["email"])
@@ -18,7 +18,7 @@ $(document).ready(function (){
     //     $('#role-id').val(data[1].data["roleId"])
     //     $('#image-user').val(data[1].data["avatar"])
         
-    // })
+    })
 
     $('#btn-add-update').click(function (e) {
         e.preventDefault()

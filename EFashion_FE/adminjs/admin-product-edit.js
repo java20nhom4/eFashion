@@ -59,7 +59,6 @@ async function editProduct() {
     if (valueImage === undefined){
         alert('Vui long insert hinh anh!')
     } else{
-        alert(idPro+" "+namePro+" "+catePro+" "+pricePro+" "+desPro+" "+quanPro+" "+statusPro+" "+valueImage)
         var formData = new FormData()
         formData.append('image', valueImage)
         formData.append('pro_id', idPro)
@@ -78,6 +77,7 @@ async function editProduct() {
             processData: false,
             success: function(data) {
                 alert('Cập nhật thành công !');
+                window.location.href="admin-product-edit.html"
             },
             error: function() {
                 alert("Đã xảy ra lỗi khi cập nhật thông tin user");
