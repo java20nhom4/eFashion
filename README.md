@@ -12,7 +12,7 @@
 
 ## Description
 - Application to create and manage product order, make it easier for Customers.
-- This project started from 02-04-2023 to 28-04-2023
+- This project started from 14/02-2023 to 28-04-2023
 
 ## Preview Screenshot
 <!--
@@ -29,15 +29,18 @@
 ## Technology
 
 **1. Backend**
-  - Java Language
-  - Spring Boot Framework
-
+  - Java 11
+  - Spring Boot 2.7
+  - Spring MVC model
+  - Spring Data, Hibernate
+  - Spring Security
 **2. Database**
   - MySQL
 
 **3. Other Technology**
 - RESTful API
-- JSON Web Tokens for authentication
+- JSON Web Tokens
+- AJAX call API
 
 **4. Tool**
   - Visual Studio Code
