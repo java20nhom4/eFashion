@@ -135,51 +135,31 @@ async function renderCartData() {
             <div href="thank-you.html" class="place-order-btn" class="">Place Order</div>
         </div>
 </div>`).join("")
+    $(document).ready(function() {
+        $('.place-order-btn').click(function() {
+            console.log('hello')
+            $(".product-details-popup-wrapper").addClass("popup")
+            $(".anywere").addClass("bgshow")
+
+            const fullname = document.getElementById("fullname").value
+            const phone = document.getElementById("phone").value
+            const address = document.getElementById("address").value
+
+            const option = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${ token }`,
+                },
+            }
+            const res = fetch("http://localhost:8080/checkout?userId=" + localStorage.getItem('userId') + "&orderItemId=" + cartId, option);
+            const resUser = fetch("http://localhost:8080/checkout/updateUser?id=" + localStorage.getItem('userId') + "&phone=" + phone + "&fullname=" + fullname + "&address=" + address, option);
+        })
+    })
 }
 renderCartData()
 
 
-$(document).ready(function() {
-    $('.place-order-btn').click(function() {
-        console.log('hello')
-        $(".product-details-popup-wrapper").addClass("popup")
-        $(".anywere").addClass("bgshow")
-
-        const fullname = document.getElementById("fullname").value
-        const phone = document.getElementById("phone").value
-        const address = document.getElementById("address").value
-
-        const option = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${ token }`,
-            },
-        }
-        const res = fetch("http://localhost:8080/checkout?userId=" + localStorage.getItem('userId') + "&orderItemId=" + cartId, option);
-        const resUser = fetch("http://localhost:8080/checkout/updateUser?id=" + localStorage.getItem('userId') + "&phone=" + phone + "&fullname=" + fullname + "&address=" + address, option);
-    })
-})
-
-// $(".place-order-btn").on('click', function() {
-//     console.log('hello')
-//     $(".product-details-popup-wrapper").addClass("popup")
-//     $(".anywere").addClass("bgshow")
-// });
-
-
-$(".product-bottom-action .view-btn").on('click', function() {
-    $(".product-details-popup-wrapper").addClass("popup")
-    $(".anywere").addClass("bgshow")
-});
-$(".product-details-popup-wrapper .cart-edit").on('click', function() {
-    $(".product-details-popup-wrapper").addClass("popup")
-    $(".anywere-home").addClass("bgshow")
-});
-$(".anywere").on('click', function() {
-    $(".product-details-popup-wrapper").removeClass("popup")
-    $(".anywere").removeClass("bgshow")
-});
 
 $(document).ready(function() {
     $.ajax({
