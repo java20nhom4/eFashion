@@ -12,7 +12,7 @@
 
 ## Description
 - Application to create and manage product order, make it easier for Customers.
-- This project started from 14/02-2023 to 28-04-2023
+- This project started from 14-02-2023 to 28-04-2023
 
 ## Preview Screenshot
 <!--
