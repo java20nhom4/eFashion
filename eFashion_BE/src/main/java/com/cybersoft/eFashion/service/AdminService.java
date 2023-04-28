@@ -36,6 +36,7 @@ public class AdminService implements AdminServiceImp {
         AdminDTO adminDTO = new AdminDTO();
         Users users = userRepository.getUsersById(idAdmin);
         adminDTO.setId(users.getId());
+        adminDTO.setEmail(users.getEmail());
         adminDTO.setName(users.getFullname());
         adminDTO.setAvatar(users.getAvatar());
         adminDTO.setTotalProducts(productRepository.findAll().size());

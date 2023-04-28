@@ -74,6 +74,7 @@ async function addProduct() {
             processData: false,
             success: function(data) {
                 alert('thanh cong')
+                window.location.href="admin-product-add.html"
             },
             error: function (data) {
                 alert('that bai')

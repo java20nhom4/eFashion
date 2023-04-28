@@ -5,9 +5,10 @@ $(document).ready(function (){
     }).done(function (data){
         console.log(data.data)
         console.log(data.data["name"])
+        console.log(data.data["id"])
 
         $('#nav-name').html(data.data["name"])
-        $('#avatar-user').attr('src', "plugins/images/users/" + data.data["avatar"]) // Khi nao run thi thay link url hinh vao
+        $('#avatar-user').attr('src', "../eFashion_BE/src/test/resources/eFashionFileStorage/Users/" + data.data["avatar"]) // Khi nao run thi thay link url hinh vao
 
         if (data.data != null) {
             for (const i in data.data["list"]) {
@@ -64,5 +65,18 @@ $(document).ready(function (){
         }
     })
 
+    $('#user-add').click(function (e) {
+        e.preventDefault()
+
+        $.ajax({
+            method: 'POST',
+            url: `http://localhost:8080/api/admin/postIdAdmin`,
+            data: {
+                'id': localStorage.getItem('userId')
+            }
+        }).done(function (data){
+            window.location.href="admin-user-add.html"
+        })
+    })
     
 })

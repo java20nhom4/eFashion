@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/api/admin")
 public class AdminController {
 
-    int id = 0;
+    int idAmin = 0;
     String emailUserDetail = null;
 
     @Autowired
@@ -29,20 +29,10 @@ public class AdminController {
     private AdminServiceImp adminServiceImp;
 
     @PostMapping("/postIdAdmin")
-    private ResponseEntity<?> postIdAdmin(@RequestParam int idAdmin) {
-        ResponseData responseData = new ResponseData();
-        id = idAdmin;
-        if (idAdmin != 0) {
-            responseData.setData(idAdmin);
-            responseData.setStatusCode(200);
-            responseData.setDesc("Lấy thành công id admin");
-        } else {
-            responseData.setData(0);
-            responseData.setStatusCode(400);
-            responseData.setDesc("Lấy thất bại id admin");
-        }
+    public ResponseEntity<?> postEmailAdmin(@RequestParam int id) {
+        idAmin = id;
 
-        return new ResponseEntity<>(responseData, HttpStatus.OK);
+        return new ResponseEntity<>("", HttpStatus.OK);
     }
 
     // Get user by email
@@ -55,7 +45,7 @@ public class AdminController {
         // Set data admin
         list.add(admin());
 
-        if(usersServiceImp.getUserByEmail(emailUserDetail) != null) {
+        if (emailUserDetail != null) {
             responseData.setData(usersServiceImp.getUserByEmail(emailUserDetail));
             responseData.setDesc("Lấy thành công user");
             responseData.setStatusCode(200);
@@ -162,15 +152,11 @@ public class AdminController {
     @GetMapping("/admin")
     public ResponseEntity<?> admin() {
         ResponseData responseData = new ResponseData();
-//        if (id != 0) {
-            responseData.setData(adminServiceImp.getInforAdminPage(1));
-            responseData.setStatusCode(200);
-            responseData.setDesc("Lấy thành công thông tin trang admin");
-//        } else {
-//            responseData.setData(0);
-//            responseData.setStatusCode(400);
-//            responseData.setDesc("Lấy thất bại thông tin trang admin");
-//        }
+
+        responseData.setData(adminServiceImp.getInforAdminPage(idAmin));
+        responseData.setStatusCode(200);
+        responseData.setDesc("Lấy thành công thông tin trang admin");
+
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 }

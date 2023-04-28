@@ -1,27 +1,30 @@
-_ = document.querySelector.bind(document)
+_ = document.querySelector.bind(document);
 
 async function getApi(uri, token) {
     const option = {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${ token }`,
+            Authorization: `Bearer ${token}`,
         },
-    }
+    };
     const res = await fetch(uri, option);
 
     const data = await res.json();
 
-    console.log(data.data)
-    return data.data
+    console.log(data.data);
+    return data.data;
 }
+const userId = localStorage.getItem('userId')
 const token = localStorage.getItem('token')
 async function renderData() {
+
     const userId = localStorage.getItem('userId')
 
     cartItem = _('.order-item-js')
     const data = await getApi(`http://localhost:8080/cart?userId=` + userId + ``, token);
     cartItem.innerHTML = data.map((c) => `<tr>
+
         <td>
             <div class="product-thumb"><img style="width:130px;" src="..\\eFashion_BE\\${c.image}" alt="product-thumb"></div>
         </td>
@@ -41,7 +44,7 @@ async function renderData() {
                 </div>
             </div>
         </td>
-        <td class="last-td"><a class="remove-btn" id="${c.productId}">Remove</a></button></td>
+        <td class="last-td"><a href="#" class="remove-btn" id="${c.productId}">Remove</a></button></td>
         <td class="last-td"><a href="checkout.html?id=${c.id}" class="btn-buy" id="">Buy now</a></td>
     </tr>`).join("")
     $(function() {
@@ -80,28 +83,30 @@ async function renderData() {
             $parent.find('.input').val(newVal);
         });
     });
+
+    $(document).ready(function() {
+        const token = localStorage.getItem('token')
+        $('.remove-btn').on('click', function() {
+            const productId = $(this).attr('id')
+            const This = $(this)
+            $.ajax({
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${ token }`,
+                },
+                url: `http://localhost:8080/cart/removeProduct?proId=${productId}&userId=` + userId + ``,
+            }).done(function() {
+                This.closest('tr').remove()
+            })
+        })
+    })
 }
 
 renderData()
-const userId = localStorage.getItem('userId')
 
 
-$(document).ready(function() {
-    const token = localStorage.getItem('token')
-    $('.remove-btn').on('click', function() {
-        const productId = $(this).attr('id')
-        const This = $(this)
-        $.ajax({
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${ token }`,
-            },
-            url: `http://localhost:8080/cart/removeProduct?proId=${productId}&userId=` + userId + ``,
-        }).done(function() {
-            This.closest('tr').remove()
-        })
-    })
-})
+
+
 
 $(document).ready(function() {
     $.ajax({
@@ -119,10 +124,9 @@ $(document).ready(function() {
                                                             href="products.html?cateId=${data.data[i]["id"]}">${data.data[i]["name"]}</a>
                                                     </li>                                         
                                                 </ul>
-                                </li>`
-                $('#show-cart').append(html)
-
+                                </li>`;
+                $("#show-cart").append(html);
             }
         }
     })
-})
+});
