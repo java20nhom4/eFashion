@@ -34,6 +34,7 @@
   - Spring MVC model
   - Spring Data, Hibernate
   - Spring Security
+
 **2. Database**
   - MySQL
 
