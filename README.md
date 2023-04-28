@@ -72,8 +72,8 @@
 - [Pham Ngoc Hung](https://github.com/gherangme)
 - Nguyen Bao Duy
 - Le Vinh Hao
-- Tran Cong Huy
-- Do Thanh 
+- Tran Hoang Huy
+- Do Thanh Huy
 
 ## References
 [1] [Javatpoint - Spring Boot](https://www.javatpoint.com/spring-boot-tutorial) <br>
