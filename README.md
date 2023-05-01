@@ -41,6 +41,7 @@
 **3. Other Technology**
 - RESTful API
 - JSON Web Tokens
+- JavaMail
 - AJAX call API
 
 **4. Tool**
