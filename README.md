@@ -73,7 +73,7 @@
 - [Pham Ngoc Hung](https://github.com/gherangme)
 - Nguyen Bao Duy
 - Le Vinh Hao
-- Tran Hoang Huy
+- [Tran Hoang Huy](https://github.com/huytran19796)
 - Do Thanh Huy
 
 ## References
