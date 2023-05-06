@@ -42,7 +42,7 @@
 - RESTful API
 - JSON Web Tokens
 - JavaMail
-- AJAX call API
+- jQuery Ajax call API
 
 **4. Tool**
   - Visual Studio Code
